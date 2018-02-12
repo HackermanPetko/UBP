@@ -21,7 +21,7 @@ namespace ServerAPI.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("TestContext", throwIfV1Schema: false)
         {
         }
         
