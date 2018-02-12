@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -69,6 +70,35 @@ namespace ConsoleApp1
             var task = LoadConfig(id);
             task.Wait();
             Config config = task.Result;
+
+            return config;
+        }
+
+        public void SaveConfigLocal(Config config)
+        {
+            string json = JsonConvert.SerializeObject(config);
+
+            string subPath = @"C:\UBP"; // your code goes here
+
+            bool exists = System.IO.Directory.Exists(subPath);
+
+            if (!exists)
+                System.IO.Directory.CreateDirectory(subPath);
+
+
+            System.IO.File.WriteAllText(@"C:\UBP\Config.json", json);
+
+
+        }
+
+        public Config LoadConfigLocal()
+        {
+            Config config;
+            string path = @"C:\UBP\Config.json";
+            string content = File.ReadAllText(path);
+
+            config = JsonConvert.DeserializeObject<Config>(content);
+
 
             return config;
         }
