@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace ServerAPI
+namespace ServerAPI.Models
 {
     public class Config
     {
+        //private TestContext context;
+        [Key]
         public int idConfig { get; set; }
 
-        public int idDaemona { get; set; }
+        public int idDaemon { get; set; }
 
         public int BackupType { get; set; }
 

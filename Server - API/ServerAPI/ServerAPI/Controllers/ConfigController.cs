@@ -1,4 +1,5 @@
-﻿using ServerAPI.Providers;
+﻿using ServerAPI.Models;
+using ServerAPI.Providers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,12 @@ namespace ServerAPI.Controllers
     {
         private TestContext context;
 
+        private List<Config> list;
+
         public ConfigController()
         {
             this.context = new TestContext();
+            this.list = new List<Config>();
         }
 
         // GET: api/Config
@@ -33,6 +37,7 @@ namespace ServerAPI.Controllers
         public void Post(Config config)
         {
             this.context.Configs.Add(config);
+            this.context.SaveChanges();
         }
 
         // PUT: api/Config/5
