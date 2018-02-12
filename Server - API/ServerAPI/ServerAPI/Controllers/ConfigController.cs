@@ -13,12 +13,9 @@ namespace ServerAPI.Controllers
     {
         private TestContext context;
 
-        private List<Config> list;
-
         public ConfigController()
         {
             this.context = new TestContext();
-            this.list = new List<Config>();
         }
 
         // GET: api/Config
