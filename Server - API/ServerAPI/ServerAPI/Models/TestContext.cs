@@ -10,6 +10,8 @@ namespace ServerAPI.Models
     { 
 
         public DbSet<Config> Configs { get; set; }
+        public DbSet<Backup> Backups { get; set; }
+        public DbSet<Daemon> Daemons { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

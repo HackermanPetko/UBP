@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Newtonsoft.Json;
 
 namespace ServerAPI.Controllers
 {
@@ -21,6 +22,8 @@ namespace ServerAPI.Controllers
         // GET: api/Config
         public List<Config> Get()
         {
+            //List<Config> list = this.context.Configs.ToList();
+            //return JsonConvert.SerializeObject(list);
             return this.context.Configs.ToList();
         }
 
@@ -38,13 +41,32 @@ namespace ServerAPI.Controllers
         }
 
         // PUT: api/Config/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, Config config)
         {
+            Config temp = this.context.Configs.Find(id);
+
+
+                temp.idDaemon = config.idDaemon;
+                temp.Interval = config.Interval;
+            temp.LastChecked = config.LastChecked;
+            temp.Repeatable = config.Repeatable;
+            temp.FTPport = config.FTPport;
+            temp.DestinationUser = config.DestinationUser;
+            temp.DestinationType = config.DestinationType;
+            temp.DestinationPassword = config.DestinationPassword;
+            temp.DestinationAddress = config.DestinationAddress;
+            temp.BackupType = config.BackupType;
+
+            this.context.SaveChanges();
+
         }
 
         // DELETE: api/Config/5
         public void Delete(int id)
         {
+            this.context.Configs.Remove(this.context.Configs.Find(id));
+            this.context.SaveChanges();
+
         }
     }
 }
