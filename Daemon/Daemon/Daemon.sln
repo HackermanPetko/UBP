@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2008
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Daemon", "Daemon\Daemon.csproj", "{E61E9F56-88AA-4D9A-90EC-155060139FFE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E61E9F56-88AA-4D9A-90EC-155060139FFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E61E9F56-88AA-4D9A-90EC-155060139FFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E61E9F56-88AA-4D9A-90EC-155060139FFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E61E9F56-88AA-4D9A-90EC-155060139FFE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3AE2464B-E845-4BDF-B40E-ED31C6682DBD}
+	EndGlobalSection
+EndGlobal
