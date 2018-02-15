@@ -24,5 +24,10 @@ namespace Daemon
         protected override void OnStop()
         {
         }
+
+        private void LoadResources()
+        {
+            HttpClient
+        }
     }
 }
