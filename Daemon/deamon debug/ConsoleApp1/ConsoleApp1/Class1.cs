@@ -35,6 +35,8 @@ namespace ConsoleApp1
 
         public DateTime LastChecked { get; set; }
 
+        public int TimeStamp { get; set; }
+
         private Config()
         {
 
