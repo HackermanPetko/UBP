@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: '[app-test]',
+  template: 
+            `
+            <input [(ngModel)]="name" type="text">
+            {{name}}
+            `,
+  styles: [`
+   
+  `]
+})
+export class TestComponent implements OnInit {
+
+  public name = "";
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+
+}
+
+
+
+NEZAPOMEŇ DO MODULU IMPORTOVAT FORMSMODULE

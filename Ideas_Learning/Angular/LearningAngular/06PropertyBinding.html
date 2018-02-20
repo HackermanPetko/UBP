@@ -1,0 +1,34 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: '[app-test]',
+  template: 
+            `<h2>
+              Welcome {{name}}
+            </h2>
+            <input [id]="myId" type="text" value="Petr">
+            <input bind-disabled="isDisabled" id="{{myId}}" type="text" value="Petr">
+            `,
+  styles: [`
+    .text-succes{
+      color:green;
+    }
+    .text-danger{
+      color:red
+    }
+    .text-special{
+      font-style: italic;
+    }
+  `]
+})
+export class TestComponent implements OnInit {
+
+  public name = "LearningAngular"
+  public myId = "testId";
+  public isDisabled = false;
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}

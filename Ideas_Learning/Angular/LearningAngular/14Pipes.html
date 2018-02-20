@@ -1,0 +1,60 @@
+<import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
+@Component({
+  selector: 'app-test',
+  template: 
+            `<h1>Text pipes </h1>
+     <h2> <span style= color:red>Normal text: </span>{{name}}</h2>
+     <h2> <span style= color:red>Lowercase pipe:   </span>{{name | lowercase}}</h2>
+     <h2> <span style= color:red>Uppercase pipe:   </span>{{name | uppercase}}</h2>
+     <h2> <span style= color:red>Titlecase pipe:     </span>{{message | titlecase}}</h2>
+     <h2> <span style= color:red>Slice pipe'(2:5)':  </span>{{text | slice:2:5}}</h2>
+     <h2><span style= color:red>Json pipe: </span>{{person | json}}</h2>
+
+     <h1>Number pipes example '5.678 | number:'1.2-3' '</h1>
+
+     <h2>{{5.678 | number:'1.2-3'}}</h2>
+     <h2>{{5.678 | number:'3.4-5'}}</h2>
+     <h2>{{5.678 | number:'3.1-2'}}</h2>
+
+     <h1>Other pipes</h1>
+     <h2>{{0.25 | percent}} </h2>
+
+     <h2>{{0.25 | currency}} </h2>
+     <h2>{{0.25 | currency: 'GBP'}} </h2>
+     <h2>{{0.25 | currency: 'GBP' : 'code'}} </h2>
+     <h2>{{0.25 | currency: 'EUR' : 'code'}} </h2>
+
+     <h1>Date pipes</h1>
+     <h2>{{date}}</h2>
+     <h2>{{date | date:'short'}}</h2>
+     <h2>{{date | date:'shortDate'}}</h2>
+     <h2>{{date | date:'shortTime'}}</h2>
+
+
+     
+
+            `,
+  styles: [`
+   
+  `]
+})
+export class TestComponent implements OnInit {
+
+  public name = "LearningAngular"
+  public message = "Welcome to learning with petko"
+  public text = "Petricek"
+  public person = {
+    "firstName": "John",
+    "lastName" : "Doe"
+  }
+  public date = new Date();
+ 
+ constructor() { }
+
+  ngOnInit() {
+  }
+
+
+
+}

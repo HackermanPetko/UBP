@@ -1,0 +1,30 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: '[app-test]',
+  template: 
+            `
+     <div [ngSwitch]="color">
+        Ahoj
+        <div *ngSwitchCase="'red'">You picked red</div>
+        <div *ngSwitchCase="'green'">You picked green</div>
+        <div *ngSwitchCase="'blue'">You picked blue</div>
+     </div>
+    
+          
+            `,
+  styles: [`
+   
+  `]
+})
+export class TestComponent implements OnInit {
+
+  public color = "blue";
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+
+
+}

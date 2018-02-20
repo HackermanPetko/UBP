@@ -1,0 +1,48 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: '[app-test]',
+  template: 
+            `
+      <h2 style=color:red>What is first?</h2>
+     <div *ngFor="let color of colors; first as f">
+     <h4>{{f}} {{color}}</h4>
+     </div>
+    
+     <h2 style=color:red>What is last?</h2>
+     <div *ngFor="let color of colors; last as l">
+     <h4>{{l}} {{color}}</h4>
+     </div>
+     
+    <h2 style=color:red> What is the index of the color?</h2>
+     <div *ngFor="let color of colors; index as i">
+     <h4>{{i}} {{color}}</h4>
+     </div>
+
+     <h2 style=color:red> Which numbers are odd?</h2>
+     <div *ngFor="let color of colors; odd as o; index as i">
+     <h4>{{i}} {{o}}</h4>
+     </div>
+
+     <h2 style=color:red> Which numbers are even?</h2>
+     <div *ngFor="let color of colors; even as e; index as i">
+     <h4>{{i}} {{e}}</h4>
+     </div>
+    
+          
+            `,
+  styles: [`
+   
+  `]
+})
+export class TestComponent implements OnInit {
+
+  public colors = ["red","blue","green","yelllow"];
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+
+
+}

@@ -1,0 +1,34 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: '[app-test]',
+  template: 
+            `
+     <h2 *ngIf="displayName">
+     LearningAngularWithPetko
+     </h2>
+     <button (click)="onClick($event)">Changevisibility</button>
+    
+          
+            `,
+  styles: [`
+   
+  `]
+})
+export class TestComponent implements OnInit {
+
+  public displayName = false;
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+onClick(event)
+{
+  if(this.displayName== true)
+  this.displayName = false;
+  else
+  this.displayName=true;
+}
+
+}

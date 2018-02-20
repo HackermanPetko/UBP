@@ -1,0 +1,26 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: '[app-test]',
+  template: 
+            `
+            <input #myInput type="text">
+            <button (click)="logMessage(myInput)">Log</button>
+            `,
+  styles: [`
+   
+  `]
+})
+export class TestComponent implements OnInit {
+
+  public name = "LearningAngular";
+  constructor() { }
+
+  ngOnInit() {
+  }
+logMessage(value)
+{
+console.log(value);
+}
+
+}
