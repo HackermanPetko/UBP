@@ -35,7 +35,7 @@ namespace ConsoleApp1
 
         public DateTime LastChecked { get; set; }
 
-        public int TimeStamp { get; set; }
+        public DateTime TimeStamp { get; set; }
 
         private Config()
         {
@@ -76,9 +76,9 @@ namespace ConsoleApp1
             return config;
         }
 
-        public void SaveConfigLocal(Config config)
+        public void SaveConfigLocal()
         {
-            string json = JsonConvert.SerializeObject(config);
+            string json = JsonConvert.SerializeObject(this);
 
             string subPath = @"C:\UBP"; // your code goes here
 

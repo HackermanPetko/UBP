@@ -407,3 +407,9 @@ C:\DEVELOPMENT\Server - API\ServerAPI\ServerAPI\bin\Microsoft.AI.DependencyColle
 C:\DEVELOPMENT\Server - API\ServerAPI\ServerAPI\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\DEVELOPMENT\Server - API\ServerAPI\ServerAPI\bin\Microsoft.AI.WindowsServer.xml
 C:\DEVELOPMENT\Server - API\ServerAPI\ServerAPI\bin\Microsoft.AI.Web.xml
+C:\Users\Daniel\Documents\GitHub\UBP\Server - API\ServerAPI\ServerAPI\bin\Microsoft.IdentityModel.Logging.dll
+C:\Users\Daniel\Documents\GitHub\UBP\Server - API\ServerAPI\ServerAPI\bin\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Daniel\Documents\GitHub\UBP\Server - API\ServerAPI\ServerAPI\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Daniel\Documents\GitHub\UBP\Server - API\ServerAPI\ServerAPI\bin\Microsoft.IdentityModel.Logging.xml
+C:\Users\Daniel\Documents\GitHub\UBP\Server - API\ServerAPI\ServerAPI\bin\Microsoft.IdentityModel.Tokens.xml
+C:\Users\Daniel\Documents\GitHub\UBP\Server - API\ServerAPI\ServerAPI\bin\System.IdentityModel.Tokens.Jwt.xml

@@ -16,7 +16,7 @@ namespace ConsoleApp1
 
             Console.WriteLine($"{config.idConfig},{config.Repeatable}");
 
-            config.SaveConfigLocal(config);
+            config.SaveConfigLocal();
 
             Console.WriteLine($"{config.LoadConfigLocal().BackupType},{config.LoadConfigLocal().FTPport}");
 

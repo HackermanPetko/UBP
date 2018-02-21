@@ -33,5 +33,7 @@ namespace ServerAPI.Models
         public int Interval { get; set; }
 
         public DateTime LastChecked { get; set; }
+
+        public DateTime TimeStamp { get; set; }
     }
 }

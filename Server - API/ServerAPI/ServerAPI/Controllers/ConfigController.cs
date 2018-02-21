@@ -56,6 +56,7 @@ namespace ServerAPI.Controllers
             temp.DestinationPassword = config.DestinationPassword;
             temp.DestinationAddress = config.DestinationAddress;
             temp.BackupType = config.BackupType;
+            temp.TimeStamp = config.TimeStamp;
 
             this.context.SaveChanges();
 
