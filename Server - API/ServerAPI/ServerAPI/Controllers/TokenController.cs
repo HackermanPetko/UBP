@@ -23,17 +23,17 @@ namespace ServerAPI.Controllers
         // POST: api/Token
         public string Post(User user)
         {
-            if (CheckUser(user.ID,user.Username, user.Password))
+            if (CheckUser(user.Username, user.Password))
             {
-                return JwtManager.GenerateToken(user.Username);
+                return SaveToken(user.Username);
             }
 
             throw new HttpResponseException(HttpStatusCode.Unauthorized);
         }
 
-        public bool CheckUser(int id,string username, string password)
+        public bool CheckUser(string username, string password)
         {
-            User userFromDB = this.context.Users.Find(id);
+            User userFromDB = this.context.Users.Find(this.context.FindUser(username).ID);
 
             if (userFromDB.Password == password)
                 return true;
@@ -41,8 +41,25 @@ namespace ServerAPI.Controllers
                 return false;
 
 
-            
+
         }
+
+        public string SaveToken(string username) {
+
+            User user = this.context.FindUser(username);
+            string token = JwtManager.GenerateToken(user.Username);
+            Token newToken = new Token();
+            newToken.IdUser = user.ID;
+            newToken.UserToken = token;
+            newToken.IsValid = true;
+            this.context.Tokens.Add(newToken);
+            this.context.SaveChanges();
+            
+
+            return token;
+        }
+
+      
        
     }
 }

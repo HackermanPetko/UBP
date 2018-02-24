@@ -413,3 +413,9 @@ C:\Users\Daniel\Documents\GitHub\UBP\Server - API\ServerAPI\ServerAPI\bin\System
 C:\Users\Daniel\Documents\GitHub\UBP\Server - API\ServerAPI\ServerAPI\bin\Microsoft.IdentityModel.Logging.xml
 C:\Users\Daniel\Documents\GitHub\UBP\Server - API\ServerAPI\ServerAPI\bin\Microsoft.IdentityModel.Tokens.xml
 C:\Users\Daniel\Documents\GitHub\UBP\Server - API\ServerAPI\ServerAPI\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\Admin\Desktop\Projekt\UBP\Server - API\ServerAPI\ServerAPI\bin\Microsoft.IdentityModel.Logging.dll
+C:\Users\Admin\Desktop\Projekt\UBP\Server - API\ServerAPI\ServerAPI\bin\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Admin\Desktop\Projekt\UBP\Server - API\ServerAPI\ServerAPI\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Admin\Desktop\Projekt\UBP\Server - API\ServerAPI\ServerAPI\bin\Microsoft.IdentityModel.Logging.xml
+C:\Users\Admin\Desktop\Projekt\UBP\Server - API\ServerAPI\ServerAPI\bin\Microsoft.IdentityModel.Tokens.xml
+C:\Users\Admin\Desktop\Projekt\UBP\Server - API\ServerAPI\ServerAPI\bin\System.IdentityModel.Tokens.Jwt.xml

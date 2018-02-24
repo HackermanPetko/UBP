@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
@@ -13,6 +14,7 @@ namespace ServerAPI.Models
         public DbSet<Backup> Backups { get; set; }
         public DbSet<Daemon> Daemons { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Token> Tokens { get; set; }
 
 
 
@@ -30,6 +32,15 @@ namespace ServerAPI.Models
                     cs.MapRightKey("CourseId");
                     cs.ToTable("PersonCourse");
                 });*/
+        }
+
+        public User FindUser(string username)
+        {
+            List<User> users = this.Users.Where(x => x.Username == username).ToList();
+            User user = users.First();
+            
+            
+            return user;
         }
 
     }
