@@ -8,7 +8,7 @@ namespace ServerAPI.Models
 {
     public class Config
     {
-        //private TestContext context;
+        //AHOJ!!!
         [Key]
         public int idConfig { get; set; }
 
