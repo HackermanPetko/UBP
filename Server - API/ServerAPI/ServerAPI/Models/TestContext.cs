@@ -16,7 +16,8 @@ namespace ServerAPI.Models
         public DbSet<User> Users { get; set; }
         public DbSet<Token> Tokens { get; set; }
 
-
+        private HttpCookieCollection Cookies = new HttpCookieCollection();
+        
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -32,6 +33,7 @@ namespace ServerAPI.Models
                     cs.MapRightKey("CourseId");
                     cs.ToTable("PersonCourse");
                 });*/
+
         }
 
         public User FindUser(string username)
@@ -43,5 +45,25 @@ namespace ServerAPI.Models
             return user;
         }
 
+        public void CreateCookie(string CookieName, string value) // aaaaaaaaa
+        {
+            HttpCookie MyCookie = new HttpCookie(CookieName);
+            DateTime now = DateTime.Now;
+
+            MyCookie.Value = value;
+            MyCookie.Expires = now.AddMonths(1);
+            this.Cookies.Add(MyCookie);
+           
+
+        }
+
+        public string GetCookie(string CookieName) // aaaaaaaaaa
+        {
+            if (this.Cookies[CookieName] != null)
+            {
+                return this.Cookies[CookieName].Value;
+            }
+            return null;
+        }
     }
 }
