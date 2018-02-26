@@ -18,11 +18,6 @@ namespace ServerAPI.Controllers
             this.context = new TestContext();
         }
 
-        //public string Get()
-        //{
-        //    return this.context.GetCookie("Token");
-        //}
-
 
 
         // POST: api/Token
@@ -59,10 +54,7 @@ namespace ServerAPI.Controllers
             newToken.IsValid = true;
             this.context.Tokens.Add(newToken);
             this.context.SaveChanges();
-
-            this.context.CreateCookie("Token", token);
-
-
+            
 
             return token;
         }
