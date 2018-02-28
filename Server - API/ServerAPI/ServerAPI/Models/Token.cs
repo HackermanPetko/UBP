@@ -9,6 +9,7 @@ namespace ServerAPI.Models
     public class Token
     {
         [Key]
+        public int Id { get; set; }
         public int IdUser { get; set; }
         public string UserToken { get; set; }
         public bool IsValid { get; set; }
