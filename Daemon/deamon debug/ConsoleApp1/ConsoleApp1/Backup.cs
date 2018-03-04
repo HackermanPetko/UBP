@@ -14,7 +14,7 @@ namespace ConsoleApp1
             DirectoryInfo dirSource = new DirectoryInfo(source);
             DirectoryInfo dirDest = new DirectoryInfo(destination);
 
-            CopyAll(dirSource, dirDest.CreateSubdirectory(DateTime.Now.ToString("yyyy_mm_dd-hh_mm_ss")));
+            CopyAll(dirSource, dirDest.CreateSubdirectory(DateTime.Now.ToString("yyyy_mm_dd-HH_mm_ss")).CreateSubdirectory(dirSource.Name));
         }
 
         private static void CopyAll(DirectoryInfo source, DirectoryInfo destination)
