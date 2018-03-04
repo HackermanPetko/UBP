@@ -11,31 +11,17 @@ namespace ConsoleApp1
 {
     public class Config
     {
-        public int idConfig { get; set; }
+        public int Id { get; set; }
 
         public int idDaemon { get; set; }
 
-        public int BackupType { get; set; }
-
-        public string DestinationType { get; set; }
-
-        public string DestinationAddress { get; set; }
-
-        public int FTPport { get; set; }
-
-        public string DestinationPassword { get; set; }
-
-        public string DestinationUser { get; set; }
-
-        public int Format { get; set; }
-
-        public bool Repeatable { get; set; }
-
-        public int Interval { get; set; }
+        public string Comment { get; set; }
 
         public DateTime LastChecked { get; set; }
 
         public DateTime TimeStamp { get; set; }
+
+        public List<BackupTask> Tasks { get; set; }
 
         private Config()
         {
@@ -80,15 +66,15 @@ namespace ConsoleApp1
         {
             string json = JsonConvert.SerializeObject(this);
 
-            string subPath = @"C:\UBP"; // your code goes here
+            string subPath = @"C:\UBP"; 
 
-            bool exists = System.IO.Directory.Exists(subPath);
+            bool exists = Directory.Exists(subPath);
 
             if (!exists)
-                System.IO.Directory.CreateDirectory(subPath);
+                Directory.CreateDirectory(subPath);
 
 
-            System.IO.File.WriteAllText(@"C:\UBP\Config.json", json);
+            File.WriteAllText(@"C:\UBP\Config.json", json);
 
 
         }
@@ -105,5 +91,10 @@ namespace ConsoleApp1
             return config;
         }
         //TEST KOMENTAR
+
+        public string WriteAll()
+        {
+            return JsonConvert.SerializeObject(this).ToString();
+        }
     }
 }

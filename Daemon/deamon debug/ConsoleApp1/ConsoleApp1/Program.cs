@@ -11,14 +11,16 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Config config = Config.GetConfig(2);
+            Config config = Config.GetConfig(4);
 
 
-            Console.WriteLine($"{config.idConfig},{config.Repeatable}");
+            Console.WriteLine(config.WriteAll());
 
             config.SaveConfigLocal();
 
-            Console.WriteLine($"{config.LoadConfigLocal().BackupType},{config.LoadConfigLocal().FTPport}");
+            config.LoadConfigLocal();
+
+            Console.WriteLine(config.WriteAll());
 
             Console.ReadLine();
 
