@@ -46,16 +46,16 @@ namespace ServerAPI.Controllers
             Config temp = this.context.Configs.Find(id);
 
 
-                temp.idDaemon = config.idDaemon;
-                temp.Interval = config.Interval;
-            temp.LastChecked = config.LastChecked;
-            temp.Repeatable = config.Repeatable;
-            temp.FTPport = config.FTPport;
-            temp.DestinationUser = config.DestinationUser;
-            temp.DestinationType = config.DestinationType;
-            temp.DestinationPassword = config.DestinationPassword;
-            temp.DestinationAddress = config.DestinationAddress;
-            temp.BackupType = config.BackupType;
+            temp.idDaemon = config.idDaemon;
+            //temp.Interval = config.Interval;
+            //temp.LastChecked = config.LastChecked;
+            //temp.Repeatable = config.Repeatable;
+            //temp.FTPport = config.FTPport;
+            //temp.DestinationUser = config.DestinationUser;
+            //temp.DestinationType = config.DestinationType;
+            //temp.DestinationPassword = config.DestinationPassword;
+            //temp.DestinationAddress = config.DestinationAddress;
+            //temp.BackupType = config.BackupType;
             temp.TimeStamp = config.TimeStamp;
 
             this.context.SaveChanges();
@@ -67,7 +67,6 @@ namespace ServerAPI.Controllers
         {
             this.context.Configs.Remove(this.context.Configs.Find(id));
             this.context.SaveChanges();
-
         }
     }
 }

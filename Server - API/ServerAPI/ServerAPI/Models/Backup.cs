@@ -9,7 +9,7 @@ namespace ServerAPI.Models
     public class Backup
     {
         [Key]
-        public int idBackup { get; set; }
+        public int Id { get; set; }
         public int idDaemon { get; set; }
         public bool State { get; set; }
         public string ErrorMsg { get; set; }

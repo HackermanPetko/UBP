@@ -9,14 +9,29 @@ namespace ServerAPI.Models
 {
     public class TestContext : DbContext
     { 
-
-        public DbSet<Config> Configs { get; set; }
         public DbSet<Backup> Backups { get; set; }
+        public DbSet<Config> Configs { get; set; }
         public DbSet<Daemon> Daemons { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<Destination> Destinations { get; set; }
+        public DbSet<Source> Sources { get; set; }
+        public DbSet<BackupTask> Tasks { get; set; }
         public DbSet<Token> Tokens { get; set; }
+        public DbSet<User> Users { get; set; }
 
+        public TestContext()
+        {
+            this.Configs
+              .Include("Tasks")
+              .ToList();
 
+            this.Tasks
+             .Include("Sources")
+             .ToList();
+
+            this.Tasks
+             .Include("Destinations")
+             .ToList();
+        }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

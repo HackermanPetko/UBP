@@ -44,7 +44,7 @@ namespace ServerAPI.Controllers
             Daemon temp = this.context.Daemons.Find(id);
 
             temp.DaemonName = daemon.DaemonName;
-            temp.idDaemon = daemon.idDaemon;
+            temp.Id = daemon.Id;
             temp.IsNew = daemon.IsNew;
             temp.DaemonMAC = daemon.DaemonMAC;
             temp.LastConnected = daemon.LastConnected;

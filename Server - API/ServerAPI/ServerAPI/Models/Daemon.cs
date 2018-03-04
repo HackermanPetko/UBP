@@ -9,11 +9,16 @@ namespace ServerAPI.Models
     public class Daemon
     {
         [Key]
-        public int idDaemon { get; set; }
+        public int Id { get; set; }
+
         public bool IsNew { get; set; }
+
         public string DaemonName { get; set; }
+
         public string DaemonMAC { get; set; }
+
         public DateTime LastConnected { get; set; }
 
+        public string Comment { get; set; }
     }
 }

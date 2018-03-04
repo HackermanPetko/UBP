@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -8,32 +9,19 @@ namespace ServerAPI.Models
 {
     public class Config
     {
-        //AHOJ!!!
+
         [Key]
-        public int idConfig { get; set; }
+        public int Id { get; set; }
 
         public int idDaemon { get; set; }
 
-        public int BackupType { get; set; }
-
-        public string DestinationType { get; set; }
-
-        public string DestinationAddress { get; set; }
-
-        public int FTPport { get; set; }
-
-        public string DestinationPassword { get; set; }
-
-        public string DestinationUser { get; set; }
-
-        public int Format { get; set; }
-
-        public bool Repeatable { get; set; }
-
-        public int Interval { get; set; }
+        public string Comment { get; set; }
 
         public DateTime LastChecked { get; set; }
 
         public DateTime TimeStamp { get; set; }
+
+        [ForeignKey("IdConfig")]
+        public ICollection<BackupTask> Tasks { get; set; }
     }
 }

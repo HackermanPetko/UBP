@@ -47,7 +47,7 @@ namespace ServerAPI.Controllers
             temp.BackupType = backup.BackupType;
             temp.Date = backup.Date;
             temp.ErrorMsg = backup.ErrorMsg;
-            temp.idBackup = backup.idBackup;
+            temp.Id = backup.Id;
             temp.idDaemon = backup.idDaemon;
             temp.LogLocation = backup.LogLocation;
             temp.State = backup.State;
