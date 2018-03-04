@@ -52,6 +52,7 @@
     <Compile Include="BackupTask.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Destination.cs" />
+    <Compile Include="Backup.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source.cs" />

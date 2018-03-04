@@ -24,6 +24,16 @@ namespace ConsoleApp1
 
             Console.ReadLine();
 
+            foreach (BackupTask task in config.Tasks)
+            {
+                foreach (Source source in task.Sources)
+                {
+                    foreach (Destination destination in task.Destinations)
+                    {
+                        Backup.FullBackup(source.SourcePath, destination.DestinationAddress);
+                    }
+                }
+            }
         }
     }
 }
