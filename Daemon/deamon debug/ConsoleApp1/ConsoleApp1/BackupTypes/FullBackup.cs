@@ -8,40 +8,55 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.BackupTypes
 {
-    public class FTPBackup 
+    public class FullBackup
     {
-        public void FullBackup(string source, string destination, string port, string user, string password,string date)
+
+
+        //Local
+
+        public static void ToLocal(string source, string destination, string date)
+        {
+            DirectoryInfo dirSource = new DirectoryInfo(source);
+            DirectoryInfo dirDest = new DirectoryInfo(destination);
+
+            CopyAll(dirSource, dirDest.CreateSubdirectory(date).CreateSubdirectory(dirSource.Name));
+        }
+
+        private static void CopyAll(DirectoryInfo source, DirectoryInfo destination)
+        {
+            foreach (FileInfo file in source.GetFiles())
+            {
+                file.CopyTo(Path.Combine(destination.FullName, file.Name), true);
+            }
+
+            foreach (DirectoryInfo dir in source.GetDirectories())
+            {
+                DirectoryInfo newdir = destination.CreateSubdirectory(dir.Name);
+                CopyAll(dir, newdir);
+            }
+        }
+
+
+        //FTP
+
+        public static void ToFTP(string source, string destination, string port, string user, string password, string date)
         {
             DirectoryInfo dirSource = new DirectoryInfo(source);
 
-
-
-            string uri = "ftp://" + destination + ":" + port +  "/" + dirSource.Name + "/" + date;
+            string uri = "ftp://" + destination + ":" + port + "/" + date + "/" + dirSource.Name;
 
             FtpWebRequest reqFTP;
 
-            
             reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri(uri));
 
             NetworkCredential credentials = new NetworkCredential(user, password);
-            
 
-            this.CopyAllToFTP(dirSource, uri, reqFTP,credentials);
+            CopyAllToFTP(dirSource, uri, reqFTP, credentials);
         }
 
-        public void DifferentialBackup(string source, string destination)
+
+        private static void CopyAllToFTP(DirectoryInfo dirSource, string uri, FtpWebRequest reqFTP, NetworkCredential credentials)
         {
-
-        }
-
-        public void IncrementalBackup(string source, string destination)
-        {
-
-        }
-
-        private void CopyAllToFTP(DirectoryInfo dirSource, string uri, FtpWebRequest reqFTP, NetworkCredential credentials)
-        {
-
             Stream ftpStream = null;
             reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri(uri));
             reqFTP.Method = WebRequestMethods.Ftp.MakeDirectory;
@@ -56,16 +71,16 @@ namespace ConsoleApp1.BackupTypes
 
             foreach (FileInfo file in dirSource.GetFiles())
             {
-                this.CopyFileToFTP(file, uri + "/" + file.Name, credentials);
+                CopyFileToFTP(file, uri + "/" + file.Name, credentials);
             }
 
             foreach (DirectoryInfo dir in dirSource.GetDirectories())
             {
-                this.CopyAllToFTP(dir, uri + "/" + dir.Name, reqFTP,credentials);
+                CopyAllToFTP(dir, uri + "/" + dir.Name, reqFTP, credentials);
             }
         }
 
-        private void CopyFileToFTP(FileInfo file,string uri, NetworkCredential credentials)
+        private static void CopyFileToFTP(FileInfo file, string uri, NetworkCredential credentials)
         {
             FtpWebRequest ftpWebRequest = (FtpWebRequest)FtpWebRequest.Create(new Uri(uri));
             ftpWebRequest.ContentLength = file.Length;
@@ -91,7 +106,6 @@ namespace ConsoleApp1.BackupTypes
 
             strm.Close();
             fs.Close();
-
         }
     }
 }

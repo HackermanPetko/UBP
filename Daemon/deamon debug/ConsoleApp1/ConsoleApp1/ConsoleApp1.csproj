@@ -50,10 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BackupTask.cs" />
+    <Compile Include="BackupTypes\FullBackup.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Destination.cs" />
-    <Compile Include="BackupTypes\FTPBackup.cs" />
-    <Compile Include="BackupTypes\LocalBackup.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source.cs" />

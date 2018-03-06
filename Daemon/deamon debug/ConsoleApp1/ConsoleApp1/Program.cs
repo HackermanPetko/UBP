@@ -25,9 +25,7 @@ namespace ConsoleApp1
 
 
 
-            LocalBackup local = new LocalBackup();
 
-            FTPBackup ftpbackup = new FTPBackup();
 
             string date = DateTime.Now.ToString("yyyy_MM_dd-HH_mm_ss");
 
@@ -38,10 +36,10 @@ namespace ConsoleApp1
                     foreach (Destination destination in task.Destinations)
                     {
                         if (destination.DestinationType == "LOCAL")
-                            local.FullBackup(source.SourcePath, destination.DestinationAddress,date);
+                            FullBackup.ToLocal(source.SourcePath, destination.DestinationAddress,date);
                         else if (destination.DestinationType == "FTP")
                         {
-                            ftpbackup.FullBackup(source.SourcePath, destination.DestinationAddress, destination.FTPport,
+                            FullBackup.ToFTP(source.SourcePath, destination.DestinationAddress, destination.FTPport,
                                 destination.DestinationUser, destination.DestinationPassword,date);
                         }
                         
