@@ -9,6 +9,7 @@ import { AdminComponent } from './admin/admin.component';
 import { RouterModule, Routes } from '@angular/router';
 import {TokenService} from './shared/token.service';
 import { HttpClientModule } from '@angular/common/http';
+import {Ng2Webstorage} from 'ngx-webstorage';
 
 
 
@@ -28,7 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
     HttpModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    Ng2Webstorage
    
   ],
   providers: [TokenService, HttpClientModule],

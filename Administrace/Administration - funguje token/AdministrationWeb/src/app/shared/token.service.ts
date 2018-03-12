@@ -15,7 +15,7 @@ export class TokenService {
 
     getToken(username: string, password: string) {
 
-        return this.http.post('http://localhost:63699/api/Token',{username,password},this._options).subscribe(data =>console.log(data));
+        return this.http.post('http://localhost:63699/api/Token',{username,password},this._options).subscribe(data =>data.toString();
        
 
     }

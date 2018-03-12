@@ -5,6 +5,7 @@ import { RouterModule, Routes, RouterLink, Router, RouterLinkWithHref } from '@a
 import { AdminComponent } from '../admin/admin.component';
 import {TokenService} from '../shared/token.service';
 import { Token } from '../shared/token.model';
+import {LocalStorageService} from 'ngx-webstorage';
 
 
 
@@ -17,7 +18,8 @@ import { Token } from '../shared/token.model';
 
 export class LoginFormComponent implements OnInit {
   usertoken: Token;
-  constructor(private router: Router, private tokenService: TokenService)
+  mytoken: string;
+  constructor(private router: Router, private tokenService: TokenService, private localSt: LocalStorageService)
   {
     
    }
@@ -83,10 +85,15 @@ checkEmpty()
  // }
 
 
+ this.mytoken = this.tokenService.getToken(this.data.username,this.data.password);
 
-
- this.tokenService.getToken(this.data.username,this.data.password);
+ if(mytoken!=null){
+ this.router.navigateByUrl('/admin');
  
+ }
+ else{
+   alert("Wrong credentials!");
+ }
  //.subscribe(data =>console.log(data));
  //alert(this.usertoken.tokenString.toString());
 }
