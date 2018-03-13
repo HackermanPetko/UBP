@@ -19,6 +19,7 @@ import {LocalStorageService} from 'ngx-webstorage';
 export class LoginFormComponent implements OnInit {
   usertoken: Token;
   mytoken: string;
+ 
   constructor(private router: Router, private tokenService: TokenService, private localSt: LocalStorageService)
   {
     
@@ -85,17 +86,30 @@ checkEmpty()
  // }
 
 
- this.mytoken = this.tokenService.getToken(this.data.username,this.data.password);
 
- if(mytoken!=null){
- this.router.navigateByUrl('/admin');
- 
- }
- else{
-   alert("Wrong credentials!");
- }
+  this.tokenService.getToken(this.data.username,this.data.password).subscribe(data => {
+    this.mytoken=data }).catch(this.errorHandler);
+                    
+                  
+if(this.mytoken!=null){
+
+  this.router.navigateByUrl('/admin')
+
+}
+
+
+
  //.subscribe(data =>console.log(data));
  //alert(this.usertoken.tokenString.toString());
+}
+
+errorHandler(error: Response){
+
+if(error.status===404, error.status==503){
+
+  alert("Chyba");
+}
+  
 }
 
 
