@@ -1,0 +1,74 @@
+<mat-toolbar color="primary">
+<button mat-button (click)="sidenav.toggle()"><mat-icon>list</mat-icon></button>
+
+ </mat-toolbar>
+
+<hr>
+<body>
+  <div>
+    <mat-sidenav-container>
+        <mat-sidenav #sidenav mode="side">
+            <mat-list>
+                <mat-list-item> <button (click)='navigateHome()' mat-raised-button color="primary" >Home</button> </mat-list-item>
+                <mat-list-item> <button mat-raised-button color="primary">Daemons</button></mat-list-item>
+                <mat-list-item> <button mat-raised-button color="primary">Admins</button></mat-list-item>
+                <mat-list-item><button (click)='navigatePlayground()' mat-raised-button color="primary">Playground</button>  </mat-list-item>
+               </mat-list>
+        </mat-sidenav>
+        <mat-sidenav-content>
+          <mat-table #table [dataSource]="dataSource">
+x
+            <ng-container matColumnDef="id">
+              <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+              
+            </ng-container>
+        
+            <ng-container matColumnDef="name">
+              <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+            </ng-container>
+        
+            <ng-container matColumnDef="phoneNum">
+              <mat-header-cell *matHeaderCellDef> phoneNum </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.phoneNum}} </mat-cell>
+            </ng-container>
+        
+            <ng-container matColumnDef="eMail">
+              <mat-header-cell *matHeaderCellDef> eMail </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.eMail}} </mat-cell>
+            </ng-container>
+            
+            <ng-container matColumnDef="Adress">
+              <mat-header-cell *matHeaderCellDef> Adress </mat-header-cell>
+              <mat-cell *matCellDef="let element"> <button mat-button (click)='nigger()'>{{element.Adress}}</button> </mat-cell>
+            </ng-container>
+        
+        
+            
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table> 
+          
+         <div><mat-paginator #paginator
+          [pageSize]="1"
+          [pageSizeOptions]="[1, 10, 20]"
+          [length]= "10"          
+          [showFirstLastButtons]="true">
+</mat-paginator>
+
+</div> 
+        </mat-sidenav-content>
+        
+      </mat-sidenav-container>
+      
+        </div>
+        
+        </body> 
+<hr>
+<button (click)="testnavigate()" type="submit"  style="visibility: visible">Login</button>
+
+<footer>Footer</footer>
+
+
+

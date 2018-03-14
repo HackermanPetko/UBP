@@ -1,0 +1,23 @@
+
+body{
+background-color: white;    
+}
+footer{
+    background-color: white;    
+    }
+    header{
+        background-color: white;    
+        }
+
+div{
+border: gray;
+border-style: solid;
+}
+.content{
+float:left;
+width:60%;
+}
+.nav{
+float:left;
+width: 19%;
+}
