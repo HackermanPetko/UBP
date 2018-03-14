@@ -45,22 +45,22 @@ onLogIn(){
 
 }
 
-//checkEmpty()
-//{
- // if(this.data.username ==""){
-  //  this.isEmpty = true;
-  //  console.log("Username is empty")
- // }
-  //  else{
-  //  if (this.data.password ==""){
-  //    this.isEmpty = true;
-  //    console.log("Password is Empty")
-  //  }
-  //    else{
-    //    this.isEmpty = false;
-  //   }
-   // }
- // }
+checkEmpty()
+{
+  if(this.data.username ==""){
+  this.isEmpty = true;
+  console.log("Username is empty")
+ }
+  else{
+  if (this.data.password ==""){
+    this.isEmpty = true;
+    console.log("Password is Empty")
+  }
+    else{
+    this.isEmpty = false;
+  }
+ }
+ }
   testNavigate()
 {
 //  if(this.data.username == "admin" &&this.data.password == "admin")
@@ -70,13 +70,19 @@ onLogIn(){
  // }
 
 
-
+if(!this.isEmpty){
   this.tokenService.getToken(this.data.username,this.data.password).subscribe(data => {
-    this.mytoken=data });
-                    
+    this.mytoken=data;
+    this.setLocalStorage();
+    this.router.navigateByUrl('/admin')
+  },
+  error => { console.log("hello world"); console.log(error); });
+  }
+
 setTimeout(()=>{
 if(this.mytoken!=null){
 
+  this.setLocalStorage();
   this.router.navigateByUrl('/admin')
 
 }
@@ -89,13 +95,18 @@ if(this.mytoken!=null){
 
 errorHandler(error: Response){
 
-  if(error.status===404, error.status==503){
+  if(error.status===404||error.status==503||error.status==401||error.status==402){
   
     alert("Chyba");
   }
     
   }
   
+setLocalStorage(){
+
+this.localSt.store('token',this.mytoken);
+
+}
 
 }
 
