@@ -6,18 +6,18 @@
   <div class= "input-container">
     <label>Username: </label>
     <input type="text"  name="uname" [(ngModel)]="data.username">
-    <label *ngIf="data.username == ''" style= color:red>Enter username</label>
+    <!--<label *ngIf="data.username == ''" style= color:red>Enter username</label>-->
   </div>
   <div class = "input-container">
     <label>Password: </label>
    
     <input type="text"  name="pwd" [(ngModel)]="data.password">
-    <label *ngIf="data.password == ''" style= color:red>Enter password</label>
+    <!--<label *ngIf="data.password == ''" style= color:red>Enter password</label>-->
   </div >
   <div class = "button-login">
-      <label *ngIf="isEmpty == true" style= color:red>You forgot something</label>
+      <!-- <label *ngIf="isEmpty == true" style= color:red>You forgot something</label>-->
       <br>
-      <label *ngIf="userCheck" style= color:red>Wrong username or password</label>
+       <!--<label style= color:red>Wrong username or password</label>-->
       <br>
     <button (click)="testNavigate()" type="submit"  style="visibility: visible">Login</button>
 

@@ -6,6 +6,8 @@ import { AdminComponent } from '../admin/admin.component';
 import {TokenService} from '../shared/token.service';
 import { Token } from '../shared/token.model';
 import {LocalStorageService} from 'ngx-webstorage';
+import 'rxjs/add/operator/catch';
+import { Observable } from 'rxjs/Observable';
 
 
 
@@ -32,51 +34,33 @@ export class LoginFormComponent implements OnInit {
 data = {username: "",
         password: ""};
 isEmpty = false;
-userCheck = false;
+
 wrongCheck = false;
 test = true;
        
         
 onLogIn(){
- console.log(this.data);
-    this.checkEmpty();
-    if(this.isEmpty == true)
-    {
-      console.log("")
-    }
-    if(this.data.username == "admin" && this.data.password == "admin")
-    {
-      console.log("Hi admin");
-      this.userCheck = false;
-    }
-    else{
-      console.log("Wrong username or password")
-      if(this.userCheck == true)
-      {
-      }
-     else{ 
-      this.userCheck = true;
-     }
-    }
+ 
+ 
 
 }
 
-checkEmpty()
-{
-  if(this.data.username ==""){
-    this.isEmpty = true;
-    console.log("Username is empty")
-  }
-    else{
-    if (this.data.password ==""){
-      this.isEmpty = true;
-      console.log("Password is Empty")
-    }
-      else{
-        this.isEmpty = false;
-      }
-    }
-  }
+//checkEmpty()
+//{
+ // if(this.data.username ==""){
+  //  this.isEmpty = true;
+  //  console.log("Username is empty")
+ // }
+  //  else{
+  //  if (this.data.password ==""){
+  //    this.isEmpty = true;
+  //    console.log("Password is Empty")
+  //  }
+  //    else{
+    //    this.isEmpty = false;
+  //   }
+   // }
+ // }
   testNavigate()
 {
 //  if(this.data.username == "admin" &&this.data.password == "admin")
@@ -88,16 +72,16 @@ checkEmpty()
 
 
   this.tokenService.getToken(this.data.username,this.data.password).subscribe(data => {
-    this.mytoken=data }).catch(this.errorHandler);
+    this.mytoken=data });
                     
-                  
+setTimeout(()=>{
 if(this.mytoken!=null){
 
   this.router.navigateByUrl('/admin')
 
 }
 
-
+},1000)
 
  //.subscribe(data =>console.log(data));
  //alert(this.usertoken.tokenString.toString());
@@ -105,13 +89,13 @@ if(this.mytoken!=null){
 
 errorHandler(error: Response){
 
-if(error.status===404, error.status==503){
-
-  alert("Chyba");
-}
+  if(error.status===404, error.status==503){
   
-}
-
+    alert("Chyba");
+  }
+    
+  }
+  
 
 }
 
