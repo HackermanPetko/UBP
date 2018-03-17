@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Renci.SshNet;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -45,67 +46,54 @@ namespace ConsoleApp1.BackupTypes
 
             string uri = "ftp://" + destination + ":" + port + "/" + date + "/" + dirSource.Name;
 
-            FtpWebRequest reqFTP;
-
-            reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri(uri));
-
             NetworkCredential credentials = new NetworkCredential(user, password);
 
-            CopyAllToFTP(dirSource, uri, reqFTP, credentials);
+            FTPUploadAll(dirSource, uri, credentials);
         }
 
 
-        private static void CopyAllToFTP(DirectoryInfo dirSource, string uri, FtpWebRequest reqFTP, NetworkCredential credentials)
+        private static void FTPUploadAll(DirectoryInfo dirSource, string uri, NetworkCredential credentials)
         {
-            Stream ftpStream = null;
-            reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri(uri));
-            reqFTP.Method = WebRequestMethods.Ftp.MakeDirectory;
-            reqFTP.Credentials = credentials;
-            reqFTP.UsePassive = false;
-            reqFTP.UseBinary = true;
-            FtpWebResponse response = (FtpWebResponse)reqFTP.GetResponse();
-            ftpStream = response.GetResponseStream();
-            ftpStream.Close();
-            response.Close();
-
-
             foreach (FileInfo file in dirSource.GetFiles())
             {
-                CopyFileToFTP(file, uri + "/" + file.Name, credentials);
+                Upload.FTPFile(file, uri + "/" + file.Name, credentials);
             }
 
             foreach (DirectoryInfo dir in dirSource.GetDirectories())
             {
-                CopyAllToFTP(dir, uri + "/" + dir.Name, reqFTP, credentials);
+                Upload.FTPDirectory(uri + "/" + dir.Name, credentials);
+                FTPUploadAll(dir, uri + "/" + dir.Name, credentials);
             }
         }
 
-        private static void CopyFileToFTP(FileInfo file, string uri, NetworkCredential credentials)
+        // SSH
+
+        public static void ToSFTP(string source, string host, int port, string user, string password, string date)
         {
-            FtpWebRequest ftpWebRequest = (FtpWebRequest)FtpWebRequest.Create(new Uri(uri));
-            ftpWebRequest.ContentLength = file.Length;
-            ftpWebRequest.Credentials = credentials;
-            ftpWebRequest.UsePassive = false;
-            ftpWebRequest.UseBinary = true;
-            ftpWebRequest.Method = WebRequestMethods.Ftp.UploadFile;
+            DirectoryInfo dirSource = new DirectoryInfo(source);
 
-            int buffLength = 2048;
-            byte[] buff = new byte[buffLength];
-            int contentLen;
+            ConnectionInfo connection = new ConnectionInfo(host, port, user, new PasswordAuthenticationMethod(user, password));
 
-            FileStream fs = file.OpenRead();
+            string destination = date + "/" + dirSource.Name;
 
-            Stream strm = ftpWebRequest.GetRequestStream();
-            contentLen = fs.Read(buff, 0, buffLength);
+            Upload.SFTPDirectory(connection, destination);
 
-            while (contentLen != 0)
+            SFTPUploadAll(dirSource, connection, destination);
+        }
+
+
+        private static void SFTPUploadAll(DirectoryInfo dirSource, ConnectionInfo connection,string destination)
+        {
+            foreach (FileInfo file in dirSource.GetFiles())
             {
-                strm.Write(buff, 0, contentLen);
-                contentLen = fs.Read(buff, 0, buffLength);
+                Upload.SFTPFile(connection,file.FullName, destination);
             }
 
-            strm.Close();
-            fs.Close();
+            foreach (DirectoryInfo dir in dirSource.GetDirectories())
+            {
+                Upload.SFTPDirectory(connection, destination + "/" + dir.Name);
+                SFTPUploadAll(dir, connection, destination + "/" + dir.Name);
+            }
         }
     }
 }

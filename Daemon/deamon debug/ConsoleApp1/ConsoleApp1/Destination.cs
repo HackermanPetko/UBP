@@ -20,6 +20,6 @@ namespace ConsoleApp1
 
         public string DestinationPassword { get; set; }
 
-        public string FTPport { get; set; }
+        public string Port { get; set; }
     }
 }

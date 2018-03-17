@@ -39,10 +39,14 @@ namespace ConsoleApp1
                             FullBackup.ToLocal(source.SourcePath, destination.DestinationAddress,date);
                         else if (destination.DestinationType == "FTP")
                         {
-                            FullBackup.ToFTP(source.SourcePath, destination.DestinationAddress, destination.FTPport,
+                            FullBackup.ToFTP(source.SourcePath, destination.DestinationAddress, destination.Port,
                                 destination.DestinationUser, destination.DestinationPassword,date);
                         }
-                        
+                        else if (destination.DestinationType == "SFTP")
+                        {
+                            FullBackup.ToSFTP(source.SourcePath, destination.DestinationAddress, Convert.ToInt32(destination.Port),
+                                destination.DestinationUser, destination.DestinationPassword, date);
+                        }
                     }
                 }
             }
