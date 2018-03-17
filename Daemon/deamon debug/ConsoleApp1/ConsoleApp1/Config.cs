@@ -79,7 +79,7 @@ namespace ConsoleApp1
 
         }
 
-        public Config LoadConfigLocal()
+        public static Config LoadConfigLocal()
         {
             Config config;
             string path = @"C:\UBP\Config.json";

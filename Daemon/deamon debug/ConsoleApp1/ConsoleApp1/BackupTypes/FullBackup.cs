@@ -47,6 +47,7 @@ namespace ConsoleApp1.BackupTypes
             string uri = "ftp://" + destination + ":" + port + "/" + date + "/" + dirSource.Name;
 
             NetworkCredential credentials = new NetworkCredential(user, password);
+            Upload.FTPDirectory(uri, credentials);
 
             FTPUploadAll(dirSource, uri, credentials);
         }
@@ -74,7 +75,11 @@ namespace ConsoleApp1.BackupTypes
 
             ConnectionInfo connection = new ConnectionInfo(host, port, user, new PasswordAuthenticationMethod(user, password));
 
-            string destination = date + "/" + dirSource.Name;
+            string destination = date;
+
+            Upload.SFTPDirectory(connection, destination);
+
+            destination = date + "/" + dirSource.Name;
 
             Upload.SFTPDirectory(connection, destination);
 

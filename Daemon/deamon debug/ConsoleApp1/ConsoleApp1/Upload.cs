@@ -80,7 +80,8 @@ namespace ConsoleApp1
             using (SftpClient client = new SftpClient(connection))
             {
                 client.Connect();
-                client.CreateDirectory(destinationpath);
+                if(!client.Exists(destinationpath))
+                    client.CreateDirectory(destinationpath);
             }
         }
     }

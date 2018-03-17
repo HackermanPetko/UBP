@@ -12,14 +12,14 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Config config = Config.GetConfig(4);
+            Config config2 = Config.GetConfig(4);
 
 
-            Console.WriteLine(config.WriteAll());
+            Console.WriteLine(config2.WriteAll());
 
-            config.SaveConfigLocal();
+            config2.SaveConfigLocal();
 
-            config.LoadConfigLocal();
+            Config config = Config.LoadConfigLocal();
 
             Console.WriteLine(config.WriteAll());
 
@@ -40,7 +40,7 @@ namespace ConsoleApp1
                         else if (destination.DestinationType == "FTP")
                         {
                             FullBackup.ToFTP(source.SourcePath, destination.DestinationAddress, destination.Port,
-                                destination.DestinationUser, destination.DestinationPassword,date);
+                                destination.DestinationUser, destination.DestinationPassword, date);
                         }
                         else if (destination.DestinationType == "SFTP")
                         {
