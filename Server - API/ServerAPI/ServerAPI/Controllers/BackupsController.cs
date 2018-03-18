@@ -8,6 +8,7 @@ using System.Web.Http;
 
 namespace ServerAPI.Controllers
 {
+    [Authorize]
     public class BackupsController : ApiController
     {
 

@@ -7,7 +7,8 @@ using System.Net.Http;
 using System.Web.Http;
 
 namespace ServerAPI.Controllers
-{
+    {
+    [Authorize]
     public class DaemonsController : ApiController
     {
         private TestContext context;

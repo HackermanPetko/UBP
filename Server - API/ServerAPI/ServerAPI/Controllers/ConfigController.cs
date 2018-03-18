@@ -9,7 +9,8 @@ using System.Web.Http;
 using Newtonsoft.Json;
 
 namespace ServerAPI.Controllers
-{
+    {
+    [Authorize]
     public class ConfigController : ApiController
     {
         private TestContext context;

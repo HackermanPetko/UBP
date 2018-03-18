@@ -17,7 +17,7 @@ namespace ServerAPI
 {
     internal class TokenValidationHandler : DelegatingHandler
     {
-        private TestContext context;
+        private TestContext context = new TestContext();
 
         private static bool TryRetrieveToken(HttpRequestMessage request, out string token)
         {
@@ -75,6 +75,10 @@ namespace ServerAPI
             catch (SecurityTokenValidationException e)
             {
                 statusCode = HttpStatusCode.Unauthorized;
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                statusCode = HttpStatusCode.Forbidden;
             }
             catch (Exception ex)
             {
