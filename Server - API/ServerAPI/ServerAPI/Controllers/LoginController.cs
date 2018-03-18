@@ -16,7 +16,7 @@ namespace ServerAPI.Controllers
     public class LoginController : ApiController
             {
 
-        private TestContext context;
+        private TestContext context = new TestContext();
         private LoginRequest user = new LoginRequest();
 
         [HttpPost]

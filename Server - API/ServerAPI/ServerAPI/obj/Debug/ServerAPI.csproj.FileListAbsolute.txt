@@ -607,3 +607,6 @@ C:\Users\Jara\Desktop\Projekt\UBP\Server - API\ServerAPI\ServerAPI\bin\Microsoft
 C:\Users\Jara\Desktop\Projekt\UBP\Server - API\ServerAPI\ServerAPI\bin\Microsoft.IdentityModel.Tokens.xml
 C:\Users\Jara\Desktop\Projekt\UBP\Server - API\ServerAPI\ServerAPI\bin\System.IdentityModel.Tokens.Jwt.xml
 C:\Users\Jara\Desktop\Projekt\UBP\Server - API\ServerAPI\ServerAPI\bin\System.Web.Http.Cors.xml
+C:\Users\Daniel\Documents\GitHub\UBP\Server - API\ServerAPI\ServerAPI\bin\System.Web.Cors.dll
+C:\Users\Daniel\Documents\GitHub\UBP\Server - API\ServerAPI\ServerAPI\bin\System.Web.Http.Cors.dll
+C:\Users\Daniel\Documents\GitHub\UBP\Server - API\ServerAPI\ServerAPI\bin\System.Web.Http.Cors.xml
