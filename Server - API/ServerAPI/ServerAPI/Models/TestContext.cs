@@ -58,6 +58,13 @@ namespace ServerAPI.Models
             
             return user;
         }
+        public Token FindToken(string token)
+        {
+            List<Token> listTokens = this.Tokens.Where(x => x.UserToken == token).ToList();
+            Token resToken = listTokens.First();
 
+
+            return resToken;
+        }
     }
 }
