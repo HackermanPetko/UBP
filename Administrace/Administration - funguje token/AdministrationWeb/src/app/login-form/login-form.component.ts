@@ -8,6 +8,7 @@ import { Token } from '../shared/token.model';
 import {LocalStorageService} from 'ngx-webstorage';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Observable';
+import {LocalStService} from '../shared/localstorage.service';
 
 
 
@@ -21,14 +22,17 @@ import { Observable } from 'rxjs/Observable';
 export class LoginFormComponent implements OnInit {
   usertoken: Token;
   mytoken: string;
+  localtoken: string;
  
-  constructor(private router: Router, private tokenService: TokenService, private localSt: LocalStorageService)
+  constructor(private router: Router, private tokenService: TokenService, private localSt: LocalStService)
   {
     
    }
 
   ngOnInit() {
-    
+    if(this.checkToken()){
+      this.router.navigateByUrl('/admin');
+    }
   }
 
 data = {username: "",
@@ -37,6 +41,8 @@ isEmpty = false;
 
 wrongCheck = false;
 test = true;
+
+
        
         
 onLogIn(){
@@ -73,21 +79,15 @@ checkEmpty()
 if(!this.isEmpty){
   this.tokenService.getToken(this.data.username,this.data.password).subscribe(data => {
     this.mytoken=data;
-    this.setLocalStorage();
+    if(this.mytoken!=null){
+    this.localSt.setLocalStorage(this.mytoken);
     this.router.navigateByUrl('/admin')
+  }
   },
   error => { console.log("hello world"); console.log(error); });
   }
 
-setTimeout(()=>{
-if(this.mytoken!=null){
 
-  this.setLocalStorage();
-  this.router.navigateByUrl('/admin')
-
-}
-
-},1000)
 
  //.subscribe(data =>console.log(data));
  //alert(this.usertoken.tokenString.toString());
@@ -102,11 +102,22 @@ errorHandler(error: Response){
     
   }
   
-setLocalStorage(){
+checkToken(){
 
-this.localSt.store('token',this.mytoken);
+
+this.localtoken = this.localSt.getLocalStorage();
+
+if(this.localtoken!=null){
+  return true;
+}
+else{
+  return false;
+}
+
 
 }
+
+
 
 }
 

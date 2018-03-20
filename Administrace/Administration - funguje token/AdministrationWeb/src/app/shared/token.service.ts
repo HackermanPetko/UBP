@@ -19,7 +19,13 @@ export class TokenService {
     }
     getToken(username: string, password: string): Observable<any> {
 
-        return this.http.post('http://localhost:63699/api/Token',{username,password},this._options);
+        return this.http.post('http://localhost:63699/api/Login',{username,password},this._options);
+
+    }
+
+    checkToken(): Observable<any> {
+
+        return this.http.post('http://localhost:63699/api/Check',{},this._options);
 
     }
 

@@ -9,10 +9,11 @@ using System.Security.Claims;
 using System.Web;
 using System.Web.Http;
 using ServerAPI.Models;
-
+using System.Web.Http.Cors;
 
 namespace ServerAPI.Controllers
 {
+    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class LoginController : ApiController
             {
 
