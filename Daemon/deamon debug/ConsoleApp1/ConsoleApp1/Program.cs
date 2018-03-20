@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -12,6 +13,15 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+
+            //Console.WriteLine(NetworkInterface
+            //    .GetAllNetworkInterfaces()
+            //    .Where(nic => nic.OperationalStatus == OperationalStatus.Up && nic.NetworkInterfaceType != NetworkInterfaceType.Loopback)
+            //    .Select(nic => nic.GetPhysicalAddress().ToString())
+            //    .FirstOrDefault());
+
+
+            //Console.ReadLine();
             Config config2 = Config.GetConfig(4);
 
 
@@ -42,11 +52,11 @@ namespace ConsoleApp1
                             FullBackup.ToFTP(source.SourcePath, destination.DestinationAddress, destination.Port,
                                 destination.DestinationUser, destination.DestinationPassword, date);
                         }
-                        else if (destination.DestinationType == "SFTP")
-                        {
-                            FullBackup.ToSFTP(source.SourcePath, destination.DestinationAddress, Convert.ToInt32(destination.Port),
-                                destination.DestinationUser, destination.DestinationPassword, date);
-                        }
+                        //else if (destination.DestinationType == "SFTP")
+                        //{
+                        //    FullBackup.ToSFTP(source.SourcePath, destination.DestinationAddress, Convert.ToInt32(destination.Port),
+                        //        destination.DestinationUser, destination.DestinationPassword, date);
+                        //}
                     }
                 }
             }

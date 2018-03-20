@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddNewDaemon.cs" />
     <Compile Include="BackupTask.cs" />
     <Compile Include="BackupTypes\FullBackup.cs" />
     <Compile Include="Config.cs" />
