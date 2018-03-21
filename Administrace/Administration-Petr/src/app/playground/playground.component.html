@@ -1,4 +1,4 @@
-<mat-progress-bar mode="determinate" [value]="value1"></mat-progress-bar>
+<!--<mat-progress-bar mode="determinate" [value]="value1"></mat-progress-bar>
 <button type= "submit" [(ngModel)]="value1">Press</button>
 
 <hr>
@@ -20,4 +20,27 @@
 <mat-radio-group>
   <mat-radio-button value="1">Odečti </mat-radio-button>
   <mat-radio-button value="2">Sečti </mat-radio-button>
-</mat-radio-group>
+</mat-radio-group> -->
+asd
+ <button (click)='getData()'>Fetch Data</button>
+<table>
+  <tbody>
+    <tr>
+      <th>IDConfig</th>
+      <th>IdDaemon</th>
+      <th>LastChecked</th>
+      <th>Tasks</th>
+      <th>Comment</th>
+    </tr>
+    <tr *ngFor='let daemons of data | async'>
+      <td>{{daemons.Id}}</td>
+      <td>{{daemons.idDaemon}}</td>
+      <td>{{daemons.LastChecked}}</td>
+      <td>{{daemons.Tasks}}</td>
+      <td>{{daemons.Comment}}</td>
+
+    </tr>
+  </tbody>
+</table>
+
+<hr>

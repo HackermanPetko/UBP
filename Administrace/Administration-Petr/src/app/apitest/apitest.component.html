@@ -1,0 +1,22 @@
+<p>
+  apitest works!
+</p>
+<button (click)="getPosts()">posts</button>
+
+
+
+<div *ngFor = "let post of posts | async">
+
+  {{post | json }}
+
+ 
+
+</div>
+
+<button (click)="createPosts()">Create Post</button>
+
+{{ newPost | async | json}}
+
+
+
+<button (click)="post()">Post</button>
