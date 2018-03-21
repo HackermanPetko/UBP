@@ -6,6 +6,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { FormsModule } from '@angular/forms';
 import { AdminComponent } from './admin/admin.component';
 import { RouterModule, Routes } from '@angular/router';
+import {HttpClientModule} from '@angular/common/http';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
@@ -45,6 +46,9 @@ import {
 import {Component, ViewChild} from '@angular/core';
 import {MatPaginator, MatTableDataSource} from '@angular/material';
 import { PlaygroundComponent } from './playground/playground.component';
+import { DaemonsService } from './daemonsService.service';
+import { ApiTestComponent } from './apitest/apitest.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 
@@ -57,11 +61,14 @@ import { PlaygroundComponent } from './playground/playground.component';
     AppComponent,
     AdminComponent,
     PlaygroundComponent,
+    ApiTestComponent,
+
     
     
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
@@ -102,7 +109,7 @@ import { PlaygroundComponent } from './playground/playground.component';
     
     
   ],
-  providers: [],
+  providers: [DaemonsService],
   bootstrap: [AppComponent]
   ,
   exports: [

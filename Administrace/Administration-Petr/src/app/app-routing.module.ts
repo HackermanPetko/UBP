@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { AdminComponent } from './admin/admin.component';
 import { PlaygroundComponent } from './playground/playground.component';
+import { ApiTestComponent} from './apitest/apitest.component'
 
 const routes: Routes = [
   {   path: '',
@@ -14,6 +15,10 @@ const routes: Routes = [
   {
     path: 'playground',
     component: PlaygroundComponent
+  },
+  {
+    path: 'apitest',
+    component: ApiTestComponent
   }
 ];
 
