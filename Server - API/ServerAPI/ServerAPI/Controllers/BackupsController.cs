@@ -47,11 +47,11 @@ namespace ServerAPI.Controllers
             {
             Backup temp = this.context.Backups.Find(id);
 
-            temp.BackupType = backup.BackupType;
+            temp.IdTask = backup.IdTask;
             temp.Date = backup.Date;
             temp.ErrorMsg = backup.ErrorMsg;
             temp.Id = backup.Id;
-            temp.idDaemon = backup.idDaemon;
+            temp.IdDaemon = backup.IdDaemon;
             temp.LogLocation = backup.LogLocation;
             temp.State = backup.State;
 

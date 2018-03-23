@@ -54,7 +54,9 @@
   <ItemGroup>
     <Compile Include="AddNewDaemon.cs" />
     <Compile Include="BackupTask.cs" />
+    <Compile Include="BackupTypes\DifferentialBackup.cs" />
     <Compile Include="BackupTypes\FullBackup.cs" />
+    <Compile Include="BackupTypes\IncrementalBackup.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Destination.cs" />
     <Compile Include="Program.cs" />

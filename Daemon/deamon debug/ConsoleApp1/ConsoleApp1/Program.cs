@@ -44,19 +44,51 @@ namespace ConsoleApp1
                 foreach (Source source in task.Sources)
                 {
                     foreach (Destination destination in task.Destinations)
-                    {
-                        if (destination.DestinationType == "LOCAL")
+                    { //FullBackup
+                        if (destination.DestinationType == "LOCAL" && task.BackupType == 1)
                             FullBackup.ToLocal(source.SourcePath, destination.DestinationAddress,date);
-                        else if (destination.DestinationType == "FTP")
+                        else if (destination.DestinationType == "FTP" && task.BackupType == 1)
                         {
                             FullBackup.ToFTP(source.SourcePath, destination.DestinationAddress, destination.Port,
                                 destination.DestinationUser, destination.DestinationPassword, date);
                         }
-                        else if (destination.DestinationType == "SFTP")
+                        else if (destination.DestinationType == "SFTP" && task.BackupType == 1)
                         {
                             FullBackup.ToSFTP(source.SourcePath, destination.DestinationAddress, Convert.ToInt32(destination.Port),
                                 destination.DestinationUser, destination.DestinationPassword, date);
                         }
+
+                        //Differential
+                        else if (destination.DestinationType == "LOCAL" && task.BackupType == 2)
+                        {
+                            DifferentialBackup.ToLocal(source.SourcePath, destination.DestinationAddress,date);
+                        }
+                        //else if (destination.DestinationType == "FTP" && task.BackupType == 2)
+                        //{
+                        //    DifferentialBackup.ToFTP(source.SourcePath, destination.DestinationAddress, destination.Port,
+                        //      destination.DestinationUser, destination.DestinationPassword, date);
+                        //}
+                        //else if (destination.DestinationType == "SFTP" && task.BackupType == 2)
+                        //{
+                        //    DifferentialBackup.ToSFTP(source.SourcePath, destination.DestinationAddress, Convert.ToInt32(destination.Port),
+                        //        destination.DestinationUser, destination.DestinationPassword, date);
+                        //}
+
+                        //Incremental
+                        //else if (destination.DestinationType == "LOCAL" && task.BackupType == 3)
+                        //{
+                        //    IncrementalBackup.ToLocal(source.SourcePath, destination.DestinationAddress,date);
+                        //}
+                        //else if (destination.DestinationType == "FTP" && task.BackupType == 3)
+                        //{
+                        //    IncrementalBackup.ToFTP(source.SourcePath, destination.DestinationAddress, destination.Port,
+                        //        destination.DestinationUser, destination.DestinationPassword, date);
+                        //}
+                        //else if (destination.DestinationType == "SFTP" && task.BackupType == 3)
+                        //{
+                        //    IncrementalBackup.ToSFTP(source.SourcePath, destination.DestinationAddress, Convert.ToInt32(destination.Port),
+                        //        destination.DestinationUser, destination.DestinationPassword, date);
+                        //}
                     }
                 }
             }

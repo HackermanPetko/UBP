@@ -10,10 +10,10 @@ namespace ServerAPI.Models
     {
         [Key]
         public int Id { get; set; }
-        public int idDaemon { get; set; }
+        public int IdDaemon { get; set; }
+        public int IdTask { get; set; }
         public bool State { get; set; }
         public string ErrorMsg { get; set; }
-        public int BackupType {get; set; }
         public DateTime Date { get; set; }
         public string LogLocation { get; set; }
 
