@@ -21,6 +21,8 @@ namespace ServerAPI.Models
 
         public int RepeatInterval { get; set; }
 
+        public int MaxBackups { get; set; }
+
         [ForeignKey("IdTask")]
         public ICollection<Source> Sources { get; set; }
 

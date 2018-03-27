@@ -18,6 +18,8 @@ namespace ConsoleApp1
 
         public int RepeatInterval { get; set; }
 
+        public int MaxBackups { get; set; }
+
         public List<Source> Sources { get; set; }
 
         public List<Destination> Destinations { get; set; }

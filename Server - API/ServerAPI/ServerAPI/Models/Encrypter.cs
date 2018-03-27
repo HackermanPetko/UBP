@@ -11,7 +11,6 @@ namespace ServerAPI.Models
 
         static string myPassword="0";
         static string mySalt = "$2a$10$rBV2JDeWW3.vKyeQcM8fFO";
-        string myHash = "0";
 
        
         //mySalt == "$2a$10$rBV2JDeWW3.vKyeQcM8fFO"
