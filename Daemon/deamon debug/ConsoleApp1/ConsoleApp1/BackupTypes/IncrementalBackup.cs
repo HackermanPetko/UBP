@@ -23,7 +23,7 @@ namespace ConsoleApp1.BackupTypes
             }
             else if (backups.Count() >= maxbackups && maxbackups != 0)
             {
-                Log.CreateBackupsLog(destination);
+                Log.MoveLog(destination, backups);
                 FullBackup.ToLocal(source, destination, date);
             }
             else
