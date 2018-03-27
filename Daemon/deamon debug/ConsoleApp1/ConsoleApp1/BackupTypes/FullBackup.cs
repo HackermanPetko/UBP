@@ -19,8 +19,11 @@ namespace ConsoleApp1.BackupTypes
         {
             DirectoryInfo dirSource = new DirectoryInfo(source);
             DirectoryInfo dirDest = new DirectoryInfo(destination);
+            //1|Full|Source|Destination
 
             CopyAll(dirSource, dirDest.CreateSubdirectory(date).CreateSubdirectory(dirSource.Name));
+            int id = Log.GetBackups(destination, source).Where(x => x.Contains("|" + source + "|")).ToArray().Count() + 1;
+            Log.WriteBackup(id, "Full", source, destination, date, dirSource.Name);
         }
 
         private static void CopyAll(DirectoryInfo source, DirectoryInfo destination)
@@ -44,7 +47,7 @@ namespace ConsoleApp1.BackupTypes
         {
             DirectoryInfo dirSource = new DirectoryInfo(source);
 
-            string uri = "ftp://" + destination + ":" + port + "/" + date + "/" + dirSource.Name;
+            string uri = "ftp://" + destination + ":" + port + "/" + date + "\\" + dirSource.Name;
 
             NetworkCredential credentials = new NetworkCredential(user, password);
             Upload.FTPDirectory(uri, credentials);
@@ -57,14 +60,15 @@ namespace ConsoleApp1.BackupTypes
         {
             foreach (FileInfo file in dirSource.GetFiles())
             {
-                Upload.FTPFile(file, uri + "/" + file.Name, credentials);
+                Upload.FTPFile(file, uri + "\\" + file.Name, credentials);
             }
 
             foreach (DirectoryInfo dir in dirSource.GetDirectories())
             {
-                Upload.FTPDirectory(uri + "/" + dir.Name, credentials);
-                FTPUploadAll(dir, uri + "/" + dir.Name, credentials);
+                Upload.FTPDirectory(uri + "\\" + dir.Name, credentials);
+                FTPUploadAll(dir, uri + "\\" + dir.Name, credentials);
             }
+            
         }
 
         // SSH
@@ -79,7 +83,7 @@ namespace ConsoleApp1.BackupTypes
 
             Upload.SFTPDirectory(connection, destination);
 
-            destination = date + "/" + dirSource.Name;
+            destination = date + "\\" + dirSource.Name;
 
             Upload.SFTPDirectory(connection, destination);
 
@@ -96,8 +100,8 @@ namespace ConsoleApp1.BackupTypes
 
             foreach (DirectoryInfo dir in dirSource.GetDirectories())
             {
-                Upload.SFTPDirectory(connection, destination + "/" + dir.Name);
-                SFTPUploadAll(dir, connection, destination + "/" + dir.Name);
+                Upload.SFTPDirectory(connection, destination + "\\" + dir.Name);
+                SFTPUploadAll(dir, connection, destination + "\\" + dir.Name);
             }
         }
     }
