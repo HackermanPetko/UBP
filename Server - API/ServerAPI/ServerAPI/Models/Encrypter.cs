@@ -4,21 +4,38 @@ using System.Linq;
 using System.Web;
 
 
+
 namespace ServerAPI.Models
 {
     public class Encrypter
     {
 
-        static string myPassword="0";
-        static string mySalt = "$2a$10$rBV2JDeWW3.vKyeQcM8fFO";
-        string myHash = "0";
 
-       
-        //mySalt == "$2a$10$rBV2JDeWW3.vKyeQcM8fFO"
-        static string myHash = BCrypt.Net.BCrypt.HashPassword(myPassword, mySalt);
-        //myHash == "$2a$10$rBV2JDeWW3.vKyeQcM8fFO4777l4bVeQgDL6VIkxqlzQ7TCalQvla"
-        bool doesPasswordMatch = BCrypt.Net.BCrypt.Verify(myPassword,myHash);
+        public string HashPassword(string password)
+        {
 
+            string myPassword = password + "C?l1@`~x";
+            string mySalt = BCrypt.Net.BCrypt.GenerateSalt();
+            string hashed = BCrypt.Net.BCrypt.HashPassword(myPassword, mySalt); 
+
+                        
+            
+            return hashed;
+        }
+
+        public bool CheckPassword(string userPassword, string dbHash)
+        {
+
+            if (BCrypt.Net.BCrypt.Verify(userPassword + "C?l1@`~x", dbHash))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
 
     }
 }

@@ -261,6 +261,7 @@
     <Compile Include="Controllers\DaemonsController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\TokenController.cs" />
     <Compile Include="Models\Daemon.cs" />
     <Compile Include="Models\Backup.cs" />
     <Compile Include="Controllers\BackupsController.cs" />

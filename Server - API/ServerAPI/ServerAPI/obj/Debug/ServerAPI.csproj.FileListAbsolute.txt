@@ -610,3 +610,6 @@ C:\Users\Jara\Desktop\Projekt\UBP\Server - API\ServerAPI\ServerAPI\bin\System.We
 C:\Users\Daniel\Documents\GitHub\UBP\Server - API\ServerAPI\ServerAPI\bin\System.Web.Cors.dll
 C:\Users\Daniel\Documents\GitHub\UBP\Server - API\ServerAPI\ServerAPI\bin\System.Web.Http.Cors.dll
 C:\Users\Daniel\Documents\GitHub\UBP\Server - API\ServerAPI\ServerAPI\bin\System.Web.Http.Cors.xml
+C:\DEVELOPMENT\UBP\Server - API\ServerAPI\ServerAPI\bin\BCrypt.Net.dll
+C:\DEVELOPMENT\UBP\Server - API\ServerAPI\ServerAPI\bin\BCrypt.Net.pdb
+C:\DEVELOPMENT\UBP\Server - API\ServerAPI\ServerAPI\bin\BCrypt.Net.xml

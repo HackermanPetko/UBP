@@ -19,6 +19,7 @@ namespace ServerAPI.Controllers
 
         private TestContext context = new TestContext();
         private LoginRequest user = new LoginRequest();
+        private Encrypter crypt = new Encrypter();
 
         [HttpPost]
         public IHttpActionResult Authenticate([FromBody] LoginRequest login)
@@ -92,7 +93,7 @@ namespace ServerAPI.Controllers
         {
             User userFromDB = this.context.Users.Find(this.context.FindUser(username).ID);
 
-            if (userFromDB.Password == password)
+            if (this.crypt.CheckPassword(password,userFromDB.Password))
                 return true;
             else
                 return false;
