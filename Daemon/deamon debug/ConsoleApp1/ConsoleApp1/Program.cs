@@ -52,11 +52,11 @@ namespace ConsoleApp1
                             FullBackup.ToFTP(source.SourcePath, destination.DestinationAddress, destination.Port,
                                 destination.DestinationUser, destination.DestinationPassword, date);
                         }
-                        //else if (destination.DestinationType == "SFTP" && task.BackupType == 1)
-                        //{
-                        //    FullBackup.ToSFTP(source.SourcePath, destination.DestinationAddress, Convert.ToInt32(destination.Port),
-                        //        destination.DestinationUser, destination.DestinationPassword, date);
-                        //}
+                        else if (destination.DestinationType == "SFTP" && task.BackupType == 1)
+                        {
+                            FullBackup.ToSFTP(source.SourcePath, destination.DestinationAddress, Convert.ToInt32(destination.Port),
+                                destination.DestinationUser, destination.DestinationPassword, date);
+                        }
 
                         //Differential
                         else if (destination.DestinationType == "LOCAL" && task.BackupType == 2)

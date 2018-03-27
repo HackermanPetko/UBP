@@ -16,6 +16,7 @@ namespace ConsoleApp1
 
             if (!File.Exists(destination + "/backups.txt"))
             {
+
                 CreateBackupsLog(destination);
             }
 
@@ -34,14 +35,27 @@ namespace ConsoleApp1
         {
             using (StreamWriter writer = new StreamWriter(destination + "/" + file, true))
             {
-                File.SetAttributes(destination + "/backups.txt", FileAttributes.Normal);
+                File.SetAttributes(destination + "/" + file, FileAttributes.Normal);
                 writer.WriteLine(text);
             }
-            File.SetAttributes(destination + "/backups.txt", FileAttributes.Hidden);
+            File.SetAttributes(destination + "/" + file, FileAttributes.Hidden);
+        }
+
+        public static void MoveLog(string destination, string[] lines)
+        {
+            if(File.Exists(destination + "/backups.txt.old"))
+                File.SetAttributes(destination + "/backups.txt.old", FileAttributes.Normal);
+            File.AppendAllLines(destination + "/backups.txt.old", lines);
+            Log.CreateBackupsLog(destination);
+            File.SetAttributes(destination + "/backups.txt.old", FileAttributes.Hidden);
         }
 
         public static void CreateBackupsLog(string destination)
         {
+            if (File.Exists(destination + "/backups.txt"))
+            {
+                File.SetAttributes(destination + "/backups.txt", FileAttributes.Normal);
+            }
             File.Create(destination + "/backups.txt").Close();
             File.SetAttributes(destination + "/backups.txt", FileAttributes.Hidden);
         }
