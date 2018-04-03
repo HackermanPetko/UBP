@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using WinSCP;
 
 namespace ConsoleApp1.BackupTypes
 {
@@ -47,61 +48,86 @@ namespace ConsoleApp1.BackupTypes
         {
             DirectoryInfo dirSource = new DirectoryInfo(source);
 
-            string uri = "ftp://" + destination + ":" + port + "/" + date + "\\" + dirSource.Name;
+            string directory = date + "/" + dirSource.Name;
 
-            NetworkCredential credentials = new NetworkCredential(user, password);
-            Upload.FTPDirectory(uri, credentials);
+            //NetworkCredential credentials = new NetworkCredential(user, password);
+            //Upload.FTPDirectory(uri, credentials);
 
-            FTPUploadAll(dirSource, uri, credentials);
+            SessionOptions sessionOptions = new SessionOptions()
+            {
+                Protocol = Protocol.Ftp,
+                HostName = destination,
+                PortNumber = Convert.ToInt32(port),
+                UserName = user,
+                Password = password
+            };
+
+            Upload.CreateDirectory(sessionOptions, directory);
+
+            //FTPUploadAll(dirSource, uri, credentials);
+            FTPUploadAll(sessionOptions, dirSource, directory);
         }
 
 
-        private static void FTPUploadAll(DirectoryInfo dirSource, string uri, NetworkCredential credentials)
+        private static void FTPUploadAll(SessionOptions sessionOptions, DirectoryInfo dirSource, string destination)//DirectoryInfo dirSource, string uri, NetworkCredential credentials)
         {
             foreach (FileInfo file in dirSource.GetFiles())
             {
-                Upload.FTPFile(file, uri + "\\" + file.Name, credentials);
+                Upload.UploadFile(sessionOptions, destination, file.FullName);
+                //Upload.FTPFile(file, uri + "\\" + file.Name, credentials);
             }
 
             foreach (DirectoryInfo dir in dirSource.GetDirectories())
             {
-                Upload.FTPDirectory(uri + "\\" + dir.Name, credentials);
-                FTPUploadAll(dir, uri + "\\" + dir.Name, credentials);
+                Upload.CreateDirectory(sessionOptions, destination + "/" + dir.Name);
+                FTPUploadAll(sessionOptions, dir, destination + "/" + dir.Name);
+                //Upload.FTPDirectory(uri + "\\" + dir.Name, credentials);
+                //FTPUploadAll(dir, uri + "\\" + dir.Name, credentials);
             }
             
         }
 
         // SSH
 
-        public static void ToSFTP(string source, string host, int port, string user, string password, string date)
+        public static void ToSFTP(string source, string destination, int port, string user, string password, string date)
         {
             DirectoryInfo dirSource = new DirectoryInfo(source);
 
-            ConnectionInfo connection = new ConnectionInfo(host, port, user, new PasswordAuthenticationMethod(user, password));
+            string directory = date + "/" + dirSource.Name;
 
-            string destination = date;
+            //NetworkCredential credentials = new NetworkCredential(user, password);
+            //Upload.FTPDirectory(uri, credentials);
 
-            Upload.SFTPDirectory(connection, destination);
+            SessionOptions sessionOptions = new SessionOptions()
+            {
+                Protocol = Protocol.Ftp,
+                HostName = destination,
+                PortNumber = Convert.ToInt32(port),
+                UserName = user,
+                Password = password
+            };
 
-            destination = date + "\\" + dirSource.Name;
+            Upload.CreateDirectory(sessionOptions, directory);
 
-            Upload.SFTPDirectory(connection, destination);
-
-            SFTPUploadAll(dirSource, connection, destination);
+            //FTPUploadAll(dirSource, uri, credentials);
+            SFTPUploadAll(sessionOptions, dirSource, directory);
         }
 
 
-        private static void SFTPUploadAll(DirectoryInfo dirSource, ConnectionInfo connection,string destination)
+        private static void SFTPUploadAll(SessionOptions sessionOptions, DirectoryInfo dirSource, string destination)
         {
             foreach (FileInfo file in dirSource.GetFiles())
             {
-                Upload.SFTPFile(connection,file.FullName, destination);
+                Upload.UploadFile(sessionOptions, destination, file.FullName);
+                //Upload.FTPFile(file, uri + "\\" + file.Name, credentials);
             }
 
             foreach (DirectoryInfo dir in dirSource.GetDirectories())
             {
-                Upload.SFTPDirectory(connection, destination + "\\" + dir.Name);
-                SFTPUploadAll(dir, connection, destination + "\\" + dir.Name);
+                Upload.CreateDirectory(sessionOptions, destination + "/" + dir.Name);
+                SFTPUploadAll(sessionOptions, dir, destination + "/" + dir.Name);
+                //Upload.FTPDirectory(uri + "\\" + dir.Name, credentials);
+                //FTPUploadAll(dir, uri + "\\" + dir.Name, credentials);
             }
         }
     }
