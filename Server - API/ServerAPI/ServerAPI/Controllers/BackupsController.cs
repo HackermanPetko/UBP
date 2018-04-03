@@ -38,7 +38,22 @@ namespace ServerAPI.Controllers
         // POST: api/Backups
         public void Post(Backup backup)
         {
-            this.context.Backups.Add(backup);
+            Backup temp = this.context.Backups.Find(backup.Id);
+
+            if (temp != null)
+            {
+                temp.Id = backup.Id;
+                temp.IdDaemon = backup.IdDaemon;
+                temp.IdTask = backup.IdTask;
+                temp.LogLocation = backup.LogLocation;
+                temp.State = backup.State;
+                temp.Date = backup.Date;
+                temp.ErrorMsg = backup.ErrorMsg;
+            }
+            else
+            {
+                this.context.Backups.Add(backup);
+            }
             this.context.SaveChanges();
         }
 

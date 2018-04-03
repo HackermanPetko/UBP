@@ -39,7 +39,23 @@ namespace ServerAPI.Controllers
         // POST: api/Config
         public void Post(Config config)
         {
-            this.context.Configs.Add(config);
+            Config temp = this.context.Configs.Find(config.Id);
+
+            if (temp != null)
+            {
+                temp.Id = config.Id;
+                temp.idDaemon = config.idDaemon;
+                temp.LastChecked = config.LastChecked;
+                temp.Comment = config.Comment;
+                temp.TimeStamp = config.TimeStamp;
+
+
+            }
+            else
+            {
+              this.context.Configs.Add(config);
+            }
+            
             this.context.SaveChanges();
         }
 

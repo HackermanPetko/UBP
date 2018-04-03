@@ -37,7 +37,22 @@ namespace ServerAPI.Controllers
         // POST: api/Daemons
         public void Post(Daemon daemon)
         {
-            this.context.Daemons.Add(daemon);
+            Daemon temp = this.context.Daemons.Find(daemon.Id);
+
+            if (temp != null)
+            {
+                temp.Id = daemon.Id;
+                temp.IsNew = daemon.IsNew;
+                temp.LastConnected = daemon.LastConnected;
+                temp.DaemonName = daemon.DaemonName;
+                temp.DaemonMAC = daemon.DaemonMAC;
+                temp.Comment = daemon.Comment;
+
+            }
+            else
+            {
+                this.context.Daemons.Add(daemon);
+            }
             this.context.SaveChanges();
         }
 
