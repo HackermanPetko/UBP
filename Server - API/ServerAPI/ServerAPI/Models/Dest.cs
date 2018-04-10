@@ -7,7 +7,8 @@ using System.Web;
 
 namespace ServerAPI.Models
 {
-    public class Destination
+    [Table("Destination")]
+    public class Dest
     {
         [Key]
         public int Id { get; set; }
@@ -15,6 +16,8 @@ namespace ServerAPI.Models
         public int IdTask { get; set; }
 
         public string DestinationType { get; set; }
+
+        public string Destination { get; set; }
 
         public string DestinationAddress { get; set; }
 

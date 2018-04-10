@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    public class Source
+    public class Sources
     {
         public int Id { get; set; }
 

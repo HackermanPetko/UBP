@@ -4,12 +4,13 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WinSCP;
 
 namespace ConsoleApp1
 {
     public class Log
     {
-        public static string[] GetBackups(string destination, string source)
+        public static string[] GetBackups(string destination)
         {
 
             Directory.CreateDirectory(destination);
@@ -60,5 +61,75 @@ namespace ConsoleApp1
             File.SetAttributes(destination + "/backups.txt", FileAttributes.Hidden);
         }
 
+        public static string[] GetRemoteBackups(SessionOptions sessionOptions, string destination)
+        {
+            List<string> backups = new List<string>();
+            using (Session session = new Session())
+            {
+                session.Open(sessionOptions);
+
+                Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "UBP"));
+
+                session.GetFiles("./" + destination + "/backups.txt", Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "UBP/backups.txt"));
+                if (File.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "UBP/backups.txt")))
+                {
+                    foreach(string item in File.ReadAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "UBP/backups.txt")))
+                    {
+                        backups.Add(item);
+                    }
+                    File.Delete(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "UBP/backups.txt"));
+                }
+            }
+            return backups.ToArray();
+        }
+
+        public static void WriteRemoteBackup(SessionOptions sessionOptions, int id, string type, string source, string destination,string destaddres, string port, string date, string directoryname)
+        {
+            using (Session session = new Session())
+            {
+                session.Open(sessionOptions);
+
+                session.GetFiles("./" + destination + "/backups.txt", Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "UBP/backups.txt"));
+
+                using (StreamWriter writer = new StreamWriter(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "UBP/backups.txt"), true))
+                {
+                    writer.WriteLine($@"{id}|{type}|{source}|{destination}:{port}\{destaddres}\{date}\{directoryname}");
+                }
+                session.PutFiles(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "UBP/backups.txt"), "./" + destaddres + "/backups.txt");
+
+                File.Delete(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "UBP/backups.txt"));
+            }
+        }
+
+        public static void MoveRemoteLog(SessionOptions sessionOptions,string destination, string[] lines)
+        {
+            using (Session session = new Session())
+            {
+                session.Open(sessionOptions);
+
+                
+
+                if (session.FileExists("./" + destination + "/backups.txt.old"))
+                    session.GetFiles("./" + destination + "/backups.txt.old", @"%appdata%\Local\BP\backups.txt.old");
+
+                File.AppendAllLines(@"%appdata%\Local\UBP\backups.txt.old", lines);
+                Log.CreateRemoteBackupsLog(sessionOptions,destination);
+
+                session.PutFiles(@"%appdata%\Local\UBP\backups.txt.old", "./" + destination + "/backups.txt.old");
+            }
+        }
+
+        public static void CreateRemoteBackupsLog(SessionOptions sessionOptions, string destination)
+        {
+            using (Session session = new Session())
+            {
+                session.Open(sessionOptions);
+
+                File.Create(@"\%appdata%\Local\UBP\backups.txt").Close();
+
+                session.PutFiles(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "UBP/backups.txt"), "./" + destination + "/backups.txt");
+
+            }
+        }
     }
 }

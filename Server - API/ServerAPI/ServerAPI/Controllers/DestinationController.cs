@@ -24,12 +24,12 @@ namespace ServerAPI.Controllers
 
 
         // GET: api/Destination/5
-        public List<Destination> Get(int id)
+        public List<Dest> Get(int id)
         {
-            List<Destination> destinations = this.context.Destinations.ToList();
-            List<Destination> result = new List<Destination>();
+            List<Dest> destinations = this.context.Destinations.ToList();
+            List<Dest> result = new List<Dest>();
 
-            foreach(Destination dest in destinations)
+            foreach(Dest dest in destinations)
             {
                 if (dest.IdTask == id)
                 {
@@ -44,9 +44,9 @@ namespace ServerAPI.Controllers
         }
 
         // POST: api/Destination
-        public void Post(Destination destination)
+        public void Post(Dest destination)
         {
-            Destination temp = this.context.Destinations.Find(destination.Id);
+            Dest temp = this.context.Destinations.Find(destination.Id);
 
             if (temp != null)
             {

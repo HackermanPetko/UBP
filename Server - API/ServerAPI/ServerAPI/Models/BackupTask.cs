@@ -27,6 +27,6 @@ namespace ServerAPI.Models
         public ICollection<Source> Sources { get; set; }
 
         [ForeignKey("IdTask")]
-        public ICollection<Destination> Destinations { get; set; }
+        public ICollection<Dest> Destinations { get; set; }
     }
 }

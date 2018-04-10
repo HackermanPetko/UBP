@@ -20,8 +20,8 @@ namespace ConsoleApp1
 
         public int MaxBackups { get; set; }
 
-        public List<Source> Sources { get; set; }
+        public List<Sources> Sources { get; set; }
 
-        public List<Destination> Destinations { get; set; }
+        public List<Destinations> Destinations { get; set; }
     }
 }

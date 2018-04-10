@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    public class Config
+    public class Configs
     {
         public int Id { get; set; }
 
@@ -23,33 +23,33 @@ namespace ConsoleApp1
 
         public List<BackupTask> Tasks { get; set; }
 
-        private Config()
+        private Configs()
         {
 
         }
 
-        private static async Task<Config> LoadConfig(int id)
+        private static async Task<Configs> LoadConfig(int id)
         {
             HttpClient client = new HttpClient();
 
 
             // předání tokenu
-            client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IkRlbW8iLCJuYmYiOjE1MjIxNTgyMjEsImV4cCI6MTUyMjc2MzAyMSwiaWF0IjoxNTIyMTU4MjIxLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjYzNjk5IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo2MzY5OSJ9.yIhQXvPxzmvcOpwEl9GpgyevXgdiW9B8F6txcLj8kkk");
+            client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlRvbSIsIm5iZiI6MTUyMzM1MDc5OCwiZXhwIjoxNTIzOTU1NTk4LCJpYXQiOjE1MjMzNTA3OTgsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NjM2OTkiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjYzNjk5In0.QsQqpBfYrE7C32_yLaGktOKscxF2X6yxmU8-FhkWUBw");
 
             string json = await client.GetStringAsync($"http://localhost:63699/api/config/{id}");
 
-            Config config = JsonConvert.DeserializeObject<Config>(json);
+            Configs config = JsonConvert.DeserializeObject<Configs>(json);
 
 
             return config;
 
         }
 
-        public static Config GetConfig(int id)
+        public static Configs GetConfig(int id)
         {
             var task = LoadConfig(id);
             task.Wait();
-            Config config = task.Result;
+            Configs config = task.Result;
 
             return config;
         }
@@ -71,13 +71,13 @@ namespace ConsoleApp1
 
         }
 
-        public static Config LoadConfigLocal()
+        public static Configs LoadConfigLocal()
         {
-            Config config;
+            Configs config;
             string path = @"C:\UBP\Config.json";
             string content = File.ReadAllText(path);
 
-            config = JsonConvert.DeserializeObject<Config>(content);
+            config = JsonConvert.DeserializeObject<Configs>(content);
 
 
             return config;

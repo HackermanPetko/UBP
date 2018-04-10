@@ -23,7 +23,7 @@ namespace ConsoleApp1.BackupTypes
             //1|Full|Source|Destination
 
             CopyAll(dirSource, dirDest.CreateSubdirectory(date).CreateSubdirectory(dirSource.Name));
-            int id = Log.GetBackups(destination, source).Where(x => x.Contains("|" + source + "|")).ToArray().Count() + 1;
+            int id = Log.GetBackups(destination).Where(x => x.Contains("|" + source + "|")).ToArray().Count() + 1;
             Log.WriteBackup(id, "Full", source, destination, date, dirSource.Name);
         }
 
@@ -44,11 +44,11 @@ namespace ConsoleApp1.BackupTypes
 
         //FTP
 
-        public static void ToFTP(string source, string destination, string port, string user, string password, string date)
+        public static void ToFTP(string source, string destination,string destaddres, string port, string user, string password, string date)
         {
             DirectoryInfo dirSource = new DirectoryInfo(source);
 
-            string directory = date + "/" + dirSource.Name;
+            string directory = destaddres + "/" + date + "/" + dirSource.Name;
 
             //NetworkCredential credentials = new NetworkCredential(user, password);
             //Upload.FTPDirectory(uri, credentials);
@@ -66,6 +66,9 @@ namespace ConsoleApp1.BackupTypes
 
             //FTPUploadAll(dirSource, uri, credentials);
             FTPUploadAll(sessionOptions, dirSource, directory);
+            int id = Log.GetRemoteBackups(sessionOptions, destaddres).Where(x => x.Contains("|" + source + "|")).ToArray().Count() + 1;
+            Log.WriteRemoteBackup(sessionOptions,id, "Full", source, destination, destaddres, port, date, dirSource.Name);
+
         }
 
 
@@ -73,7 +76,7 @@ namespace ConsoleApp1.BackupTypes
         {
             foreach (FileInfo file in dirSource.GetFiles())
             {
-                Upload.UploadFile(sessionOptions, destination, file.FullName);
+                Upload.UploadFile(sessionOptions, destination + "/" + file.Name, file.FullName);
                 //Upload.FTPFile(file, uri + "\\" + file.Name, credentials);
             }
 
@@ -89,28 +92,32 @@ namespace ConsoleApp1.BackupTypes
 
         // SSH
 
-        public static void ToSFTP(string source, string destination, int port, string user, string password, string date)
+        public static void ToSFTP(string source, string destination, string destaddres, int port, string user, string password, string date)
         {
             DirectoryInfo dirSource = new DirectoryInfo(source);
 
-            string directory = date + "/" + dirSource.Name;
+            string directory = destaddres + "/" + date + "/" + dirSource.Name;
 
             //NetworkCredential credentials = new NetworkCredential(user, password);
             //Upload.FTPDirectory(uri, credentials);
 
             SessionOptions sessionOptions = new SessionOptions()
             {
-                Protocol = Protocol.Ftp,
+                Protocol = Protocol.Sftp,
                 HostName = destination,
                 PortNumber = Convert.ToInt32(port),
                 UserName = user,
-                Password = password
+                Password = password,
+                GiveUpSecurityAndAcceptAnySshHostKey = true
+                //SshHostKeyFingerprint = "ssh-rsa-82-0c-e8-9a-b6-30-30-ed-a0-0e-12-e8-eb-02-97-35-57-39-7c-72"
+
             };
 
             Upload.CreateDirectory(sessionOptions, directory);
 
-            //FTPUploadAll(dirSource, uri, credentials);
             SFTPUploadAll(sessionOptions, dirSource, directory);
+            int id = Log.GetRemoteBackups(sessionOptions, destaddres).Where(x => x.Contains("|" + source + "|")).ToArray().Count() + 1;
+            Log.WriteRemoteBackup(sessionOptions, id, "Full", source, destination, destaddres, Convert.ToString(port), date, dirSource.Name);
         }
 
 
@@ -118,7 +125,7 @@ namespace ConsoleApp1.BackupTypes
         {
             foreach (FileInfo file in dirSource.GetFiles())
             {
-                Upload.UploadFile(sessionOptions, destination, file.FullName);
+                Upload.UploadFile(sessionOptions, destination + "/" + file.Name, file.FullName);
                 //Upload.FTPFile(file, uri + "\\" + file.Name, credentials);
             }
 

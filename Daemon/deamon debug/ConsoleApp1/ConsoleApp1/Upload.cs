@@ -105,7 +105,7 @@ namespace ConsoleApp1
                 transferOptions.TransferMode = TransferMode.Binary;
 
                 //transferResult = session.GetFiles(destination, @"d:\download\", false, transferOptions);
-                session.PutFiles(source, destination, false, transferOptions);
+                session.PutFiles(source, "./" + destination, false, transferOptions);
             }
         }
 
@@ -115,8 +115,9 @@ namespace ConsoleApp1
             {
                 session.Open(options);
 
-                session.CreateDirectory(destination);
+                session.CreateDirectory("./" + destination);
             }
         }
+
     }
 }

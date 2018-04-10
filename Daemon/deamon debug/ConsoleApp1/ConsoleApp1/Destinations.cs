@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    public class Destination
+    public class Destinations
     {
         public int Id { get; set; }
 
         public int IdTask { get; set; }
 
         public string DestinationType { get; set; }
+
+        public string Destination { get; set; }
 
         public string DestinationAddress { get; set; }
 
