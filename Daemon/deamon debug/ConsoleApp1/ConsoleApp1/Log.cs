@@ -67,17 +67,21 @@ namespace ConsoleApp1
             using (Session session = new Session())
             {
                 session.Open(sessionOptions);
+                TransferOptions options = new TransferOptions();
+                options.TransferMode = TransferMode.Binary;
+                options.OverwriteMode = OverwriteMode.Overwrite;
 
                 Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "UBP"));
 
-                session.GetFiles("./" + destination + "/backups.txt", Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "UBP/backups.txt"));
-                if (File.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "UBP/backups.txt")))
+                session.GetFiles("./" + destination + "/backups.txt", Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), @"UBP\backups.txt"),false, options);
+                if (File.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), @"UBP\backups.txt")))
                 {
-                    foreach(string item in File.ReadAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "UBP/backups.txt")))
+                    foreach(string item in File.ReadAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), @"UBP\backups.txt")))
                     {
                         backups.Add(item);
                     }
-                    File.Delete(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "UBP/backups.txt"));
+
+                    
                 }
             }
             return backups.ToArray();
@@ -89,15 +93,16 @@ namespace ConsoleApp1
             {
                 session.Open(sessionOptions);
 
-                session.GetFiles("./" + destination + "/backups.txt", Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "UBP/backups.txt"));
+                TransferOptions options = new TransferOptions();
+                options.TransferMode = TransferMode.Binary;
+                options.OverwriteMode = OverwriteMode.Overwrite;
 
-                using (StreamWriter writer = new StreamWriter(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "UBP/backups.txt"), true))
+                using (StreamWriter writer = new StreamWriter(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), @"UBP\backups.txt"),true))
                 {
                     writer.WriteLine($@"{id}|{type}|{source}|{destination}:{port}\{destaddres}\{date}\{directoryname}");
                 }
-                session.PutFiles(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "UBP/backups.txt"), "./" + destaddres + "/backups.txt");
-
-                File.Delete(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "UBP/backups.txt"));
+                session.PutFiles(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), @"UBP\backups.txt"), "./" + destaddres + "/backups.txt",true, options);
+                File.Delete(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), @"UBP\backups.txt"));
             }
         }
 
@@ -107,15 +112,16 @@ namespace ConsoleApp1
             {
                 session.Open(sessionOptions);
 
-                
+                TransferOptions options = new TransferOptions();
+                options.TransferMode = TransferMode.Binary;
+                options.OverwriteMode = OverwriteMode.Overwrite;
 
-                if (session.FileExists("./" + destination + "/backups.txt.old"))
-                    session.GetFiles("./" + destination + "/backups.txt.old", @"%appdata%\Local\BP\backups.txt.old");
+                if (session.FileExists("./" + destination + @"/backups.txt.old"))
+                    session.GetFiles("./" + destination + @"/backups.txt.old", Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), @"UBP\backups.txt.old"), false, options);
 
-                File.AppendAllLines(@"%appdata%\Local\UBP\backups.txt.old", lines);
+                File.AppendAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), @"UBP\backups.txt.old"), lines);
                 Log.CreateRemoteBackupsLog(sessionOptions,destination);
-
-                session.PutFiles(@"%appdata%\Local\UBP\backups.txt.old", "./" + destination + "/backups.txt.old");
+                session.PutFiles(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), @"UBP\backups.txt.old"), "./" + destination + @"/backups.txt.old",true, options);
             }
         }
 
@@ -123,11 +129,13 @@ namespace ConsoleApp1
         {
             using (Session session = new Session())
             {
+                TransferOptions options = new TransferOptions();
+                options.TransferMode = TransferMode.Binary;
+                options.OverwriteMode = OverwriteMode.Overwrite;
                 session.Open(sessionOptions);
+                File.Create(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), @"UBP\backups.txt")).Close();
 
-                File.Create(@"\%appdata%\Local\UBP\backups.txt").Close();
-
-                session.PutFiles(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "UBP/backups.txt"), "./" + destination + "/backups.txt");
+                session.PutFiles(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), @"UBP\backups.txt"), "./" + destination + "/backups.txt",true,options);
 
             }
         }
