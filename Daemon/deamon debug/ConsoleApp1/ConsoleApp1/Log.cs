@@ -70,7 +70,6 @@ namespace ConsoleApp1
                 TransferOptions options = new TransferOptions();
                 options.TransferMode = TransferMode.Binary;
                 options.OverwriteMode = OverwriteMode.Overwrite;
-
                 Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "UBP"));
 
                 session.GetFiles("./" + destination + "/backups.txt", Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), @"UBP\backups.txt"),false, options);

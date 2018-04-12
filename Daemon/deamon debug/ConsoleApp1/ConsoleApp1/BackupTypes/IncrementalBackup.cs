@@ -85,13 +85,27 @@ namespace ConsoleApp1.BackupTypes
 
                 string[] fullbackup = backups.Last().Split('\\');
                 string fullbackupdate = fullbackup[fullbackup.Count() - 2];
-                RemoteCopyChanged(sessionOptions, dirSource, destaddres, DateTime.ParseExact(fullbackupdate, "yyyy_MM_dd-HH_mm_ss", CultureInfo.InvariantCulture),date);
+                StartRemoteCopyChanged(sessionOptions, dirSource, destaddres, DateTime.ParseExact(fullbackupdate, "yyyy_MM_dd-HH_mm_ss", CultureInfo.InvariantCulture),date);
                 int id = backups.Count() + 1;
                 Log.WriteRemoteBackup(sessionOptions, id, "Incremental", source, destination, destaddres, port, date, dirSource.Name);
             }
 
         }
 
+        private static void StartRemoteCopyChanged(SessionOptions sessionOptions, DirectoryInfo source, string destaddres, DateTime lastbackup, string date)
+        {
+            using (Session session = new Session())
+            {
+                session.Open(sessionOptions);
+
+
+                if (source.GetFiles().Where(x => x.LastWriteTime > lastbackup).Count() != 0)
+                    session.CreateDirectory($@"./{destaddres}/{date}/{source.Name}");
+
+                RemoteCopyChanged(sessionOptions, source, $@"./{destaddres}/{date}/{source.Name}", lastbackup, date);
+
+            }
+        }
 
         private static void RemoteCopyChanged(SessionOptions sessionOptions, DirectoryInfo source, string destaddres, DateTime lastbackup, string date)
         {
@@ -103,13 +117,11 @@ namespace ConsoleApp1.BackupTypes
 
                 foreach (FileInfo item in source.GetFiles().Where(x => x.LastWriteTime > lastbackup))
                 {
-                    if (!session.FileExists($@"./{destaddres}/{date}/{source.Name}"))
-                        session.CreateDirectory($@"./{destaddres}/{date}/{source.Name}");
-                    Upload.UploadFile(sessionOptions, $@"./{destaddres}/{date}/{source.Name}/{item.Name}", item.FullName);
+                    Upload.UploadFile(sessionOptions, $@"{destaddres}/{item.Name}", item.FullName);
                 }
                 foreach (DirectoryInfo item in source.GetDirectories().Where(x => x.LastWriteTime > lastbackup))
                 {
-                    RemoteCopyChanged(sessionOptions, item, destaddres + $"/{item.Name}", lastbackup, date);
+                    RemoteCopyChanged(sessionOptions, item, $"{destaddres}/{item.Name}", lastbackup, date);
                 }
             }
         }
@@ -150,7 +162,7 @@ namespace ConsoleApp1.BackupTypes
             {
                 string[] fullbackup = backups.Last().Split('\\');
                 string fullbackupdate = fullbackup[fullbackup.Count() - 2];
-                RemoteCopyChanged(sessionOptions, dirSource, destaddres, DateTime.ParseExact(fullbackupdate, "yyyy_MM_dd-HH_mm_ss", CultureInfo.InvariantCulture),date);
+                StartRemoteCopyChanged(sessionOptions, dirSource, destaddres, DateTime.ParseExact(fullbackupdate, "yyyy_MM_dd-HH_mm_ss", CultureInfo.InvariantCulture),date);
                 int id = backups.Count() + 1;
                 Log.WriteRemoteBackup(sessionOptions, id, "Incremental", source, destination,destaddres,port, date, dirSource.Name);
             }
