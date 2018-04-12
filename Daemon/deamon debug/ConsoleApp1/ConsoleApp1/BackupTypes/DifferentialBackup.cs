@@ -87,8 +87,7 @@ namespace ConsoleApp1.BackupTypes
                 using (Session session = new Session())
                 {
                     session.Open(sessionOptions);
-                    if (!session.FileExists($@"./{destaddres}/{date}/{dirSource.Name}"))
-                        session.CreateDirectory($@"./{destaddres}/{date}/{dirSource.Name}");
+                   
                 }
                 string[] fullbackup = backups.First().Split('\\');
                 string fullbackupdate = fullbackup[fullbackup.Count() - 2];
@@ -110,11 +109,13 @@ namespace ConsoleApp1.BackupTypes
 
                 foreach (FileInfo item in source.GetFiles().Where(x => x.LastWriteTime > lastbackup))
                 {
-                    Upload.UploadFile(sessionOptions, $@"./{destaddres}/{date}/{source.Name}", item.FullName);
+                    if (!session.FileExists($@"./{destaddres}/{date}/{source.Name}"))
+                        session.CreateDirectory($@"./{destaddres}/{date}/{source.Name}");
+                    Upload.UploadFile(sessionOptions, $@"./{destaddres}/{date}/{source.Name}/{item.Name}", item.FullName);
                 }
                 foreach (DirectoryInfo item in source.GetDirectories().Where(x => x.LastWriteTime > lastbackup))
                 {
-                    RemoteCopyChanged(sessionOptions,item, destaddres, lastbackup, date);
+                    RemoteCopyChanged(sessionOptions,item, destaddres + $"/{item.Name}", lastbackup, date);
                 }
             }
         }
