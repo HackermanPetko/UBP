@@ -26,10 +26,26 @@ namespace ServerAPI.Controllers
         //}
 
         // GET: api/Task/5
-        public List<BackupTask> Get()
+        public List<BackupTask> Get(int id)
         {
-           
-            return this.context.Tasks.ToList();
+
+            {
+                List<BackupTask> tasks = this.context.Tasks.ToList();
+                List<BackupTask> result = new List<BackupTask>();
+
+                foreach (BackupTask task in tasks)
+                {
+                    if (task.IdConfig == id)
+                    {
+                        result.Add(task);
+                        continue;
+                    }
+
+                }
+
+                return result;
+
+            }
 
         }
 
