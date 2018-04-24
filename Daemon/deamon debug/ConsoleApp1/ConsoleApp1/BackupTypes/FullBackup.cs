@@ -37,8 +37,10 @@ namespace ConsoleApp1.BackupTypes
             }
             else
             {
-                ZipFile.CreateFromDirectory(source, destination + "\\" + date + "_" + dirSource.Name +  ".zip",compression,false);
-
+                Directory.CreateDirectory(destination + "\\" + date);
+                ZipFile.CreateFromDirectory(source, "C:\\UBP\\" + date + "_" + dirSource.Name + ".zip", compression, false);
+                File.Copy("C:\\UBP\\" + date + "_" + dirSource.Name + ".zip", destination + "\\" + date + "\\" + dirSource.Name + ".zip");
+                File.Delete("C:\\UBP\\" + date + "_" + dirSource.Name + ".zip");
             }
             int id = Log.GetBackups(destination).Where(x => x.Contains("|" + source + "|")).ToArray().Count() + 1;
             Log.WriteBackup(id, "Full", source, destination, date, dirSource.Name);
@@ -86,16 +88,18 @@ namespace ConsoleApp1.BackupTypes
                 Password = password
             };
 
-            Upload.CreateDirectory(sessionOptions, directory);
 
             if (format == 0)
             {
+                Upload.CreateDirectory(sessionOptions, directory);
                 FTPUploadAll(sessionOptions, dirSource, directory);
             }
             else
             {
+                Upload.CreateDirectory(sessionOptions, destaddres + "/" + date);
                 ZipFile.CreateFromDirectory(source, "C:\\UBP\\" + date + "_" + dirSource.Name + ".zip", compression, false);
-                Upload.UploadFile(sessionOptions, destaddres, "C:\\UBP\\" + date + "_" + dirSource.Name + ".zip");
+                Upload.UploadFile(sessionOptions, destaddres + "/" + date + "/" + dirSource.Name + ".zip", "C:\\UBP\\" + date + "_" + dirSource.Name + ".zip");
+                File.Delete("C:\\UBP\\" + date + "_" + dirSource.Name + ".zip");
             }
 
             //FTPUploadAll(dirSource, uri, credentials);
@@ -154,16 +158,19 @@ namespace ConsoleApp1.BackupTypes
 
             };
 
-            Upload.CreateDirectory(sessionOptions, directory);
+
 
             if (format == 0)
             {
+                Upload.CreateDirectory(sessionOptions, directory);
                 SFTPUploadAll(sessionOptions, dirSource, directory);
             }
             else
             {
+                Upload.CreateDirectory(sessionOptions, destaddres + "/" + date);
                 ZipFile.CreateFromDirectory(source, "C:\\UBP\\" + date + "_" + dirSource.Name + ".zip", compression, false);
-                Upload.UploadFile(sessionOptions, destaddres, "C:\\UBP\\" + date + "_" + dirSource.Name + ".zip");
+                Upload.UploadFile(sessionOptions, destaddres + "/" + date + "/" + dirSource.Name + ".zip", "C:\\UBP\\" + date + "_" + dirSource.Name + ".zip");
+                File.Delete("C:\\UBP\\" + date + "_" + dirSource.Name + ".zip");
             }
             int id = Log.GetRemoteBackups(sessionOptions, destaddres).Where(x => x.Contains("|" + source + "|")).ToArray().Count() + 1;
             Log.WriteRemoteBackup(sessionOptions, id, "Full", source, destination, destaddres, Convert.ToString(port), date, dirSource.Name);

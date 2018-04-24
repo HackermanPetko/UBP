@@ -31,20 +31,9 @@ namespace ServerAPI.Controllers
         }
 
         // GET: api/Config/5
-        public List<Config> Get(int id)
+        public Config Get(int id)
         {
-            List<Config> configs = this.context.Configs.ToList();
-            List<Config> result = new List<Config>();
-
-            foreach (Config conf in configs)
-            {
-                if (conf.idDaemon == id)
-                {
-                    result.Add(conf);
-                }
-            }
-
-            return result;
+            return this.context.Configs.Where(x => x.Id == id).ToList().First();
         }
 
         // POST: api/Config

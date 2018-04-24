@@ -34,7 +34,7 @@ namespace ConsoleApp1
 
 
             // předání tokenu
-            client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlRvbSIsIm5iZiI6MTUyMzM1MDc5OCwiZXhwIjoxNTIzOTU1NTk4LCJpYXQiOjE1MjMzNTA3OTgsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NjM2OTkiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjYzNjk5In0.QsQqpBfYrE7C32_yLaGktOKscxF2X6yxmU8-FhkWUBw");
+            client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlRvbSIsIm5iZiI6MTUyNDU3OTk5MiwiZXhwIjoxNTMzMjE5OTkyLCJpYXQiOjE1MjQ1Nzk5OTIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NjM2OTkiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjYzNjk5In0.fL0lsgNQ4I-eMtCxCcA_9BPzFhoxOk8F0OWLxqrCr5Y");
 
             string json = await client.GetStringAsync($"http://localhost:63699/api/config/{id}");
 

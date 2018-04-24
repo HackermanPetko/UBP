@@ -30,15 +30,15 @@ namespace ConsoleApp1.BackupTypes
                 }
             }
 
-            if (type == "Local")
+            if (type == "LOCAL")
             {
-                string dest = destination + "\\" + date + "\\" + source.Split('=',';')[1] + "_" + source.Split('=', ';').Last() + ".sql";
+                string dest = destination + "\\" + date + "\\" + source.Split('=',';')[1];
                 Directory.CreateDirectory(dest);
-                File.Copy("C:\\UBP\\tempbackup.sql", dest);
+                File.Copy("C:\\UBP\\tempbackup.sql", dest +"\\"+source.Split('=').Last().TrimEnd(';') + ".sql");
             }
             else if (type == "FTP" || type == "SFTP")
             {
-                string dest = destaddress + "/" + date + "/" + source.Split('=', ';')[1] + "_" + source.Split('=', ';').Last() + ".sql";
+                string dest = destaddress + "/" + date + "/" +source.Split('=', ';')[1];
                 SessionOptions sessionOptions = new SessionOptions()
                 {
                     Protocol = type == "FTP" ? Protocol.Ftp : Protocol.Sftp,
@@ -49,7 +49,7 @@ namespace ConsoleApp1.BackupTypes
                 };
 
                 Upload.CreateDirectory(sessionOptions, date);
-                Upload.UploadFile(sessionOptions, dest, "C:\\UBP\\tempbackup.sql");
+                Upload.UploadFile(sessionOptions, dest + "/" + source.Split('=').Last().TrimEnd(';') + ".sql", "C:\\UBP\\tempbackup.sql");
             }
             File.Delete("C:\\UBP\\tempbackup.sql");
         }

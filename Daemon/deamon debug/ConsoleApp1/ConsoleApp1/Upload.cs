@@ -114,8 +114,8 @@ namespace ConsoleApp1
             using (Session session = new Session())
             {
                 session.Open(options);
-
-                session.CreateDirectory("./" + destination);
+                if(!session.FileExists("./" + destination))
+                    session.CreateDirectory("./" + destination);
             }
         }
 
