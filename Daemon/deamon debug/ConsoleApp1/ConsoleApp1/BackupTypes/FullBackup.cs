@@ -7,6 +7,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using WinSCP;
+using System.IO.Compression;
 
 namespace ConsoleApp1.BackupTypes
 {
@@ -16,13 +17,29 @@ namespace ConsoleApp1.BackupTypes
 
         //Local
 
-        public static void ToLocal(string source, string destination, string date)
+        public static void ToLocal(string source, string destination, string date,int format)
         {
             DirectoryInfo dirSource = new DirectoryInfo(source);
             DirectoryInfo dirDest = new DirectoryInfo(destination);
             //1|Full|Source|Destination
 
-            CopyAll(dirSource, dirDest.CreateSubdirectory(date).CreateSubdirectory(dirSource.Name));
+            CompressionLevel compression;
+            if (format == 1)
+                compression = CompressionLevel.NoCompression;
+            else if (format == 2)
+                compression = CompressionLevel.Fastest;
+            else 
+                compression = CompressionLevel.Optimal;
+
+            if (format == 0)
+            {
+                CopyAll(dirSource, dirDest.CreateSubdirectory(date).CreateSubdirectory(dirSource.Name));
+            }
+            else
+            {
+                ZipFile.CreateFromDirectory(source, destination + "\\" + date + "_" + dirSource.Name +  ".zip",compression,false);
+
+            }
             int id = Log.GetBackups(destination).Where(x => x.Contains("|" + source + "|")).ToArray().Count() + 1;
             Log.WriteBackup(id, "Full", source, destination, date, dirSource.Name);
         }
@@ -44,8 +61,15 @@ namespace ConsoleApp1.BackupTypes
 
         //FTP
 
-        public static void ToFTP(string source, string destination,string destaddres, string port, string user, string password, string date)
+        public static void ToFTP(string source, string destination,string destaddres, string port, string user, string password, string date, int format)
         {
+            CompressionLevel compression;
+            if (format == 1)
+                compression = CompressionLevel.NoCompression;
+            else if (format == 2)
+                compression = CompressionLevel.Fastest;
+            else
+                compression = CompressionLevel.Optimal;
             DirectoryInfo dirSource = new DirectoryInfo(source);
 
             string directory = destaddres + "/" + date + "/" + dirSource.Name;
@@ -64,8 +88,18 @@ namespace ConsoleApp1.BackupTypes
 
             Upload.CreateDirectory(sessionOptions, directory);
 
+            if (format == 0)
+            {
+                FTPUploadAll(sessionOptions, dirSource, directory);
+            }
+            else
+            {
+                ZipFile.CreateFromDirectory(source, "C:\\UBP\\" + date + "_" + dirSource.Name + ".zip", compression, false);
+                Upload.UploadFile(sessionOptions, destaddres, "C:\\UBP\\" + date + "_" + dirSource.Name + ".zip");
+            }
+
             //FTPUploadAll(dirSource, uri, credentials);
-            FTPUploadAll(sessionOptions, dirSource, directory);
+
             int id = Log.GetRemoteBackups(sessionOptions, destaddres).Where(x => x.Contains("|" + source + "|")).ToArray().Count() + 1;
             Log.WriteRemoteBackup(sessionOptions,id, "Full", source, destination, destaddres, port, date, dirSource.Name);
 
@@ -92,8 +126,15 @@ namespace ConsoleApp1.BackupTypes
 
         // SSH
 
-        public static void ToSFTP(string source, string destination, string destaddres, int port, string user, string password, string date)
+        public static void ToSFTP(string source, string destination, string destaddres, int port, string user, string password, string date, int format)
         {
+            CompressionLevel compression;
+            if (format == 1)
+                compression = CompressionLevel.NoCompression;
+            else if (format == 2)
+                compression = CompressionLevel.Fastest;
+            else
+                compression = CompressionLevel.Optimal;
             DirectoryInfo dirSource = new DirectoryInfo(source);
 
             string directory = destaddres + "/" + date + "/" + dirSource.Name;
@@ -115,7 +156,15 @@ namespace ConsoleApp1.BackupTypes
 
             Upload.CreateDirectory(sessionOptions, directory);
 
-            SFTPUploadAll(sessionOptions, dirSource, directory);
+            if (format == 0)
+            {
+                SFTPUploadAll(sessionOptions, dirSource, directory);
+            }
+            else
+            {
+                ZipFile.CreateFromDirectory(source, "C:\\UBP\\" + date + "_" + dirSource.Name + ".zip", compression, false);
+                Upload.UploadFile(sessionOptions, destaddres, "C:\\UBP\\" + date + "_" + dirSource.Name + ".zip");
+            }
             int id = Log.GetRemoteBackups(sessionOptions, destaddres).Where(x => x.Contains("|" + source + "|")).ToArray().Count() + 1;
             Log.WriteRemoteBackup(sessionOptions, id, "Full", source, destination, destaddres, Convert.ToString(port), date, dirSource.Name);
         }
@@ -135,6 +184,20 @@ namespace ConsoleApp1.BackupTypes
                 SFTPUploadAll(sessionOptions, dir, destination + "/" + dir.Name);
                 //Upload.FTPDirectory(uri + "\\" + dir.Name, credentials);
                 //FTPUploadAll(dir, uri + "\\" + dir.Name, credentials);
+            }
+        }
+
+        public static void Start(string source, string destination, string address, string Port,string user,string password,string date, string type,int format)
+        {
+            if (type == "LOCAL")
+                ToLocal(source, destination, date,format);
+            else if (type == "FTP")
+            {
+                ToFTP(source, destination, address, Port, user, password, date,format);
+            }
+            else if (type == "SFTP")
+            {
+                ToSFTP(source, destination, address, Convert.ToInt32(Port), user, password, date,format);
             }
         }
     }

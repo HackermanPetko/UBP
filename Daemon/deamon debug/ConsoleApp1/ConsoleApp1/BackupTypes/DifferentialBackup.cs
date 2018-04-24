@@ -7,6 +7,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using WinSCP;
+using System.IO.Compression;
 
 namespace ConsoleApp1.BackupTypes
 {
@@ -14,8 +15,9 @@ namespace ConsoleApp1.BackupTypes
     {
         // Local
 
-        public static void ToLocal(string source, string destination, string date, int maxbackups)
+        public static void ToLocal(string source, string destination, string date, int maxbackups,int format)
         {
+
             //1|Differential|Source|Destination
             string[] backups = Log.GetBackups(destination).Where(x => x.Contains("|"+source+"|")).ToArray();
             DirectoryInfo dirSource = new DirectoryInfo(source);
@@ -23,12 +25,12 @@ namespace ConsoleApp1.BackupTypes
 
             if (backups.Count() == 0)
             {
-                FullBackup.ToLocal(source, destination, date);
+                FullBackup.ToLocal(source, destination, date,format);
             }
             else if (backups.Count() >= maxbackups && maxbackups != 0)
             {
                 Log.MoveLog(destination, backups);
-                FullBackup.ToLocal(source, destination, date);
+                FullBackup.ToLocal(source, destination, date, format);
             }
             else
             {
@@ -56,7 +58,7 @@ namespace ConsoleApp1.BackupTypes
 
         // FTP
 
-        public static void ToFTP(string source, string destination, string destaddres, string port, string user, string password, string date, int maxbackups)
+        public static void ToFTP(string source, string destination, string destaddres, string port, string user, string password, string date, int maxbackups, int format)
         {
 
             SessionOptions sessionOptions = new SessionOptions()
@@ -75,12 +77,12 @@ namespace ConsoleApp1.BackupTypes
 
             if (backups.Count() == 0)
             {
-                FullBackup.ToFTP(source, destination,destaddres,port,user,password, date);
+                FullBackup.ToFTP(source, destination,destaddres,port,user,password, date, format);
             }
             else if (backups.Count() >= maxbackups && maxbackups != 0)
             {
                 Log.MoveRemoteLog(sessionOptions, destaddres, backups);
-                FullBackup.ToFTP(source, destination,destaddres, port,user,password, date);
+                FullBackup.ToFTP(source, destination,destaddres, port,user,password, date, format);
             }
             else
             {
@@ -130,7 +132,7 @@ namespace ConsoleApp1.BackupTypes
 
         // SSH
 
-        public static void ToSFTP(string source, string destination, string destaddres, string port, string user, string password, string date, int maxbackups)
+        public static void ToSFTP(string source, string destination, string destaddres, string port, string user, string password, string date, int maxbackups,int format)
         {
 
             SessionOptions sessionOptions = new SessionOptions()
@@ -150,24 +152,14 @@ namespace ConsoleApp1.BackupTypes
             DirectoryInfo dirSource = new DirectoryInfo(source);
 
 
-
-
-
-
-
-
-
-
-
-
             if (backups.Count() == 0)
             {
-                FullBackup.ToSFTP(source, destination,destaddres, Convert.ToInt32(port), user, password, date);
+                FullBackup.ToSFTP(source, destination,destaddres, Convert.ToInt32(port), user, password, date, format);
             }
             else if (backups.Count() >= maxbackups && maxbackups != 0)
             {
                 Log.MoveRemoteLog(sessionOptions, destaddres, backups);
-                FullBackup.ToSFTP(source, destination,destaddres, Convert.ToInt32(port), user, password, date);
+                FullBackup.ToSFTP(source, destination,destaddres, Convert.ToInt32(port), user, password, date, format);
             }
             else
             {
@@ -178,6 +170,33 @@ namespace ConsoleApp1.BackupTypes
                 Log.WriteRemoteBackup(sessionOptions, id, "Differential", source, destination, destaddres, port, date, dirSource.Name);
             }
 
+        }
+
+        public static void Start(string source, string destination, string address, string Port, string user, string password, string date, string type, int maxbackups, int format)
+        {
+            if (type == "LOCAL")
+                ToLocal(source, destination, date, maxbackups, format);
+            else if (type == "FTP")
+            {
+                ToFTP(source, destination, address, Port, user, password, date, maxbackups,format);
+            }
+            else if (type == "SFTP")
+            {
+                ToSFTP(source, destination, address, Port, user, password, date, maxbackups,format);
+            }
+
+
+
+            //else if (type == "LOCAL")
+            //    ToLocal(source, destination, date, maxbackups, format);
+            //else if (type == "FTP")
+            //{
+            //    ToFTP(source, destination, address, Port, user, password, date, maxbackups, format);
+            //}
+            //else if (type == "SFTP")
+            //{
+            //    ToSFTP(source, destination, address, Port, user, password, date, maxbackups, format);
+            //}
         }
 
     }
