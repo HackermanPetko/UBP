@@ -13,8 +13,6 @@ namespace ServerAPI.Models
         [Key]
         public int Id { get; set; }
 
-        public int idDaemon { get; set; }
-
         public string Comment { get; set; }
 
         public DateTime LastChecked { get; set; }

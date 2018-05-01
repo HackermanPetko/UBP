@@ -27,7 +27,6 @@ namespace Daemon
 
         private void LoadResources()
         {
-            HttpClient
         }
     }
 }

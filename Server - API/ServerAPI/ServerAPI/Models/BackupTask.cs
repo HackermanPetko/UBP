@@ -19,7 +19,7 @@ namespace ServerAPI.Models
 
         public int Format { get; set; }
 
-        public int RepeatInterval { get; set; }
+        public string RepeatInterval { get; set; }
 
         public int MaxBackups { get; set; }
 

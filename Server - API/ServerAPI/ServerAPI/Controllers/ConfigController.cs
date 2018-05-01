@@ -36,6 +36,11 @@ namespace ServerAPI.Controllers
             return this.context.Configs.Where(x => x.Id == id).ToList().First();
         }
 
+        //public Config Get(Daemon daemon)
+        //{
+        //    return this.context.Configs.Find(this.context.FindDaemon(daemon.DaemonMAC));
+        //}
+
         // POST: api/Config
         public void Post(Config config)
         {
@@ -44,7 +49,6 @@ namespace ServerAPI.Controllers
             if (temp != null)
             {
                 temp.Id = config.Id;
-                temp.idDaemon = config.idDaemon;
                 temp.LastChecked = config.LastChecked;
                 temp.Comment = config.Comment;
                 temp.TimeStamp = config.TimeStamp;
@@ -65,7 +69,7 @@ namespace ServerAPI.Controllers
             Config temp = this.context.Configs.Find(id);
 
 
-            temp.idDaemon = config.idDaemon;
+
             //temp.Interval = config.Interval;
             //temp.LastChecked = config.LastChecked;
             //temp.Repeatable = config.Repeatable;

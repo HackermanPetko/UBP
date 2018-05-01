@@ -35,7 +35,7 @@ namespace ServerAPI.Controllers
         }
 
         // POST: api/Daemons
-        public void Post(Daemon daemon)
+        public IHttpActionResult Post(Daemon daemon)
         {
             Daemon temp = this.context.Daemons.Find(daemon.Id);
 
@@ -54,6 +54,8 @@ namespace ServerAPI.Controllers
                 this.context.Daemons.Add(daemon);
             }
             this.context.SaveChanges();
+
+            return Ok<int>(this.context.FindDaemon(daemon.DaemonMAC).Id);
         }
 
         // PUT: api/Daemons/5

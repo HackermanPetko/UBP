@@ -9,7 +9,7 @@ using System.Web;
 namespace ServerAPI.Models
 {
     public class TestContext : DbContext
-    { 
+    {
         public DbSet<Backup> Backups { get; set; }
         public DbSet<Config> Configs { get; set; }
         public DbSet<Daemon> Daemons { get; set; }
@@ -20,7 +20,11 @@ namespace ServerAPI.Models
         public DbSet<User> Users { get; set; }
 
         public TestContext()
-        {
+        { 
+            this.Daemons
+              .Include("Configs")
+              .ToList();
+
             this.Configs
               .Include("Tasks")
               .ToList();
@@ -65,6 +69,10 @@ namespace ServerAPI.Models
 
 
             return resToken;
+        }
+        public Daemon FindDaemon(string MAC)
+        {
+            return this.Daemons.Where(x => x.DaemonMAC == MAC).ToList().First();
         }
     }
 }
