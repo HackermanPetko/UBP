@@ -265,6 +265,7 @@
     <Compile Include="Controllers\SourceController.cs" />
     <Compile Include="Controllers\TaskController.cs" />
     <Compile Include="Controllers\TokenController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Models\Daemon.cs" />
     <Compile Include="Models\Backup.cs" />
     <Compile Include="Controllers\BackupsController.cs" />

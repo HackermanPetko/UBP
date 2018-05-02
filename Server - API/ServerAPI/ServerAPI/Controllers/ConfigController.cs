@@ -33,7 +33,24 @@ namespace ServerAPI.Controllers
         // GET: api/Config/5
         public Config Get(int id)
         {
-            return this.context.Configs.Where(x => x.Id == id).ToList().First();
+            //return this.context.Configs.Where(x => x.Id == id).ToList().First();
+
+            List<Config> configs = this.context.Configs.ToList();
+            List<Config> result = new List<Config>();
+
+            foreach (Config config in configs)
+            {
+                if (config.Id == id)
+                {
+                    result.Add(config);
+                    continue;
+                }
+
+            }
+            return result.First();
+           
+
+
         }
 
         //public Config Get(Daemon daemon)
