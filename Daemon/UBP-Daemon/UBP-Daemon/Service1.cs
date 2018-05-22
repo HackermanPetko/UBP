@@ -8,12 +8,16 @@ using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
 using CronNET;
+using System.Threading;
 
 namespace UBP_Daemon
 {
     public partial class Service1 : ServiceBase
     {
-        private static int _idConfig;
+        private int _idConfig;
+
+        private Thread _thread;
+
 
         public Service1()
         {
@@ -22,18 +26,15 @@ namespace UBP_Daemon
 
         protected override void OnStart(string[] args)
         {
-            _idConfig = Configs.GetId();
 
-            if (_idConfig == 0)
-                AddNewDaemon.Add();
+            _thread = new Thread(WorkerThreadFunc);
+            _thread.Name = "My Worker Thread";
+            _thread.Start();
 
-            this.AddCronJobs();
-            CronManager.Start();
         }
 
         protected override void OnStop()
         {
-
         }
 
 
@@ -51,6 +52,25 @@ namespace UBP_Daemon
                 else
                     CronManager.AddJob(new CronJob(item));
             }
+        }
+
+        private void WorkerThreadFunc()
+        {
+            _idConfig = Configs.GetId();
+
+            if (_idConfig == 0)
+                AddNewDaemon.Add();
+
+            this.AddCronJobs();
+            CronManager.Start();
+
+            while (true)
+            {
+                // Replace the Sleep() call with the work you need to do
+                Thread.Sleep(1000);
+                CronManager.GetJobs();
+            }
+
         }
     }
 }
