@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CronNET;
-using UBP_Daemon.BackupTypes;
+using Chroniton;
+using ConsoleApp1.BackupTypes;
 
-namespace UBP_Daemon
+namespace ConsoleApp1
 {
-
-    public class CheckConfigJob : BaseJob
+    
+    public class CheckConfigJob : 
     {
-        public override CronExpression Cron => new CronExpression("15 * * * *");
+
 
         private int _ConfigId;
 
@@ -20,10 +20,7 @@ namespace UBP_Daemon
             this._ConfigId = Config;
         }
 
-        public override void Execute()
-        {
-            Configs.GetConfig(_ConfigId).SaveConfigLocal();
-        }
+
     }
 
     public class StartupCheckConfigJob : BaseJob

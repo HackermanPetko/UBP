@@ -12,7 +12,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="token" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlRvbSIsIm5iZiI6MTUyNzA3MDQyNiwiZXhwIjoxNTM1NzEwNDI2LCJpYXQiOjE1MjcwNzA0MjYsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NjM2OTkiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjYzNjk5In0.ZCLk4UYcZ5id6764eRogXgUUELtcg4IV2yrYWMCUQNk</Value>
     </Setting>
   </Settings>
 </SettingsFile>

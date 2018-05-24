@@ -96,20 +96,25 @@ namespace UBP_Daemon
 
 
             // předání tokenu
-            client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", Settings1.Default.token);
+            client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlRvbSIsIm5iZiI6MTUyNzA3MDQyNiwiZXhwIjoxNTM1NzEwNDI2LCJpYXQiOjE1MjcwNzA0MjYsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NjM2OTkiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjYzNjk5In0.ZCLk4UYcZ5id6764eRogXgUUELtcg4IV2yrYWMCUQNk");
 
             var dict = new Dictionary<string, string>() {
                 {
+
                     "DaemonMAC", AddNewDaemon.GetMACAddress()
-                } };
+                },
+                {
+                    "DaemonName", "a"
+                }
+            };
 
-            var content = new FormUrlEncodedContent(dict);
 
-            var response = await client.PostAsync("http://localhost:63699/api/daemons", content);
+            var response = await client.PostAsJsonAsync("http://localhost:63699/api/daemons", dict);
 
             string id = await response.Content.ReadAsStringAsync();
 
             return Convert.ToInt32(id);
+
 
         }
 
