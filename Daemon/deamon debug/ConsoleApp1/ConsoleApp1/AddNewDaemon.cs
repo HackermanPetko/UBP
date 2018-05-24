@@ -16,7 +16,7 @@ namespace ConsoleApp1
 
         }
 
-        private string GetMACAddress()
+        public static string GetMACAddress()
         { 
             return NetworkInterface
                 .GetAllNetworkInterfaces()

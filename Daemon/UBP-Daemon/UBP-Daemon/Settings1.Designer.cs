@@ -61,7 +61,7 @@ namespace UBP_Daemon {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlRvbSIsIm5iZiI6MTUyNzA3MDQyNiwiZXhwIjoxNTM1NzEwNDI2LCJpYXQiOjE1MjcwNzA0MjYsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NjM2OTkiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjYzNjk5In0.ZCLk4UYcZ5id6764eRogXgUUELtcg4IV2yrYWMCUQNk")]
         public string token {
             get {
                 return ((string)(this["token"]));

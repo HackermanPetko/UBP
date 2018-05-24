@@ -74,11 +74,18 @@ namespace ConsoleApp1
         public static Configs LoadConfigLocal()
         {
             Configs config;
-            string path = @"C:\UBP\Config.json";
-            string content = File.ReadAllText(path);
+            try
+            {
 
-            config = JsonConvert.DeserializeObject<Configs>(content);
+                string path = @"C:\UBP\Config.json";
+                string content = File.ReadAllText(path);
 
+                config = JsonConvert.DeserializeObject<Configs>(content);
+            }
+            catch
+            {
+                config = GetConfig(Program._idConfig);
+            }
 
             return config;
         }
@@ -87,6 +94,42 @@ namespace ConsoleApp1
         public string WriteAll()
         {
             return JsonConvert.SerializeObject(this).ToString();
+        }
+
+        private static async Task<int> GetConfigId()
+        {
+            HttpClient client = new HttpClient();
+
+
+            // předání tokenu
+            client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlRvbSIsIm5iZiI6MTUyNzA3MDQyNiwiZXhwIjoxNTM1NzEwNDI2LCJpYXQiOjE1MjcwNzA0MjYsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NjM2OTkiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjYzNjk5In0.ZCLk4UYcZ5id6764eRogXgUUELtcg4IV2yrYWMCUQNk");
+
+            var dict = new Dictionary<string, string>() {
+                {
+                    
+                    "DaemonMAC", AddNewDaemon.GetMACAddress()
+                },
+                {
+                    "DaemonName", "a"
+                }
+            };
+
+
+            var response = await client.PostAsJsonAsync("http://localhost:63699/api/daemons", dict);
+
+            string id = await response.Content.ReadAsStringAsync();
+
+            return Convert.ToInt32(id);
+
+        }
+
+        public static int GetId()
+        {
+            var task = GetConfigId();
+            task.Wait();
+            int id = task.Result;
+
+            return id;
         }
     }
 }

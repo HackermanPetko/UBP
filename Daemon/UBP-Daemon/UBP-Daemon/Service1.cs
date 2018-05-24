@@ -6,7 +6,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.ServiceProcess;
 using System.Text;
-using System.Threading.Tasks;
 using CronNET;
 using System.Threading;
 
@@ -26,50 +25,56 @@ namespace UBP_Daemon
 
         protected override void OnStart(string[] args)
         {
-
-            _thread = new Thread(WorkerThreadFunc);
-            _thread.Name = "My Worker Thread";
-            _thread.Start();
+            Aaaaaa();
 
         }
 
         protected override void OnStop()
         {
+
         }
 
 
         private void AddCronJobs()
         {
-            CronManager.AddJob(new StartupCheckConfigJob(_idConfig));
-            CronManager.AddJob(new CheckConfigJob(_idConfig));
-
-            foreach (BackupTask item in Configs.LoadConfigLocal().Tasks)
+            try
             {
-                if (item.MaxBackups == -1)
+                CronManager.AddJob(new StartupCheckConfigJob(_idConfig));
+                CronManager.AddJob(new CheckConfigJob(_idConfig));
+
+                foreach (BackupTask item in Configs.LoadConfigLocal().Tasks)
                 {
-                    CronManager.AddJob(new OneTimeJob(item));
+                    if (item.MaxBackups == -1)
+                    {
+                        CronManager.AddJob(new OneTimeJob(item));
+                    }
+                    else
+                        CronManager.AddJob(new CronJob(item));
                 }
-                else
-                    CronManager.AddJob(new CronJob(item));
+            }
+            catch (Exception ex)
+            {
+                Log.WriteToLog("C:\\UBP", "errorCron.txt", ex.StackTrace);
             }
         }
 
-        private void WorkerThreadFunc()
+        private void Aaaaaa()
         {
-            _idConfig = Configs.GetId();
-
-            if (_idConfig == 0)
-                AddNewDaemon.Add();
-
-            this.AddCronJobs();
-            CronManager.Start();
-
-            while (true)
+            try
             {
-                // Replace the Sleep() call with the work you need to do
-                Thread.Sleep(1000);
-                CronManager.GetJobs();
+                _idConfig = Configs.GetId();
+
+                if (_idConfig == 0)
+                    AddNewDaemon.Add();
+
+                //this.AddCronJobs();
+                CronManager.Start();
             }
+            catch (Exception ex)
+            {
+                Log.WriteToLog("C:\\UBP", "error.txt", ex.StackTrace);
+            }
+
 
         }
     }
