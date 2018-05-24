@@ -1,5 +1,5 @@
 ﻿using ConsoleApp1.BackupTypes;
-using CronScheduling;
+using CronNET;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,6 +15,7 @@ namespace ConsoleApp1
     {
         public static int _idConfig;
 
+        private static CronDaemon cron = new CronDaemon();
         static void Main(string[] args)
         {
 
@@ -69,7 +70,7 @@ namespace ConsoleApp1
 
             Console.WriteLine(Configs.GetId());
             Aaaaaa();
-            CronDaemon.Start();
+            cron.Start()
 
             Console.ReadLine();
         }
@@ -77,7 +78,7 @@ namespace ConsoleApp1
         private static void AddCronJobs()
         {
 
-            CronManager.AddJob(new StartupCheckConfigJob(_idConfig));
+            cron.AddJob("* * * * *", AddCronJobs);
             CronManager.AddJob(new CheckConfigJob(_idConfig));
 
 

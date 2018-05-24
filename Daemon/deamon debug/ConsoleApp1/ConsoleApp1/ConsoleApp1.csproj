@@ -49,9 +49,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Chroniton, Version=1.0.3.3, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Chroniton.1.0.3.3\lib\net46\Chroniton.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>False</EmbedInteropTypes>
@@ -102,7 +99,9 @@
     <Compile Include="BackupTypes\FullBackup.cs" />
     <Compile Include="BackupTypes\IncrementalBackup.cs" />
     <Compile Include="Configs.cs" />
-    <Compile Include="CronJobs.cs" />
+    <Compile Include="CronDaemon.cs" />
+    <Compile Include="CronJob.cs" />
+    <Compile Include="CronSchedule.cs" />
     <Compile Include="Destinations.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="Program.cs" />

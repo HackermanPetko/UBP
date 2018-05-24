@@ -7,15 +7,14 @@ using System.Linq;
 using System.ServiceProcess;
 using System.Text;
 using CronNET;
-using System.Threading;
 
 namespace UBP_Daemon
 {
     public partial class Service1 : ServiceBase
     {
-        private int _idConfig;
+        public static int IdConfig;
 
-        private Thread _thread;
+        private CronDaemon cron;
 
 
         public Service1()
@@ -34,22 +33,40 @@ namespace UBP_Daemon
 
         }
 
+        private void ResetJobs()
+        {
+            this.cron = new CronDaemon();
+            AddCronJobs();
+        }
 
         private void AddCronJobs()
         {
             try
             {
-                CronManager.AddJob(new StartupCheckConfigJob(_idConfig));
-                CronManager.AddJob(new CheckConfigJob(_idConfig));
+                CronJobs.CheckConfigJob();
+                cron.AddJob("15 * * * *",ResetJobs);
 
                 foreach (BackupTask item in Configs.LoadConfigLocal().Tasks)
                 {
                     if (item.MaxBackups == -1)
                     {
-                        CronManager.AddJob(new OneTimeJob(item));
+                        CronJobs.task = item;
+                        string[] datumacas = item.RepeatInterval.Split(' ');
+                        string[] datum = datumacas[0].Split('.');
+                        string[] cas = datumacas[1].Split(':');
+
+                        string cronstring = $"{cas[1]} {cas[0]} {datum[0]} {datum[1]} *";
+
+                        cron.AddJob(cronstring, CronJobs.BackupJob);
+                        Log.WriteToLog("C:\\UBP", "Crons.txt",cronstring);
                     }
                     else
-                        CronManager.AddJob(new CronJob(item));
+                    {
+                        CronJobs.task = item;
+                        cron.AddJob(item.RepeatInterval, CronJobs.BackupJob);
+                        Log.WriteToLog("C:\\UBP", "Crons.txt",item.RepeatInterval);
+                    }
+                        
                 }
             }
             catch (Exception ex)
@@ -62,13 +79,13 @@ namespace UBP_Daemon
         {
             try
             {
-                _idConfig = Configs.GetId();
+                IdConfig = Configs.GetId();
 
-                if (_idConfig == 0)
+                if (IdConfig == 0)
                     AddNewDaemon.Add();
 
-                //this.AddCronJobs();
-                CronManager.Start();
+                this.AddCronJobs();
+                cron.Start();
             }
             catch (Exception ex)
             {
