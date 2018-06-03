@@ -190,17 +190,25 @@ namespace UBP_Daemon.BackupTypes
 
         }
 
-        public static void Start(string source, string destination, string address, string Port, string user, string password, string date, string type,int maxbackups,int format)
+        public static void Start(string source, string destination, string address, string Port, string user, string password, string date, string type,int maxbackups,int format,int taskid)
         {
-            if (type == "LOCAL")
-                ToLocal(source, destination, date,maxbackups, format);
-            else if (type == "FTP")
+            try
             {
-                ToFTP(source, destination, address, Port, user, password, date,maxbackups,format);
+                if (type == "LOCAL")
+                    ToLocal(source, destination, date, maxbackups, format);
+                else if (type == "FTP")
+                {
+                    ToFTP(source, destination, address, Port, user, password, date, maxbackups, format);
+                }
+                else if (type == "SFTP")
+                {
+                    ToSFTP(source, destination, address, Port, user, password, date, maxbackups, format);
+                }
+                Backup.Post(Service1.IdConfig, taskid, true, "succesful", "");
             }
-            else if (type == "SFTP")
+            catch
             {
-                ToSFTP(source, destination, address, Port, user, password, date,maxbackups, format);
+                Backup.Post(Service1.IdConfig, taskid, false, "error", "");
             }
         }
     }

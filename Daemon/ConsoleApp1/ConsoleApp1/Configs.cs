@@ -1,5 +1,4 @@
-﻿
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,7 +8,7 @@ using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UBP_Daemon
+namespace ConsoleApp1
 {
     public class Configs
     {
@@ -34,7 +33,7 @@ namespace UBP_Daemon
 
 
             // předání tokenu
-            client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", Settings.token);
+            client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", Settings1.Default.token);
 
 
             string json = await client.GetStringAsync($"http://localhost:63699/api/config/{id}");
@@ -59,7 +58,7 @@ namespace UBP_Daemon
         {
             string json = JsonConvert.SerializeObject(this);
 
-            string subPath = @"C:\UBP";
+            string subPath = @"C:\UBP"; 
 
             bool exists = Directory.Exists(subPath);
 
@@ -97,7 +96,7 @@ namespace UBP_Daemon
 
 
             // předání tokenu
-            client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer",Settings.token);
+            client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlRvbSIsIm5iZiI6MTUyNzA3MDQyNiwiZXhwIjoxNTM1NzEwNDI2LCJpYXQiOjE1MjcwNzA0MjYsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NjM2OTkiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjYzNjk5In0.ZCLk4UYcZ5id6764eRogXgUUELtcg4IV2yrYWMCUQNk");
 
             var dict = new Dictionary<string, string>() {
                 { "DaemonMAC", AddNewDaemon.GetMACAddress() },

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using WinSCP;
 using System.IO.Compression;
 
-namespace UBP_Daemon.BackupTypes
+namespace ConsoleApp1.BackupTypes
 {
     public class DifferentialBackup
     {
@@ -172,25 +172,17 @@ namespace UBP_Daemon.BackupTypes
 
         }
 
-        public static void Start(string source, string destination, string address, string Port, string user, string password, string date, string type, int maxbackups, int format,int taskid)
+        public static void Start(string source, string destination, string address, string Port, string user, string password, string date, string type, int maxbackups, int format)
         {
-            try
+            if (type == "LOCAL")
+                ToLocal(source, destination, date, maxbackups, format);
+            else if (type == "FTP")
             {
-                if (type == "LOCAL")
-                    ToLocal(source, destination, date, maxbackups, format);
-                else if (type == "FTP")
-                {
-                    ToFTP(source, destination, address, Port, user, password, date, maxbackups, format);
-                }
-                else if (type == "SFTP")
-                {
-                    ToSFTP(source, destination, address, Port, user, password, date, maxbackups, format);
-                }
-                Backup.Post(Service1.IdConfig, taskid, true, "succesful", "");
+                ToFTP(source, destination, address, Port, user, password, date, maxbackups,format);
             }
-            catch
+            else if (type == "SFTP")
             {
-                Backup.Post(Service1.IdConfig, taskid, false, "error", "");
+                ToSFTP(source, destination, address, Port, user, password, date, maxbackups,format);
             }
 
 

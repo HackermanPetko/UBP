@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CronNET;
-using UBP_Daemon.BackupTypes;
+using ConsoleApp1.BackupTypes;
 
-namespace UBP_Daemon
+namespace ConsoleApp1
 {
 
     public class CronJobs
@@ -15,7 +15,7 @@ namespace UBP_Daemon
 
         public static void CheckConfigJob()
         {
-            Configs.GetConfig(Service1.IdConfig).SaveConfigLocal();
+            Configs.GetConfig(Program.aa.IdConfig).SaveConfigLocal();
         }
 
         public static void BackupJob()
@@ -29,15 +29,15 @@ namespace UBP_Daemon
                 { //FullBackup
                     if (task.BackupType == 1) //full
                         FullBackup.Start(source.SourcePath, destination.Destination, destination.DestinationAddress, destination.Port,
-                            destination.DestinationUser, destination.DestinationPassword, date, destination.DestinationType, task.Format,task.Id);
+                            destination.DestinationUser, destination.DestinationPassword, date, destination.DestinationType, task.Format);
                     else if (task.BackupType == 2) //incr
                         IncrementalBackup.Start(source.SourcePath, destination.Destination, destination.DestinationAddress, destination.Port,
-                            destination.DestinationUser, destination.DestinationPassword, date, destination.DestinationType, task.MaxBackups, task.Format, task.Id);
+                            destination.DestinationUser, destination.DestinationPassword, date, destination.DestinationType, task.MaxBackups, task.Format);
                     else if (task.BackupType == 3) // diff
                         DifferentialBackup.Start(source.SourcePath, destination.Destination, destination.DestinationAddress, destination.Port,
-                            destination.DestinationUser, destination.DestinationPassword, date, destination.DestinationType, task.MaxBackups, task.Format, task.Id);
+                            destination.DestinationUser, destination.DestinationPassword, date, destination.DestinationType, task.MaxBackups, task.Format);
                     else if (task.BackupType == 4) // mysql database
-                        DatabaseBackup.MysqlBackup(task.Id,source.SourcePath, destination.DestinationType, date, destination.Destination, destination.DestinationAddress, destination.Port, destination.DestinationUser, destination.DestinationPassword);
+                        DatabaseBackup.MysqlBackup(source.SourcePath, destination.DestinationType, date, destination.Destination, destination.DestinationAddress, destination.Port, destination.DestinationUser, destination.DestinationPassword);
                 }
             }
         }

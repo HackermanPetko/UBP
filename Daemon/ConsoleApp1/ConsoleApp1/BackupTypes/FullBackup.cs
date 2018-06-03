@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using WinSCP;
 using System.IO.Compression;
 
-namespace UBP_Daemon.BackupTypes
+namespace ConsoleApp1.BackupTypes
 {
     public class FullBackup
     {
@@ -193,25 +193,17 @@ namespace UBP_Daemon.BackupTypes
             }
         }
 
-        public static void Start(string source, string destination, string address, string Port,string user,string password,string date, string type,int format,int taskid)
+        public static void Start(string source, string destination, string address, string Port,string user,string password,string date, string type,int format)
         {
-            try
+            if (type == "LOCAL")
+                ToLocal(source, destination, date,format);
+            else if (type == "FTP")
             {
-                if (type == "LOCAL")
-                    ToLocal(source, destination, date, format);
-                else if (type == "FTP")
-                {
-                    ToFTP(source, destination, address, Port, user, password, date, format);
-                }
-                else if (type == "SFTP")
-                {
-                    ToSFTP(source, destination, address, Convert.ToInt32(Port), user, password, date, format);
-                }
-                Backup.Post(Service1.IdConfig, taskid, true, "succesful", "");
+                ToFTP(source, destination, address, Port, user, password, date,format);
             }
-            catch
+            else if (type == "SFTP")
             {
-                Backup.Post(Service1.IdConfig, taskid, false, "error", "");
+                ToSFTP(source, destination, address, Convert.ToInt32(Port), user, password, date,format);
             }
         }
     }

@@ -17,8 +17,5 @@ namespace ServerAPI.Models
         public DateTime Date { get; set; }
         public string LogLocation { get; set; }
 
-
-
-
     }
 }

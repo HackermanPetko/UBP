@@ -15,17 +15,19 @@ namespace UBP_Daemon_settings
         public Form1()
         {
             InitializeComponent();
-            tbserver.Text = Settings1.Default.server;
+            Settings.Get();
+            tbserver.Text = Settings.server;
 
-            tbuser.Text = Settings1.Default.user;
+            tbuser.Text = Settings.user;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Settings1.Default.server = tbserver.Text;
-            Settings1.Default.user = tbuser.Text;
-            Settings1.Default.password = tbpw.Text;
-            Settings1.Default.Save();
+            Settings.server = tbserver.Text;
+            Settings.user = tbuser.Text;
+            Settings.password = tbpw.Text;
+            Settings.token = null;
+            Settings.Upload();
             this.Close();
         }
 

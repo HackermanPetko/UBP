@@ -47,16 +47,14 @@ namespace ServerAPI.Controllers
                 }
 
             }
+
+
             return result.First();
            
 
 
         }
 
-        //public Config Get(Daemon daemon)
-        //{
-        //    return this.context.Configs.Find(this.context.FindDaemon(daemon.DaemonMAC));
-        //}
 
         // POST: api/Config
         public void Post(Config config)

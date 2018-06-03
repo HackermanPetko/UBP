@@ -1,37 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
 using System.Linq;
-using System.ServiceProcess;
 using System.Text;
+using System.Threading.Tasks;
 using CronNET;
 
-namespace UBP_Daemon
+namespace ConsoleApp1
 {
-    public partial class Service1 : ServiceBase
+    public class aaaa
     {
-        public static int IdConfig;
+        public int IdConfig;
 
-        private CronDaemon cron;
+        public static CronDaemon cron = new CronDaemon();
 
-
-        public Service1()
+        private void ResetJobs()
         {
-            InitializeComponent();
-        }
-
-        protected override void OnStart(string[] args)
-        {
-
-            Start();
-
-        }
-
-        protected override void OnStop()
-        {
-
+            AddCronJobs();
         }
 
         private void AddCronJobs()
@@ -39,7 +23,7 @@ namespace UBP_Daemon
             try
             {
                 CronJobs.CheckConfigJob();
-                cron.AddJob("15 * * * *", AddCronJobs);
+                cron.AddJob("15 * * * *", ResetJobs);
 
                 foreach (BackupTask item in Configs.LoadConfigLocal().Tasks)
                 {
@@ -54,7 +38,7 @@ namespace UBP_Daemon
 
                         Console.WriteLine(cronstring);
                         cron.AddJob(cronstring, CronJobs.BackupJob);
-
+                        
                     }
                     else
                     {
@@ -64,21 +48,17 @@ namespace UBP_Daemon
                     }
 
                 }
-            }
+        }
             catch (Exception ex)
             {
-
+                
             }
-        }
+}
 
-        private void Start()
+        public void Aaaaaa()
         {
-
             try
             {
-                cron = new CronDaemon();
-                Settings.Get();
-
                 IdConfig = Configs.GetId();
 
                 this.AddCronJobs();
@@ -86,10 +66,16 @@ namespace UBP_Daemon
             }
             catch (Exception ex)
             {
-                Log.WriteToLog(@"C:\UBP", "error.txt", ex.StackTrace);
+
             }
 
 
         }
+
+        public int ShowIdConfig()
+        {
+            return this.IdConfig;
+        }
+
     }
 }

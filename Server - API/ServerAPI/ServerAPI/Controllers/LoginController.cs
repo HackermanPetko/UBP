@@ -22,39 +22,39 @@ namespace ServerAPI.Controllers
         private Encrypter crypt = new Encrypter();
 
         [HttpPost]
-        public IHttpActionResult Authenticate([FromBody] LoginRequest login)
+        public IHttpActionResult Authenticate(LoginRequest login)
         {
 
+                var loginResponse = new LoginResponse();
 
-            var loginResponse = new LoginResponse();
+                string Username = login.Username.ToString();
+                string Password = login.Password.ToString();
 
-            string Username = login.Username.ToString();
-            string Password = login.Password.ToString();
+                this.user.Username = Username;
+                this.user.Password = Password;
 
-            this.user.Username = Username;
-            this.user.Password = Password;
-            
-            
 
-            IHttpActionResult response;
-            HttpResponseMessage responseMsg = new HttpResponseMessage();
-            
 
-            
-            if (this.CheckUser(this.user.Username,this.user.Password))
-            {
-                string token = createToken(user.Username);
-                //return the token
-                this.SaveToken(user.Username,token);
-                return Ok<string>(token);
-            }
-            else
-            {
-                // if credentials are not valid send unauthorized status code in response
-                loginResponse.responseMsg.StatusCode = HttpStatusCode.Unauthorized;
-                response = ResponseMessage(loginResponse.responseMsg);
-                return response;
-            }
+                IHttpActionResult response;
+                HttpResponseMessage responseMsg = new HttpResponseMessage();
+
+
+
+                if (this.CheckUser(this.user.Username, this.user.Password))
+                {
+                    string token = createToken(user.Username);
+                    //return the token
+                    this.SaveToken(user.Username, token);
+                    return Ok<string>(token);
+                }
+                else
+                {
+                    // if credentials are not valid send unauthorized status code in response
+                    loginResponse.responseMsg.StatusCode = HttpStatusCode.Unauthorized;
+                    response = ResponseMessage(loginResponse.responseMsg);
+                    return response;
+                }
+
         }
 
         private string createToken(string username)

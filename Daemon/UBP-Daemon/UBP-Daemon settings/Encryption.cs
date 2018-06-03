@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UBP_Daemon
+namespace UBP_Daemon_settings
 {
     public class Encryption
     {

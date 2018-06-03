@@ -6,17 +6,17 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UBP_Daemon
+namespace ConsoleApp1
 {
     public class Encryption
     {
-        public static string Encrypt(string text)
+        public static void Encrypt(string heslo)
         {
             int Rfc2898KeygenIterations = 100;
             int AesKeySizeInBits = 128;
             String Password = "Fpsadasd544gf! df";
             byte[] Salt = Encoding.UTF8.GetBytes("AJisjfidpskfoepfKkakso oaksodp");
-            byte[] rawPlaintext = System.Text.Encoding.Unicode.GetBytes(text);
+            byte[] rawPlaintext = System.Text.Encoding.Unicode.GetBytes(heslo);
             byte[] cipherText = null;
 
             using (Aes aes = new AesManaged())
@@ -37,11 +37,11 @@ namespace UBP_Daemon
                     cipherText = ms.ToArray();
                 }
 
-                return Encoding.Unicode.GetString(cipherText);
+                Settings1.Default.password = Encoding.Unicode.GetString(cipherText);
             }
         }
 
-        public static string Decrypt(string text)
+        public static string Decrypt()
         {
             int Rfc2898KeygenIterations = 100;
             int AesKeySizeInBits = 128;
@@ -64,7 +64,7 @@ namespace UBP_Daemon
                 {
                     using (CryptoStream cs = new CryptoStream(ms, aes.CreateDecryptor(), CryptoStreamMode.Write))
                     {
-                        var bytes = Encoding.Unicode.GetBytes(text);
+                        var bytes = Encoding.Unicode.GetBytes(Settings1.Default.password);
                         cs.Write(bytes, 0, bytes.Length);
                     }
                     plainText = ms.ToArray();
