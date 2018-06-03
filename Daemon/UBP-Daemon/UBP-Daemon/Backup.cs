@@ -22,7 +22,16 @@ namespace UBP_Daemon
 
         public static void Post(int daemon, int task, bool state, string errormsg, string log)
         {
-            Backup backup = new Backup() { IdDaemon = daemon, IdTask = task, State = state, Date = DateTime.Now, ErrorMsg = errormsg, LogLocation = log };
+
+            var dict = new Dictionary<string, dynamic>() {
+                { "IdDaemon", daemon },
+                { "IdTask", task },
+                { "State", state },
+                { "Date", DateTime.Now },
+                { "ErrorMsg", errormsg },
+                { "LogLocation", log }
+            };
+
 
             HttpClient client = new HttpClient();
 
@@ -33,7 +42,7 @@ namespace UBP_Daemon
 
 
 
-            client.PostAsJsonAsync("http://localhost:63699/api/daemons", JsonConvert.SerializeObject(backup));
+            client.PostAsJsonAsync("http://localhost:63699/api/backups", dict);
 
         }
 

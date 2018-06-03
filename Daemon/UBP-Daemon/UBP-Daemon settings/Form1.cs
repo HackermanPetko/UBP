@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,7 @@ namespace UBP_Daemon_settings
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            Directory.CreateDirectory(@"C:\UBP");
             Settings.server = tbserver.Text;
             Settings.user = tbuser.Text;
             Settings.password = tbpw.Text;
