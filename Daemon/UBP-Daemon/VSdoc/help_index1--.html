@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Index</title>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type">
+	<style>
+		html,body {
+			margin: 0; padding: 0px;
+			height:100%; 
+			min-height:100%;
+			background-color: rgb(233,232,220);
+			font-family: Verdana, Arial, Helvetica, sans-serif;
+			font-style: normal;
+			font-weight: normal;
+			color: black;
+		}
+
+		body {font-size:75%;position:relative; margin-top:-1px; border-style: solid solid solid solid;	border-color: rgb(172,168,153);	border-width: 0px 0px 1px 0px;}
+		a { text-decoration:none; color:#06c }
+		form {padding:5px; margin:0px;}
+	</style>
+</head>
+<body style="direction: ltr;">
+	<form>
+	Look for:<br /><input style="width:100%" onKeyDown="check_input(this.value,get_match)" onKeyUp="check_input(this.value,get_match)"/>
+	</form>
+
+	<script>
+		var words = new Array(
+"Add Method","AddJob Method {CronNET.CronDaemon}","AddJob Method {CronNET.ICronDaemon}","AddNewDaemon Class","Backup Class","BackupJob Method","BackupTask Class","BackupType Property","CheckConfigJob Method","Comment Property","Configs Class","CreateBackupsLog Method","CreateDirectory Method","CreateRemoteBackupsLog Method","CronDaemon Class","CronDaemon Constructor","CronJob Class","CronJob Constructor","CronJobs Class","CronNET Namespace","CronSchedule  Constructor","CronSchedule (String) Constructor","CronSchedule Class","DatabaseBackup Class","Date Property","Decrypt Method {UBP_Daemon.Encryption}","Decrypt Method {UBP_Daemon_settings.Encryption}","Destination Property","DestinationAddress Property","DestinationPassword Property","DestinationType Property","DestinationUser Property","Destinations Class","Destinations Property","DifferentialBackup Class","Encrypt Method {UBP_Daemon.Encryption}","Encrypt Method {UBP_Daemon_settings.Encryption}","Encryption Class {UBP_Daemon_settings}","Encryption Class {UBP_Daemon}","ErrorMsg Property","Form1 Class","Form1 Constructor","Format Property","FullBackup Class","Get Method {UBP_Daemon.Settings}","Get Method {UBP_Daemon_settings.Settings}","GetBackups Method","GetConfig Method","GetId Method","GetMACAddress Method","GetRemoteBackups Method","ICronDaemon Interface","ICronJob Interface","ICronSchedule Interface","Id Property {UBP_Daemon.BackupTask}","Id Property {UBP_Daemon.Backup}","Id Property {UBP_Daemon.Destinations}","Id Property {UBP_Daemon.Sources}","IdConfig Field","IdConfig Property","IdDaemon Property","IdTask Property {UBP_Daemon.Backup}","IdTask Property {UBP_Daemon.Destinations}","IdTask Property {UBP_Daemon.Sources}","IncrementalBackup Class","LastChecked Property","LoadConfigLocal Method","Log Class","LogLocation Property","MaxBackups Property","MoveLog Method","MoveRemoteLog Method","MysqlBackup Method","OnStart Method","OnStop Method","Port Property","Post Method","ProjectInstaller Class","ProjectInstaller Constructor","RepeatInterval Property","SOLUTION-WIDE PROPERTIES Reference","SaveConfigLocal Method","Service1 Class","Service1 Constructor","Settings Class {UBP_Daemon_settings}","Settings Class {UBP_Daemon}","SourcePath Property","Sources Class","Sources Property","Start Method {CronNET.CronDaemon}","Start Method {CronNET.ICronDaemon}","Start Method {UBP_Daemon.BackupTypes.DifferentialBackup}","Start Method {UBP_Daemon.BackupTypes.FullBackup}","Start Method {UBP_Daemon.BackupTypes.IncrementalBackup}","State Property","Stop Method {CronNET.CronDaemon}","Stop Method {CronNET.ICronDaemon}","Tasks Property","TimeStamp Property","ToFTP Method {UBP_Daemon.BackupTypes.DifferentialBackup}","ToFTP Method {UBP_Daemon.BackupTypes.FullBackup}","ToFTP Method {UBP_Daemon.BackupTypes.IncrementalBackup}","ToLocal Method {UBP_Daemon.BackupTypes.DifferentialBackup}","ToLocal Method {UBP_Daemon.BackupTypes.FullBackup}","ToLocal Method {UBP_Daemon.BackupTypes.IncrementalBackup}","ToSFTP Method {UBP_Daemon.BackupTypes.DifferentialBackup}","ToSFTP Method {UBP_Daemon.BackupTypes.FullBackup}","ToSFTP Method {UBP_Daemon.BackupTypes.IncrementalBackup}","UBP_Daemon Namespace","UBP_Daemon.BackupTypes Namespace","UBP_Daemon_settings Namespace","Upload Class","Upload Method {UBP_Daemon.Settings}","Upload Method {UBP_Daemon_settings.Settings}","UploadFile Method","WriteAll Method","WriteBackup Method","WriteRemoteBackup Method","WriteToLog Method","abort Method {CronNET.CronJob}","abort Method {CronNET.ICronJob}","cron_jobs Field","days_of_month Field","days_of_week Field","execute Method {CronNET.CronJob}","execute Method {CronNET.ICronJob}","hours Field","idDaemon Property","isTime Method {CronNET.CronSchedule}","isTime Method {CronNET.ICronSchedule}","isValid Method {CronNET.CronSchedule}","isValid Method {CronNET.ICronSchedule}","minutes Field","months Field","password Field {UBP_Daemon.Settings}","password Field {UBP_Daemon_settings.Settings}","server Field {UBP_Daemon.Settings}","server Field {UBP_Daemon_settings.Settings}","task Field","token Field {UBP_Daemon.Settings}","token Field {UBP_Daemon_settings.Settings}","user Field {UBP_Daemon.Settings}","user Field {UBP_Daemon_settings.Settings}"
+		);
+		
+		
+		var oldHighlight = 0;
+		var oldKey = "";
+		
+		function get_match(text) {
+		    var ltext = text.toLowerCase();
+		    for(i in words) {
+		        if(words[i].toLowerCase().indexOf(ltext) == "0") {
+		            return words[i];
+		        }
+		    }
+		    return "";
+		}
+		
+		function highlight(keyword) {
+		    if(oldHighlight) oldHighlight.className = "";
+		    var el = parent.frames['zindex'].document.getElementById("w_"+keyword);
+		    el.className="highlighted";
+		    oldHighlight = el;
+		}
+		
+		function check_input(text, matchfun) {
+		    if(text!=oldKey) {
+		        var keyword = matchfun(text);
+		        if(keyword) {       
+		            highlight(keyword);
+		            parent.frames['zindex'].document.getElementById('w_'+keyword).scrollIntoView();
+		        }
+		        oldKey = text;
+		    }
+		}
+	</script>
+</body>
+</html>
+

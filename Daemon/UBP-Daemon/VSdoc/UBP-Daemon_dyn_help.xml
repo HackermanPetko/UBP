@@ -1,0 +1,1437 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<DynamicHelp xmlns="http://msdn.microsoft.com/vsdata/xsd/vsdh.xsd" xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance" xsi:schemaLocation="http://msdn.microsoft.com/vsdata/xsd/vsdh.xsd">	
+   <LINKGROUP ID="UBP-Daemon" Title="SOLUTION-WIDE PROPERTIES Reference Help" Priority="2100">
+      <GLYPH Expanded="vs:/ctxhelp_show.gif" Collapsed="vs:/ctxhelp_hide.gif"/>
+   </LINKGROUP>
+
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.AddNewDaemon.Add" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000002.html" LinkGroup="UBP-Daemon">Add Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="CronNET.CronDaemon.AddJob" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000003F.html" LinkGroup="UBP-Daemon">AddJob Method {CronNET.CronDaemon}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="CronNET.ICronDaemon.AddJob" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000039.html" LinkGroup="UBP-Daemon">AddJob Method {CronNET.ICronDaemon}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.AddNewDaemon" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000001.html" LinkGroup="UBP-Daemon">AddNewDaemon Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Backup" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000004.html" LinkGroup="UBP-Daemon">Backup Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.CronJobs.BackupJob" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000036.html" LinkGroup="UBP-Daemon">BackupJob Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.BackupTask" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000000D.html" LinkGroup="UBP-Daemon">BackupTask Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.BackupTask.BackupType" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000010.html" LinkGroup="UBP-Daemon">BackupType Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.CronJobs.CheckConfigJob" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000035.html" LinkGroup="UBP-Daemon">CheckConfigJob Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Configs.Comment" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000002A.html" LinkGroup="UBP-Daemon">Comment Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Configs" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000028.html" LinkGroup="UBP-Daemon">Configs Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Log.CreateBackupsLog" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000067.html" LinkGroup="UBP-Daemon">CreateBackupsLog Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Upload.CreateDirectory" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000080.html" LinkGroup="UBP-Daemon">CreateDirectory Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Log.CreateRemoteBackupsLog" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000006B.html" LinkGroup="UBP-Daemon">CreateRemoteBackupsLog Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="CronNET.CronDaemon" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000003C.html" LinkGroup="UBP-Daemon">CronDaemon Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="CronNET.CronDaemon.CronDaemon" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000003E.html" LinkGroup="UBP-Daemon">CronDaemon Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="CronNET.CronJob" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000045.html" LinkGroup="UBP-Daemon">CronJob Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="CronNET.CronJob.CronJob" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000046.html" LinkGroup="UBP-Daemon">CronJob Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.CronJobs" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000033.html" LinkGroup="UBP-Daemon">CronJobs Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="CronNET" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000037.html" LinkGroup="UBP-Daemon">CronNET Namespace</LItem>
+      </Links>
+   </Context>
+   
+   <Context>
+      <Keywords>
+         <KItem Name="CronNET.CronSchedule.CronSchedule" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000052_overloads--.html" LinkGroup="UBP-Daemon">CronSchedule Constructor</LItem>
+      </Links>
+   </Context>
+   
+   <Context>
+      <Keywords>
+         <KItem Name="CronNET.CronSchedule.CronSchedule" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000053_overloads--.html" LinkGroup="UBP-Daemon">CronSchedule Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="CronNET.CronSchedule" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000004C.html" LinkGroup="UBP-Daemon">CronSchedule Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.BackupTypes.DatabaseBackup" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000017.html" LinkGroup="UBP-Daemon">DatabaseBackup Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Backup.Date" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000000A.html" LinkGroup="UBP-Daemon">Date Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Encryption.Decrypt" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000061.html" LinkGroup="UBP-Daemon">Decrypt Method {UBP_Daemon.Encryption}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon_settings.Encryption.Decrypt" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000084.html" LinkGroup="UBP-Daemon">Decrypt Method {UBP_Daemon_settings.Encryption}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Destinations.Destination" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000005A.html" LinkGroup="UBP-Daemon">Destination Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Destinations.DestinationAddress" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000005B.html" LinkGroup="UBP-Daemon">DestinationAddress Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Destinations.DestinationPassword" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000005D.html" LinkGroup="UBP-Daemon">DestinationPassword Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Destinations.DestinationType" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000059.html" LinkGroup="UBP-Daemon">DestinationType Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Destinations.DestinationUser" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000005C.html" LinkGroup="UBP-Daemon">DestinationUser Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Destinations" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000056.html" LinkGroup="UBP-Daemon">Destinations Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.BackupTask.Destinations" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000015.html" LinkGroup="UBP-Daemon">Destinations Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.BackupTypes.DifferentialBackup" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000019.html" LinkGroup="UBP-Daemon">DifferentialBackup Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Encryption.Encrypt" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000060.html" LinkGroup="UBP-Daemon">Encrypt Method {UBP_Daemon.Encryption}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon_settings.Encryption.Encrypt" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000083.html" LinkGroup="UBP-Daemon">Encrypt Method {UBP_Daemon_settings.Encryption}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon_settings.Encryption" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000082.html" LinkGroup="UBP-Daemon">Encryption Class {UBP_Daemon_settings}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Encryption" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000005F.html" LinkGroup="UBP-Daemon">Encryption Class {UBP_Daemon}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Backup.ErrorMsg" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000009.html" LinkGroup="UBP-Daemon">ErrorMsg Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon_settings.Form1" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000085.html" LinkGroup="UBP-Daemon">Form1 Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon_settings.Form1.Form1" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000086.html" LinkGroup="UBP-Daemon">Form1 Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.BackupTask.Format" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000011.html" LinkGroup="UBP-Daemon">Format Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.BackupTypes.FullBackup" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000001E.html" LinkGroup="UBP-Daemon">FullBackup Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Settings.Get" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000078.html" LinkGroup="UBP-Daemon">Get Method {UBP_Daemon.Settings}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon_settings.Settings.Get" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000008D.html" LinkGroup="UBP-Daemon">Get Method {UBP_Daemon_settings.Settings}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Log.GetBackups" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000063.html" LinkGroup="UBP-Daemon">GetBackups Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Configs.GetConfig" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000002E.html" LinkGroup="UBP-Daemon">GetConfig Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Configs.GetId" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000032.html" LinkGroup="UBP-Daemon">GetId Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.AddNewDaemon.GetMACAddress" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000003.html" LinkGroup="UBP-Daemon">GetMACAddress Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Log.GetRemoteBackups" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000068.html" LinkGroup="UBP-Daemon">GetRemoteBackups Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="CronNET.ICronDaemon" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000038.html" LinkGroup="UBP-Daemon">ICronDaemon Interface</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="CronNET.ICronJob" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000042.html" LinkGroup="UBP-Daemon">ICronJob Interface</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="CronNET.ICronSchedule" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000049.html" LinkGroup="UBP-Daemon">ICronSchedule Interface</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.BackupTask.Id" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000000E.html" LinkGroup="UBP-Daemon">Id Property {UBP_Daemon.BackupTask}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Backup.Id" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000005.html" LinkGroup="UBP-Daemon">Id Property {UBP_Daemon.Backup}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Destinations.Id" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000057.html" LinkGroup="UBP-Daemon">Id Property {UBP_Daemon.Destinations}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Sources.Id" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000007B.html" LinkGroup="UBP-Daemon">Id Property {UBP_Daemon.Sources}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Service1.IdConfig" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000006F.html" LinkGroup="UBP-Daemon">IdConfig Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.BackupTask.IdConfig" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000000F.html" LinkGroup="UBP-Daemon">IdConfig Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Backup.IdDaemon" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000006.html" LinkGroup="UBP-Daemon">IdDaemon Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Backup.IdTask" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000007.html" LinkGroup="UBP-Daemon">IdTask Property {UBP_Daemon.Backup}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Destinations.IdTask" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000058.html" LinkGroup="UBP-Daemon">IdTask Property {UBP_Daemon.Destinations}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Sources.IdTask" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000007C.html" LinkGroup="UBP-Daemon">IdTask Property {UBP_Daemon.Sources}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.BackupTypes.IncrementalBackup" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000023.html" LinkGroup="UBP-Daemon">IncrementalBackup Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Configs.LastChecked" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000002B.html" LinkGroup="UBP-Daemon">LastChecked Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Configs.LoadConfigLocal" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000030.html" LinkGroup="UBP-Daemon">LoadConfigLocal Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Log" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000062.html" LinkGroup="UBP-Daemon">Log Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Backup.LogLocation" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000000B.html" LinkGroup="UBP-Daemon">LogLocation Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.BackupTask.MaxBackups" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000013.html" LinkGroup="UBP-Daemon">MaxBackups Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Log.MoveLog" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000066.html" LinkGroup="UBP-Daemon">MoveLog Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Log.MoveRemoteLog" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000006A.html" LinkGroup="UBP-Daemon">MoveRemoteLog Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.BackupTypes.DatabaseBackup.MysqlBackup" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000018.html" LinkGroup="UBP-Daemon">MysqlBackup Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Service1.OnStart" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000071.html" LinkGroup="UBP-Daemon">OnStart Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Service1.OnStop" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000072.html" LinkGroup="UBP-Daemon">OnStop Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Destinations.Port" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000005E.html" LinkGroup="UBP-Daemon">Port Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Backup.Post" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000000C.html" LinkGroup="UBP-Daemon">Post Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.ProjectInstaller" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000006C.html" LinkGroup="UBP-Daemon">ProjectInstaller Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.ProjectInstaller.ProjectInstaller" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000006D.html" LinkGroup="UBP-Daemon">ProjectInstaller Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.BackupTask.RepeatInterval" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000012.html" LinkGroup="UBP-Daemon">RepeatInterval Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SOLUTION-WIDE PROPERTIES Reference" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000008F.html" LinkGroup="UBP-Daemon">SOLUTION-WIDE PROPERTIES Reference</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Configs.SaveConfigLocal" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000002F.html" LinkGroup="UBP-Daemon">SaveConfigLocal Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Service1" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000006E.html" LinkGroup="UBP-Daemon">Service1 Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Service1.Service1" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000070.html" LinkGroup="UBP-Daemon">Service1 Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon_settings.Settings" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000088.html" LinkGroup="UBP-Daemon">Settings Class {UBP_Daemon_settings}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Settings" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000073.html" LinkGroup="UBP-Daemon">Settings Class {UBP_Daemon}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Sources.SourcePath" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000007D.html" LinkGroup="UBP-Daemon">SourcePath Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Sources" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000007A.html" LinkGroup="UBP-Daemon">Sources Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.BackupTask.Sources" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000014.html" LinkGroup="UBP-Daemon">Sources Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="CronNET.CronDaemon.Start" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000040.html" LinkGroup="UBP-Daemon">Start Method {CronNET.CronDaemon}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="CronNET.ICronDaemon.Start" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000003A.html" LinkGroup="UBP-Daemon">Start Method {CronNET.ICronDaemon}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.BackupTypes.DifferentialBackup.Start" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000001D.html" LinkGroup="UBP-Daemon">Start Method {UBP_Daemon.BackupTypes.DifferentialBackup}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.BackupTypes.FullBackup.Start" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000022.html" LinkGroup="UBP-Daemon">Start Method {UBP_Daemon.BackupTypes.FullBackup}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.BackupTypes.IncrementalBackup.Start" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000027.html" LinkGroup="UBP-Daemon">Start Method {UBP_Daemon.BackupTypes.IncrementalBackup}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Backup.State" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000008.html" LinkGroup="UBP-Daemon">State Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="CronNET.CronDaemon.Stop" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000041.html" LinkGroup="UBP-Daemon">Stop Method {CronNET.CronDaemon}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="CronNET.ICronDaemon.Stop" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000003B.html" LinkGroup="UBP-Daemon">Stop Method {CronNET.ICronDaemon}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Configs.Tasks" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000002D.html" LinkGroup="UBP-Daemon">Tasks Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Configs.TimeStamp" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000002C.html" LinkGroup="UBP-Daemon">TimeStamp Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.BackupTypes.DifferentialBackup.ToFTP" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000001B.html" LinkGroup="UBP-Daemon">ToFTP Method {UBP_Daemon.BackupTypes.DifferentialBackup}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.BackupTypes.FullBackup.ToFTP" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000020.html" LinkGroup="UBP-Daemon">ToFTP Method {UBP_Daemon.BackupTypes.FullBackup}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.BackupTypes.IncrementalBackup.ToFTP" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000025.html" LinkGroup="UBP-Daemon">ToFTP Method {UBP_Daemon.BackupTypes.IncrementalBackup}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.BackupTypes.DifferentialBackup.ToLocal" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000001A.html" LinkGroup="UBP-Daemon">ToLocal Method {UBP_Daemon.BackupTypes.DifferentialBackup}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.BackupTypes.FullBackup.ToLocal" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000001F.html" LinkGroup="UBP-Daemon">ToLocal Method {UBP_Daemon.BackupTypes.FullBackup}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.BackupTypes.IncrementalBackup.ToLocal" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000024.html" LinkGroup="UBP-Daemon">ToLocal Method {UBP_Daemon.BackupTypes.IncrementalBackup}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.BackupTypes.DifferentialBackup.ToSFTP" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000001C.html" LinkGroup="UBP-Daemon">ToSFTP Method {UBP_Daemon.BackupTypes.DifferentialBackup}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.BackupTypes.FullBackup.ToSFTP" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000021.html" LinkGroup="UBP-Daemon">ToSFTP Method {UBP_Daemon.BackupTypes.FullBackup}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.BackupTypes.IncrementalBackup.ToSFTP" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000026.html" LinkGroup="UBP-Daemon">ToSFTP Method {UBP_Daemon.BackupTypes.IncrementalBackup}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000000.html" LinkGroup="UBP-Daemon">UBP_Daemon Namespace</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.BackupTypes" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000016.html" LinkGroup="UBP-Daemon">UBP_Daemon.BackupTypes Namespace</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon_settings" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000081.html" LinkGroup="UBP-Daemon">UBP_Daemon_settings Namespace</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Upload" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000007E.html" LinkGroup="UBP-Daemon">Upload Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Settings.Upload" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000079.html" LinkGroup="UBP-Daemon">Upload Method {UBP_Daemon.Settings}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon_settings.Settings.Upload" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000008E.html" LinkGroup="UBP-Daemon">Upload Method {UBP_Daemon_settings.Settings}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Upload.UploadFile" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000007F.html" LinkGroup="UBP-Daemon">UploadFile Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Configs.WriteAll" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000031.html" LinkGroup="UBP-Daemon">WriteAll Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Log.WriteBackup" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000064.html" LinkGroup="UBP-Daemon">WriteBackup Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Log.WriteRemoteBackup" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000069.html" LinkGroup="UBP-Daemon">WriteRemoteBackup Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Log.WriteToLog" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000065.html" LinkGroup="UBP-Daemon">WriteToLog Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="CronNET.CronJob.abort" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000048.html" LinkGroup="UBP-Daemon">abort Method {CronNET.CronJob}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="CronNET.ICronJob.abort" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000044.html" LinkGroup="UBP-Daemon">abort Method {CronNET.ICronJob}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="CronNET.CronDaemon.cron_jobs" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000003D.html" LinkGroup="UBP-Daemon">cron_jobs Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="CronNET.CronSchedule.days_of_month" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000004F.html" LinkGroup="UBP-Daemon">days_of_month Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="CronNET.CronSchedule.days_of_week" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000051.html" LinkGroup="UBP-Daemon">days_of_week Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="CronNET.CronJob.execute" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000047.html" LinkGroup="UBP-Daemon">execute Method {CronNET.CronJob}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="CronNET.ICronJob.execute" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000043.html" LinkGroup="UBP-Daemon">execute Method {CronNET.ICronJob}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="CronNET.CronSchedule.hours" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000004E.html" LinkGroup="UBP-Daemon">hours Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Configs.idDaemon" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000029.html" LinkGroup="UBP-Daemon">idDaemon Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="CronNET.CronSchedule.isTime" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000055.html" LinkGroup="UBP-Daemon">isTime Method {CronNET.CronSchedule}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="CronNET.ICronSchedule.isTime" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000004B.html" LinkGroup="UBP-Daemon">isTime Method {CronNET.ICronSchedule}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="CronNET.CronSchedule.isValid" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000054.html" LinkGroup="UBP-Daemon">isValid Method {CronNET.CronSchedule}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="CronNET.ICronSchedule.isValid" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000004A.html" LinkGroup="UBP-Daemon">isValid Method {CronNET.ICronSchedule}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="CronNET.CronSchedule.minutes" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000004D.html" LinkGroup="UBP-Daemon">minutes Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="CronNET.CronSchedule.months" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000050.html" LinkGroup="UBP-Daemon">months Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Settings.password" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000076.html" LinkGroup="UBP-Daemon">password Field {UBP_Daemon.Settings}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon_settings.Settings.password" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000008B.html" LinkGroup="UBP-Daemon">password Field {UBP_Daemon_settings.Settings}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Settings.server" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000077.html" LinkGroup="UBP-Daemon">server Field {UBP_Daemon.Settings}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon_settings.Settings.server" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000008C.html" LinkGroup="UBP-Daemon">server Field {UBP_Daemon_settings.Settings}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.CronJobs.task" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000034.html" LinkGroup="UBP-Daemon">task Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Settings.token" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000075.html" LinkGroup="UBP-Daemon">token Field {UBP_Daemon.Settings}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon_settings.Settings.token" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_000000000000008A.html" LinkGroup="UBP-Daemon">token Field {UBP_Daemon_settings.Settings}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon.Settings.user" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000074.html" LinkGroup="UBP-Daemon">user Field {UBP_Daemon.Settings}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="UBP_Daemon_settings.Settings.user" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:UBP-Daemon.chm::/topic_0000000000000089.html" LinkGroup="UBP-Daemon">user Field {UBP_Daemon_settings.Settings}</LItem>
+      </Links>
+   </Context>
+   
+
+</DynamicHelp>
+
