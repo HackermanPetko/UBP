@@ -30,55 +30,16 @@ namespace ServerAPI.Controllers
         }
 
         // GET: api/Backups/5
-        public Backup Get(int id)
-        {
-            return this.context.Backups.Find(id);
-        }
+       
 
         // POST: api/Backups
         public void Post(Backup backup)
         {
-            Backup temp = this.context.Backups.Find(backup.Id);
-
-            if (temp != null)
-            {
-                temp.Id = backup.Id;
-                temp.IdDaemon = backup.IdDaemon;
-                temp.IdTask = backup.IdTask;
-                temp.LogLocation = backup.LogLocation;
-                temp.State = backup.State;
-                temp.Date = backup.Date;
-                temp.ErrorMsg = backup.ErrorMsg;
-            }
-            else
-            {
-                this.context.Backups.Add(backup);
-            }
+            this.context.Backups.Remove(this.context.Backups.Find(backup.Id));
             this.context.SaveChanges();
         }
 
-        // PUT: api/Backups/5
-        public void Put(int id, Backup backup)
-            {
-            Backup temp = this.context.Backups.Find(id);
-
-            temp.IdTask = backup.IdTask;
-            temp.Date = backup.Date;
-            temp.ErrorMsg = backup.ErrorMsg;
-            temp.Id = backup.Id;
-            temp.IdDaemon = backup.IdDaemon;
-            temp.LogLocation = backup.LogLocation;
-            temp.State = backup.State;
-
-            this.context.SaveChanges();
-
-        }
-
-        // DELETE: api/Backups/5
-        public void Delete(int id)
-        {
-            this.context.Configs.Remove(this.context.Configs.Find(id));
-            this.context.SaveChanges();
-        }
+        
+        
     }
 }
