@@ -1,0 +1,818 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="GENERATOR" content="VSdocman - documentation generator; http://www.helixoft.com" />
+	<title>TestContext Methods</title>
+
+	<link rel="stylesheet" type="text/css" href="msdn2017/msdn2017.css"></link>
+	<script src="msdn2017/msdn2017.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shCore_helixoft.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shBrushVb.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shBrushCSharp.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shBrushFSharp.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shBrushCpp.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shBrushJScript.js" type="text/javascript"></script>
+	<link href="SyntaxHighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
+	<link href="SyntaxHighlighter/styles/shThemeMsdnLW.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript">
+		SyntaxHighlighter.all();
+	</script>				
+
+	<script type="text/javascript">
+<!--
+if (self.name != "vbdocright") {
+	if (location.search != "?toc=no") {
+		var filename = location.pathname.replace(/\\/g, "/");
+		filename = filename.substring(filename.lastIndexOf('/')+1);
+		location.replace("index.html#" + filename);
+	} 
+}
+
+function replaceTitleAndUrl(win, title, url) {
+	if(history.replaceState) {
+		win.history.replaceState(null, title, url);
+	} else {
+		win.document.title = document.title;
+		win.location.replace(url);
+	}
+}
+//-->
+	</script>	
+</head>
+
+<body style="direction: ltr;">
+	<script type="text/javascript">
+		try {
+			if (location.search != "?toc=no") {
+				parent.document.title = document.title;
+				var filename = location.pathname.replace(/\\/g, "/");
+				filename = filename.substring(filename.lastIndexOf('/')+1);
+				if (window.parent.location.search == null || window.parent.location.search != "?" + filename) {
+					if (window.parent.location.hash == null || window.parent.location.hash != "#" + filename) {
+						replaceTitleAndUrl(window.parent, document.title, "index.html#" + filename);
+					}
+				}
+			}
+		} catch (ex) {}
+	</script>
+	<div id="topic">
+<!--HEADER START-->
+  <div id="header">
+  	<div id="runningHeaderText">ServerAPI Reference</div>
+  	<h1 class="title">TestContext Methods</h1>
+  	<div id="headerLinks">
+              <a href="topic_0000000000000184.html">TestContext Class</a>
+            &nbsp;<a href="#seeAlsoSection">See Also</a>
+		</div>
+		<hr />
+	</div>
+<!--HEADER END-->
+    
+		<div id="mainSection">
+      <div id="mainBody">
+        <p />
+        <p>
+          The following tables list the members exposed by the  
+              <a href="topic_0000000000000184.html">TestContext</a>
+             type.
+        </p>
+
+
+
+
+
+<div class="section_container">
+	<div class="section_heading">
+		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">Methods</a></span>
+		<div><hr /></div>
+	</div>
+
+	<div id="MethodsSection" class="section">	
+  <table class="memberListTable">
+    <tr>
+      <th></th>
+      <th>
+        Name
+      </th>
+      <th>
+        Description
+      </th>
+    </tr>
+
+
+
+			<tr class="
+inheritedMember 
+
+
+">
+	<td>
+<img alt="Public method" title="Public method" src="msdn2017/pubmethod.png"></img>
+	  
+
+    
+	</td>
+	<td>
+	<a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.dbcontext.dispose.aspx">Dispose</a>
+
+	</td>
+	<td>
+
+Calls the protected Dispose method.
+(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.dbcontext.aspx">DbContext</a>).
+
+	</td>
+</tr>
+			<tr class="
+inheritedMember 
+
+
+">
+	<td>
+  <img alt="Protected method" title="Protected method" src="msdn2017/protmethod.png"></img>
+
+    
+	  
+
+    
+	</td>
+	<td>
+	<a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.dbcontext.dispose.aspx">Dispose(Boolean)</a>
+
+	</td>
+	<td>
+
+Disposes the context. The underlying <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.core.objects.objectcontext.aspx">ObjectContext</a> is also disposed if it was created
+            is by this context or ownership was passed to this context when this context was created.
+            The connection to the database (<a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.common.dbconnection.aspx">DbConnection</a> object) is also disposed if it was created
+            is by this context or ownership was passed to this context when this context was created.
+(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.dbcontext.aspx">DbContext</a>).
+
+	</td>
+</tr>
+	
+
+
+
+
+
+
+
+			<tr class="
+inheritedMember 
+
+
+">
+	<td>
+<img alt="Public method" title="Public method" src="msdn2017/pubmethod.png"></img>
+	  
+
+    
+	</td>
+	<td>
+	<a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.dbcontext.entry``1.aspx">Entry&lt;TEntity&gt;(TEntity)</a>
+
+	</td>
+	<td>
+
+Gets a <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.infrastructure.dbentityentry`1.aspx">DbEntityEntry&lt;TEntity&gt;</a> object for the given entity providing access to
+            information about the entity and the ability to perform actions on the entity.
+(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.dbcontext.aspx">DbContext</a>).
+
+	</td>
+</tr>
+			<tr class="
+inheritedMember 
+
+
+">
+	<td>
+<img alt="Public method" title="Public method" src="msdn2017/pubmethod.png"></img>
+	  
+
+    
+	</td>
+	<td>
+	<a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.dbcontext.entry.aspx">Entry(Object)</a>
+
+	</td>
+	<td>
+
+Gets a <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.infrastructure.dbentityentry.aspx">DbEntityEntry</a> object for the given entity providing access to
+            information about the entity and the ability to perform actions on the entity.
+(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.dbcontext.aspx">DbContext</a>).
+
+	</td>
+</tr>
+	
+
+
+
+
+
+
+
+
+	<tr class="
+inheritedMember 
+
+
+">
+	<td>
+<img alt="Public method" title="Public method" src="msdn2017/pubmethod.png"></img>
+	  
+
+    
+	</td>
+	<td>
+	<a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.dbcontext.equals.aspx">Equals(Object)</a>
+
+	</td>
+	<td>
+
+
+(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.dbcontext.aspx">DbContext</a>).
+
+	</td>
+</tr>
+
+
+
+
+
+
+
+
+	<tr class="
+inheritedMember 
+
+
+">
+	<td>
+  <img alt="Protected method" title="Protected method" src="msdn2017/protmethod.png"></img>
+
+    
+	  
+
+    
+	</td>
+	<td>
+	<a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.object.finalize.aspx">Finalize</a>
+
+	</td>
+	<td>
+
+Allows an object to try to free resources and perform other cleanup operations before it is reclaimed by garbage collection.
+(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.object.aspx">Object</a>).
+
+	</td>
+</tr>
+
+
+
+
+
+
+
+
+	<tr class="
+
+
+">
+	<td>
+<img alt="Public method" title="Public method" src="msdn2017/pubmethod.png"></img>
+	  
+
+    
+	</td>
+	<td>
+	<a href="topic_0000000000000191.html">FindDaemon(string)</a>
+
+	</td>
+	<td>
+
+
+
+	</td>
+</tr>
+
+
+
+
+
+
+
+
+	<tr class="
+
+
+">
+	<td>
+<img alt="Public method" title="Public method" src="msdn2017/pubmethod.png"></img>
+	  
+
+    
+	</td>
+	<td>
+	<a href="topic_0000000000000190.html">FindToken(string)</a>
+
+	</td>
+	<td>
+
+
+
+	</td>
+</tr>
+
+
+
+
+
+
+
+
+	<tr class="
+
+
+">
+	<td>
+<img alt="Public method" title="Public method" src="msdn2017/pubmethod.png"></img>
+	  
+
+    
+	</td>
+	<td>
+	<a href="topic_000000000000018F.html">FindUser(string)</a>
+
+	</td>
+	<td>
+
+
+
+	</td>
+</tr>
+
+
+
+
+
+
+
+
+	<tr class="
+inheritedMember 
+
+
+">
+	<td>
+<img alt="Public method" title="Public method" src="msdn2017/pubmethod.png"></img>
+	  
+
+    
+	</td>
+	<td>
+	<a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.dbcontext.gethashcode.aspx">GetHashCode</a>
+
+	</td>
+	<td>
+
+
+(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.dbcontext.aspx">DbContext</a>).
+
+	</td>
+</tr>
+
+
+
+
+
+
+
+
+	<tr class="
+inheritedMember 
+
+
+">
+	<td>
+<img alt="Public method" title="Public method" src="msdn2017/pubmethod.png"></img>
+	  
+
+    
+	</td>
+	<td>
+	<a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.dbcontext.gettype.aspx">GetType</a>
+
+	</td>
+	<td>
+
+
+(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.dbcontext.aspx">DbContext</a>).
+
+	</td>
+</tr>
+
+
+
+
+
+
+
+
+	<tr class="
+inheritedMember 
+
+
+">
+	<td>
+<img alt="Public method" title="Public method" src="msdn2017/pubmethod.png"></img>
+	  
+
+    
+	</td>
+	<td>
+	<a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.dbcontext.getvalidationerrors.aspx">GetValidationErrors</a>
+
+	</td>
+	<td>
+
+Validates tracked entities and returns a Collection of <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.validation.dbentityvalidationresult.aspx">DbEntityValidationResult</a> containing validation results.
+(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.dbcontext.aspx">DbContext</a>).
+
+	</td>
+</tr>
+
+
+
+
+
+
+
+
+	<tr class="
+inheritedMember 
+
+
+">
+	<td>
+  <img alt="Protected method" title="Protected method" src="msdn2017/protmethod.png"></img>
+
+    
+	  
+
+    
+	</td>
+	<td>
+	<a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.object.memberwiseclone.aspx">MemberwiseClone</a>
+
+	</td>
+	<td>
+
+Creates a shallow copy of the current <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.object.aspx">Object</a>.
+(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.object.aspx">Object</a>).
+
+	</td>
+</tr>
+
+
+
+
+
+
+
+
+	<tr class="
+
+
+">
+	<td>
+  <img alt="Protected method" title="Protected method" src="msdn2017/protmethod.png"></img>
+
+    
+	  
+
+    
+	</td>
+	<td>
+	<a href="topic_000000000000018E.html">OnModelCreating(DbModelBuilder)</a>
+
+	</td>
+	<td>
+
+This method is called when the model for a derived context has been initialized, but
+            before the model has been locked down and used to initialize the context.  The default
+            implementation of this method does nothing, but it can be overridden in a derived class
+            such that the model can be further configured before it is locked down.
+
+	</td>
+</tr>
+
+
+
+
+
+
+
+
+	<tr class="
+inheritedMember 
+
+
+">
+	<td>
+<img alt="Public method" title="Public method" src="msdn2017/pubmethod.png"></img>
+	  
+
+    
+	</td>
+	<td>
+	<a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.dbcontext.savechanges.aspx">SaveChanges</a>
+
+	</td>
+	<td>
+
+Saves all changes made in this context to the underlying database.
+(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.dbcontext.aspx">DbContext</a>).
+
+	</td>
+</tr>
+
+
+
+
+
+
+
+			<tr class="
+inheritedMember 
+
+
+">
+	<td>
+<img alt="Public method" title="Public method" src="msdn2017/pubmethod.png"></img>
+	  
+
+    
+	</td>
+	<td>
+	<a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.dbcontext.savechangesasync.aspx">SaveChangesAsync</a>
+
+	</td>
+	<td>
+
+Asynchronously saves all changes made in this context to the underlying database.
+(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.dbcontext.aspx">DbContext</a>).
+
+	</td>
+</tr>
+			<tr class="
+inheritedMember 
+
+
+">
+	<td>
+<img alt="Public method" title="Public method" src="msdn2017/pubmethod.png"></img>
+	  
+
+    
+	</td>
+	<td>
+	<a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.dbcontext.savechangesasync.aspx">SaveChangesAsync(CancellationToken)</a>
+
+	</td>
+	<td>
+
+Asynchronously saves all changes made in this context to the underlying database.
+(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.dbcontext.aspx">DbContext</a>).
+
+	</td>
+</tr>
+	
+
+
+
+
+
+
+
+			<tr class="
+inheritedMember 
+
+
+">
+	<td>
+<img alt="Public method" title="Public method" src="msdn2017/pubmethod.png"></img>
+	  
+
+    
+	</td>
+	<td>
+	<a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.dbcontext.set``1.aspx">Set&lt;TEntity&gt;</a>
+
+	</td>
+	<td>
+
+Returns a <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.dbset`1.aspx">DbSet&lt;TEntity&gt;</a> instance for access to entities of the given type in the context
+            and the underlying store.
+(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.dbcontext.aspx">DbContext</a>).
+
+	</td>
+</tr>
+			<tr class="
+inheritedMember 
+
+
+">
+	<td>
+<img alt="Public method" title="Public method" src="msdn2017/pubmethod.png"></img>
+	  
+
+    
+	</td>
+	<td>
+	<a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.dbcontext.set.aspx">Set(Type)</a>
+
+	</td>
+	<td>
+
+Returns a non-generic <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.dbset.aspx">DbSet</a> instance for access to entities of the given type in the context
+            and the underlying store.
+(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.dbcontext.aspx">DbContext</a>).
+
+	</td>
+</tr>
+	
+
+
+
+
+
+
+
+
+	<tr class="
+inheritedMember 
+
+
+">
+	<td>
+  <img alt="Protected method" title="Protected method" src="msdn2017/protmethod.png"></img>
+
+    
+	  
+
+    
+	</td>
+	<td>
+	<a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.dbcontext.shouldvalidateentity.aspx">ShouldValidateEntity(DbEntityEntry)</a>
+
+	</td>
+	<td>
+
+Extension point allowing the user to override the default behavior of validating only
+            added and modified entities.
+(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.dbcontext.aspx">DbContext</a>).
+
+	</td>
+</tr>
+
+
+
+
+
+
+
+
+	<tr class="
+inheritedMember 
+
+
+">
+	<td>
+<img alt="Public method" title="Public method" src="msdn2017/pubmethod.png"></img>
+	  
+
+    
+	</td>
+	<td>
+	<a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.dbcontext.tostring.aspx">ToString</a>
+
+	</td>
+	<td>
+
+
+(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.dbcontext.aspx">DbContext</a>).
+
+	</td>
+</tr>
+
+
+
+
+
+
+
+
+	<tr class="
+inheritedMember 
+
+
+">
+	<td>
+  <img alt="Protected method" title="Protected method" src="msdn2017/protmethod.png"></img>
+
+    
+	  
+
+    
+	</td>
+	<td>
+	<a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.dbcontext.validateentity.aspx">ValidateEntity(DbEntityEntry, IDictionary&lt;Object, Object&gt;)</a>
+
+	</td>
+	<td>
+
+Extension point allowing the user to customize validation of an entity or filter out validation results.
+            Called by <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.dbcontext.getvalidationerrors.aspx">GetValidationErrors</a>.
+(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.data.entity.dbcontext.aspx">DbContext</a>).
+
+	</td>
+</tr>
+
+
+
+
+
+
+  </table>
+
+  <a href="#mainBody">
+    Top
+  </a>
+
+	</div>					
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section_container">
+	<div class="section_heading">
+		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">See Also</a></span>
+		<div><hr /></div>
+	</div>
+
+	<div id="seeAlsoSection" class="section">	
+		<div>
+			<a href="topic_0000000000000184.html">TestContext Class</a><br />
+	<a href="topic_0000000000000126.html">ServerAPI.Models Namespace</a><br />
+
+
+			
+
+		</div>
+	</div>					
+</div>
+			</div>
+			</div>
+      <div id="footer">
+      	<p><span style="color: #FF0000;">Generated with unregistered version of <a target="_top" href="http://www.helixoft.com/vsdocman/overview.html">VSdocman</a></span>&nbsp;<br />Your own footer text will only be shown in registered version.</p>
+      </div>
+    </div>
+  	<script type="text/javascript">
+<!--
+	try {
+		parent.frames["vbdocswitch"].expandLinkInToc(location.href);
+	} catch (ex) {}
+//-->
+		</script>	
+  </body>
+</html>
+

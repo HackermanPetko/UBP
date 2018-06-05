@@ -1,0 +1,692 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="GENERATOR" content="VSdocman - documentation generator; http://www.helixoft.com" />
+	<title>WebApiApplication Events</title>
+
+	<link rel="stylesheet" type="text/css" href="msdn2017/msdn2017.css"></link>
+	<script src="msdn2017/msdn2017.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shCore_helixoft.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shBrushVb.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shBrushCSharp.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shBrushFSharp.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shBrushCpp.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shBrushJScript.js" type="text/javascript"></script>
+	<link href="SyntaxHighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
+	<link href="SyntaxHighlighter/styles/shThemeMsdnLW.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript">
+		SyntaxHighlighter.all();
+	</script>				
+
+	<script type="text/javascript">
+<!--
+if (self.name != "vbdocright") {
+	if (location.search != "?toc=no") {
+		var filename = location.pathname.replace(/\\/g, "/");
+		filename = filename.substring(filename.lastIndexOf('/')+1);
+		location.replace("index.html#" + filename);
+	} 
+}
+
+function replaceTitleAndUrl(win, title, url) {
+	if(history.replaceState) {
+		win.history.replaceState(null, title, url);
+	} else {
+		win.document.title = document.title;
+		win.location.replace(url);
+	}
+}
+//-->
+	</script>	
+</head>
+
+<body style="direction: ltr;">
+	<script type="text/javascript">
+		try {
+			if (location.search != "?toc=no") {
+				parent.document.title = document.title;
+				var filename = location.pathname.replace(/\\/g, "/");
+				filename = filename.substring(filename.lastIndexOf('/')+1);
+				if (window.parent.location.search == null || window.parent.location.search != "?" + filename) {
+					if (window.parent.location.hash == null || window.parent.location.hash != "#" + filename) {
+						replaceTitleAndUrl(window.parent, document.title, "index.html#" + filename);
+					}
+				}
+			}
+		} catch (ex) {}
+	</script>
+	<div id="topic">
+<!--HEADER START-->
+  <div id="header">
+  	<div id="runningHeaderText">ServerAPI Reference</div>
+  	<h1 class="title">WebApiApplication Events</h1>
+  	<div id="headerLinks">
+              <a href="topic_0000000000000124.html">WebApiApplication Class</a>
+            &nbsp;<a href="#seeAlsoSection">See Also</a>
+		</div>
+		<hr />
+	</div>
+<!--HEADER END-->
+    
+		<div id="mainSection">
+      <div id="mainBody">
+        <p />
+        <p>
+          The following tables list the members exposed by the  
+              <a href="topic_0000000000000124.html">WebApiApplication</a>
+             type.
+        </p>
+
+<div class="section_container">
+	<div class="section_heading">
+		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">Events</a></span>
+		<div><hr /></div>
+	</div>
+
+	<div id="EventsSection" class="section">	
+  <table class="memberListTable">
+    <tr>
+      <th></th>
+      <th>
+        Name
+      </th>
+      <th>
+        Description
+      </th>
+    </tr>
+
+	<tr class="
+		inheritedMember 
+	
+	
+	">
+	  <td>
+    <img alt="Public event" title="Public event" src="msdn2017/pubevent.png"></img>
+
+	
+	    
+	  </td>
+	  <td>
+	    <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.acquirerequeststate.aspx">AcquireRequestState</a>
+
+	  </td>
+	  <td>
+	
+	Occurs when ASP.NET acquires the current state (for example, session state) that is associated with the current request.
+		(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.aspx">HttpApplication</a>).
+	
+		</td>
+	</tr>
+	<tr class="
+		inheritedMember 
+	
+	
+	">
+	  <td>
+    <img alt="Public event" title="Public event" src="msdn2017/pubevent.png"></img>
+
+	
+	    
+	  </td>
+	  <td>
+	    <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.authenticaterequest.aspx">AuthenticateRequest</a>
+
+	  </td>
+	  <td>
+	
+	Occurs when a security module has established the identity of the user.
+		(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.aspx">HttpApplication</a>).
+	
+		</td>
+	</tr>
+	<tr class="
+		inheritedMember 
+	
+	
+	">
+	  <td>
+    <img alt="Public event" title="Public event" src="msdn2017/pubevent.png"></img>
+
+	
+	    
+	  </td>
+	  <td>
+	    <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.authorizerequest.aspx">AuthorizeRequest</a>
+
+	  </td>
+	  <td>
+	
+	Occurs when a security module has verified user authorization.
+		(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.aspx">HttpApplication</a>).
+	
+		</td>
+	</tr>
+	<tr class="
+		inheritedMember 
+	
+	
+	">
+	  <td>
+    <img alt="Public event" title="Public event" src="msdn2017/pubevent.png"></img>
+
+	
+	    
+	  </td>
+	  <td>
+	    <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.beginrequest.aspx">BeginRequest</a>
+
+	  </td>
+	  <td>
+	
+	Occurs as the first event in the HTTP pipeline chain of execution when ASP.NET responds to a request.
+		(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.aspx">HttpApplication</a>).
+	
+		</td>
+	</tr>
+	<tr class="
+		inheritedMember 
+	
+	
+	">
+	  <td>
+    <img alt="Public event" title="Public event" src="msdn2017/pubevent.png"></img>
+
+	
+	    
+	  </td>
+	  <td>
+	    <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.disposed.aspx">Disposed</a>
+
+	  </td>
+	  <td>
+	
+	Occurs when the application is disposed.
+		(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.aspx">HttpApplication</a>).
+	
+		</td>
+	</tr>
+	<tr class="
+		inheritedMember 
+	
+	
+	">
+	  <td>
+    <img alt="Public event" title="Public event" src="msdn2017/pubevent.png"></img>
+
+	
+	    
+	  </td>
+	  <td>
+	    <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.endrequest.aspx">EndRequest</a>
+
+	  </td>
+	  <td>
+	
+	Occurs as the last event in the HTTP pipeline chain of execution when ASP.NET responds to a request.
+		(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.aspx">HttpApplication</a>).
+	
+		</td>
+	</tr>
+	<tr class="
+		inheritedMember 
+	
+	
+	">
+	  <td>
+    <img alt="Public event" title="Public event" src="msdn2017/pubevent.png"></img>
+
+	
+	    
+	  </td>
+	  <td>
+	    <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.error.aspx">Error</a>
+
+	  </td>
+	  <td>
+	
+	Occurs when an unhandled exception is thrown.
+		(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.aspx">HttpApplication</a>).
+	
+		</td>
+	</tr>
+	<tr class="
+		inheritedMember 
+	
+	
+	">
+	  <td>
+    <img alt="Public event" title="Public event" src="msdn2017/pubevent.png"></img>
+
+	
+	    
+	  </td>
+	  <td>
+	    <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.logrequest.aspx">LogRequest</a>
+
+	  </td>
+	  <td>
+	
+	Occurs just before ASP.NET performs any logging for the current request.
+		(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.aspx">HttpApplication</a>).
+	
+		</td>
+	</tr>
+	<tr class="
+		inheritedMember 
+	
+	
+	">
+	  <td>
+    <img alt="Public event" title="Public event" src="msdn2017/pubevent.png"></img>
+
+	
+	    
+	  </td>
+	  <td>
+	    <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.maprequesthandler.aspx">MapRequestHandler</a>
+
+	  </td>
+	  <td>
+	
+	Occurs when the handler is selected to respond to the request.
+		(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.aspx">HttpApplication</a>).
+	
+		</td>
+	</tr>
+	<tr class="
+		inheritedMember 
+	
+	
+	">
+	  <td>
+    <img alt="Public event" title="Public event" src="msdn2017/pubevent.png"></img>
+
+	
+	    
+	  </td>
+	  <td>
+	    <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.postacquirerequeststate.aspx">PostAcquireRequestState</a>
+
+	  </td>
+	  <td>
+	
+	Occurs when the request state (for example, session state) that is associated with the current request has been obtained.
+		(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.aspx">HttpApplication</a>).
+	
+		</td>
+	</tr>
+	<tr class="
+		inheritedMember 
+	
+	
+	">
+	  <td>
+    <img alt="Public event" title="Public event" src="msdn2017/pubevent.png"></img>
+
+	
+	    
+	  </td>
+	  <td>
+	    <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.postauthenticaterequest.aspx">PostAuthenticateRequest</a>
+
+	  </td>
+	  <td>
+	
+	Occurs when a security module has established the identity of the user.
+		(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.aspx">HttpApplication</a>).
+	
+		</td>
+	</tr>
+	<tr class="
+		inheritedMember 
+	
+	
+	">
+	  <td>
+    <img alt="Public event" title="Public event" src="msdn2017/pubevent.png"></img>
+
+	
+	    
+	  </td>
+	  <td>
+	    <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.postauthorizerequest.aspx">PostAuthorizeRequest</a>
+
+	  </td>
+	  <td>
+	
+	Occurs when the user for the current request has been authorized.
+		(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.aspx">HttpApplication</a>).
+	
+		</td>
+	</tr>
+	<tr class="
+		inheritedMember 
+	
+	
+	">
+	  <td>
+    <img alt="Public event" title="Public event" src="msdn2017/pubevent.png"></img>
+
+	
+	    
+	  </td>
+	  <td>
+	    <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.postlogrequest.aspx">PostLogRequest</a>
+
+	  </td>
+	  <td>
+	
+	Occurs when ASP.NET has completed processing all the event handlers for the <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.logrequest.aspx">LogRequest</a> event.
+		(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.aspx">HttpApplication</a>).
+	
+		</td>
+	</tr>
+	<tr class="
+		inheritedMember 
+	
+	
+	">
+	  <td>
+    <img alt="Public event" title="Public event" src="msdn2017/pubevent.png"></img>
+
+	
+	    
+	  </td>
+	  <td>
+	    <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.postmaprequesthandler.aspx">PostMapRequestHandler</a>
+
+	  </td>
+	  <td>
+	
+	Occurs when ASP.NET has mapped the current request to the appropriate event handler.
+		(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.aspx">HttpApplication</a>).
+	
+		</td>
+	</tr>
+	<tr class="
+		inheritedMember 
+	
+	
+	">
+	  <td>
+    <img alt="Public event" title="Public event" src="msdn2017/pubevent.png"></img>
+
+	
+	    
+	  </td>
+	  <td>
+	    <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.postreleaserequeststate.aspx">PostReleaseRequestState</a>
+
+	  </td>
+	  <td>
+	
+	Occurs when ASP.NET has completed executing all request event handlers and the request state data has been stored.
+		(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.aspx">HttpApplication</a>).
+	
+		</td>
+	</tr>
+	<tr class="
+		inheritedMember 
+	
+	
+	">
+	  <td>
+    <img alt="Public event" title="Public event" src="msdn2017/pubevent.png"></img>
+
+	
+	    
+	  </td>
+	  <td>
+	    <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.postrequesthandlerexecute.aspx">PostRequestHandlerExecute</a>
+
+	  </td>
+	  <td>
+	
+	Occurs when the ASP.NET event handler (for example, a page or an XML Web service) finishes execution.
+		(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.aspx">HttpApplication</a>).
+	
+		</td>
+	</tr>
+	<tr class="
+		inheritedMember 
+	
+	
+	">
+	  <td>
+    <img alt="Public event" title="Public event" src="msdn2017/pubevent.png"></img>
+
+	
+	    
+	  </td>
+	  <td>
+	    <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.postresolverequestcache.aspx">PostResolveRequestCache</a>
+
+	  </td>
+	  <td>
+	
+	Occurs when ASP.NET bypasses execution of the current event handler and allows a caching module to serve a request from the cache.
+		(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.aspx">HttpApplication</a>).
+	
+		</td>
+	</tr>
+	<tr class="
+		inheritedMember 
+	
+	
+	">
+	  <td>
+    <img alt="Public event" title="Public event" src="msdn2017/pubevent.png"></img>
+
+	
+	    
+	  </td>
+	  <td>
+	    <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.postupdaterequestcache.aspx">PostUpdateRequestCache</a>
+
+	  </td>
+	  <td>
+	
+	Occurs when ASP.NET finishes updating caching modules and storing responses that are used to serve subsequent requests from the cache.
+		(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.aspx">HttpApplication</a>).
+	
+		</td>
+	</tr>
+	<tr class="
+		inheritedMember 
+	
+	
+	">
+	  <td>
+    <img alt="Public event" title="Public event" src="msdn2017/pubevent.png"></img>
+
+	
+	    
+	  </td>
+	  <td>
+	    <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.prerequesthandlerexecute.aspx">PreRequestHandlerExecute</a>
+
+	  </td>
+	  <td>
+	
+	Occurs just before ASP.NET starts executing an event handler (for example, a page or an XML Web service).
+		(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.aspx">HttpApplication</a>).
+	
+		</td>
+	</tr>
+	<tr class="
+		inheritedMember 
+	
+	
+	">
+	  <td>
+    <img alt="Public event" title="Public event" src="msdn2017/pubevent.png"></img>
+
+	
+	    
+	  </td>
+	  <td>
+	    <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.presendrequestcontent.aspx">PreSendRequestContent</a>
+
+	  </td>
+	  <td>
+	
+	Occurs just before ASP.NET sends content to the client.
+		(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.aspx">HttpApplication</a>).
+	
+		</td>
+	</tr>
+	<tr class="
+		inheritedMember 
+	
+	
+	">
+	  <td>
+    <img alt="Public event" title="Public event" src="msdn2017/pubevent.png"></img>
+
+	
+	    
+	  </td>
+	  <td>
+	    <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.presendrequestheaders.aspx">PreSendRequestHeaders</a>
+
+	  </td>
+	  <td>
+	
+	Occurs just before ASP.NET sends HTTP headers to the client.
+		(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.aspx">HttpApplication</a>).
+	
+		</td>
+	</tr>
+	<tr class="
+		inheritedMember 
+	
+	
+	">
+	  <td>
+    <img alt="Public event" title="Public event" src="msdn2017/pubevent.png"></img>
+
+	
+	    
+	  </td>
+	  <td>
+	    <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.releaserequeststate.aspx">ReleaseRequestState</a>
+
+	  </td>
+	  <td>
+	
+	Occurs after ASP.NET finishes executing all request event handlers. This event causes state modules to save the current state data.
+		(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.aspx">HttpApplication</a>).
+	
+		</td>
+	</tr>
+	<tr class="
+		inheritedMember 
+	
+	
+	">
+	  <td>
+    <img alt="Public event" title="Public event" src="msdn2017/pubevent.png"></img>
+
+	
+	    
+	  </td>
+	  <td>
+	    <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.requestcompleted.aspx">RequestCompleted</a>
+
+	  </td>
+	  <td>
+	
+	Occurs when the managed objects that are associated with the request have been released.
+		(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.aspx">HttpApplication</a>).
+	
+		</td>
+	</tr>
+	<tr class="
+		inheritedMember 
+	
+	
+	">
+	  <td>
+    <img alt="Public event" title="Public event" src="msdn2017/pubevent.png"></img>
+
+	
+	    
+	  </td>
+	  <td>
+	    <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.resolverequestcache.aspx">ResolveRequestCache</a>
+
+	  </td>
+	  <td>
+	
+	Occurs when ASP.NET finishes an authorization event to let the caching modules serve requests from the cache, bypassing execution of the event handler (for example, a page or an XML Web service).
+		(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.aspx">HttpApplication</a>).
+	
+		</td>
+	</tr>
+	<tr class="
+		inheritedMember 
+	
+	
+	">
+	  <td>
+    <img alt="Public event" title="Public event" src="msdn2017/pubevent.png"></img>
+
+	
+	    
+	  </td>
+	  <td>
+	    <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.updaterequestcache.aspx">UpdateRequestCache</a>
+
+	  </td>
+	  <td>
+	
+	Occurs when ASP.NET finishes executing an event handler in order to let caching modules store responses that will be used to serve subsequent requests from the cache.
+		(inherited from <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.web.httpapplication.aspx">HttpApplication</a>).
+	
+		</td>
+	</tr>
+
+  </table>
+
+  <a href="#mainBody">
+    Top
+  </a>
+
+	</div>					
+</div>
+
+
+<div class="section_container">
+	<div class="section_heading">
+		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">See Also</a></span>
+		<div><hr /></div>
+	</div>
+
+	<div id="seeAlsoSection" class="section">	
+		<div>
+			<a href="topic_0000000000000124.html">WebApiApplication Class</a><br />
+	<a href="topic_0000000000000000.html">ServerAPI Namespace</a><br />
+
+
+			
+
+		</div>
+	</div>					
+</div>
+			</div>
+			</div>
+      <div id="footer">
+      	<p><span style="color: #FF0000;">Generated with unregistered version of <a target="_top" href="http://www.helixoft.com/vsdocman/overview.html">VSdocman</a></span>&nbsp;<br />Your own footer text will only be shown in registered version.</p>
+      </div>
+    </div>
+  	<script type="text/javascript">
+<!--
+	try {
+		parent.frames["vbdocswitch"].expandLinkInToc(location.href);
+	} catch (ex) {}
+//-->
+		</script>	
+  </body>
+</html>
+
