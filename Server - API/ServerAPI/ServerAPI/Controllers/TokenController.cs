@@ -38,9 +38,9 @@ namespace ServerAPI.Controllers
         //}
 
         // DELETE: api/Token/5
-        public void Post(string token)
+        public void Post(Token token)
         {
-            Token selToken = this.context.FindToken(token);
+            Token selToken = this.context.FindToken(token.UserToken);
 
             this.context.Tokens.Remove(selToken);
             this.context.SaveChanges();
