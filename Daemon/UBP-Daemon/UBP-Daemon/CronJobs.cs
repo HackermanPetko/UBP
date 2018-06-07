@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using CronNET;
 using UBP_Daemon.BackupTypes;
+using System.Net.Mail;
+using System.IO;
+using System.Net;
 
 namespace UBP_Daemon
 {
@@ -39,6 +42,34 @@ namespace UBP_Daemon
                     else if (task.BackupType == 4) // mysql database
                         DatabaseBackup.MysqlBackup(task.Id,source.SourcePath, destination.DestinationType, date, destination.Destination, destination.DestinationAddress, destination.Port, destination.DestinationUser, destination.DestinationPassword);
                 }
+            }
+        }
+
+        public static void MailJob()
+        {
+            try
+            {
+
+                MailMessage mail = new MailMessage("ultimatebackupprogram@google.com", "blazekdaniel@sssvt.cz");
+                SmtpClient smtp = new SmtpClient
+                {
+                    Host = "smtp.gmail.com",
+                    Port = 587,
+                    EnableSsl = true,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential("ultimatebackupprogram@google.com", "UltimateBackupProgram1")
+                };
+                mail.Subject = "Backups report";
+                mail.Body = $"Date: {DateTime.Now}" +
+                    $"Logs can be found at C:\\UBP" +
+                    $"SUCCESFUL:{File.ReadAllLines(@"C:\UBP\succesful.txt").Count()}" +
+                    $"ERROR: {File.ReadAllLines(@"C:\UBP\error.txt").Count()}";
+                smtp.Send(mail);
+            }
+            catch
+            {
+
             }
         }
     }

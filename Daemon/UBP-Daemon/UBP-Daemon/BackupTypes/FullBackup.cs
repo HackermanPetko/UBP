@@ -16,7 +16,7 @@ namespace UBP_Daemon.BackupTypes
 
         //Local
 
-        public static void ToLocal(string source, string destination, string date,int format)
+        public static void ToLocal(string source, string destination, string date, int format)
         {
             DirectoryInfo dirSource = new DirectoryInfo(source);
             DirectoryInfo dirDest = new DirectoryInfo(destination);
@@ -27,7 +27,7 @@ namespace UBP_Daemon.BackupTypes
                 compression = CompressionLevel.NoCompression;
             else if (format == 2)
                 compression = CompressionLevel.Fastest;
-            else 
+            else
                 compression = CompressionLevel.Optimal;
 
             if (format == 0)
@@ -62,7 +62,7 @@ namespace UBP_Daemon.BackupTypes
 
         //FTP
 
-        public static void ToFTP(string source, string destination,string destaddres, string port, string user, string password, string date, int format)
+        public static void ToFTP(string source, string destination, string destaddres, string port, string user, string password, string date, int format)
         {
             CompressionLevel compression;
             if (format == 1)
@@ -104,7 +104,7 @@ namespace UBP_Daemon.BackupTypes
             //FTPUploadAll(dirSource, uri, credentials);
 
             int id = Log.GetRemoteBackups(sessionOptions, destaddres).Where(x => x.Contains("|" + source + "|")).ToArray().Count() + 1;
-            Log.WriteRemoteBackup(sessionOptions,id, "Full", source, destination, destaddres, port, date, dirSource.Name);
+            Log.WriteRemoteBackup(sessionOptions, id, "Full", source, destination, destaddres, port, date, dirSource.Name);
 
         }
 
@@ -124,7 +124,7 @@ namespace UBP_Daemon.BackupTypes
                 //Upload.FTPDirectory(uri + "\\" + dir.Name, credentials);
                 //FTPUploadAll(dir, uri + "\\" + dir.Name, credentials);
             }
-            
+
         }
 
         // SSH
@@ -193,7 +193,7 @@ namespace UBP_Daemon.BackupTypes
             }
         }
 
-        public static void Start(string source, string destination, string address, string Port,string user,string password,string date, string type,int format,int taskid)
+        public static void Start(string source, string destination, string address, string Port, string user, string password, string date, string type, int format, int taskid)
         {
             try
             {
@@ -207,12 +207,16 @@ namespace UBP_Daemon.BackupTypes
                 {
                     ToSFTP(source, destination, address, Convert.ToInt32(Port), user, password, date, format);
                 }
-                Backup.Post(Service1.IdConfig, taskid, true, "succesful", "");
+
+                Backup.Post(Service1.IdConfig, taskid, true, "succesful", @"C:\UBP\succesful.txt");
+                Log.WriteToLog(@"C:\UBP\", "succesful.txt", $"ID:{taskid}, FULL, SOURCE:{source}, DESTINATION:{destination}, DATE: {date}, *******SUCCESFUL*******");
             }
             catch
             {
-                Backup.Post(Service1.IdConfig, taskid, false, "error", "");
+                Backup.Post(Service1.IdConfig, taskid, false, "error", @"C:\UBP\error.txt");
+                Log.WriteToLog(@"C:\UBP\", "error.txt", $"ID:{taskid}, FULL,SOURCE:{source}, DESTINATION:{destination}, DATE: {date}, TYPE: {type} *******ERROR*******");
             }
+
         }
     }
 }

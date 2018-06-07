@@ -9,7 +9,7 @@ using System.Web.Http.Cors;
 
 namespace ServerAPI.Controllers
 {
-    [Authorize]
+    
     [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class RegisterController : ApiController
     {

@@ -7,11 +7,12 @@ using System.Text;
 using System.Threading.Tasks;
 using WinSCP;
 
+
 namespace UBP_Daemon.BackupTypes
 {
     public class DatabaseBackup
     {
-        public static void MysqlBackup(int taskid,string source, string type, string date, string destination, string destaddress, string port = null, string remoteuser = null, string remotepassword = null)
+        public static void MysqlBackup(int taskid, string source, string type, string date, string destination, string destaddress, string port = null, string remoteuser = null, string remotepassword = null)
         {
             try
             {
@@ -55,11 +56,13 @@ namespace UBP_Daemon.BackupTypes
                 }
                 File.Delete(Environment.CurrentDirectory + "\\tempbackup.sql");
 
-                Backup.Post(Service1.IdConfig, taskid, true, "succesful", "");
+                Backup.Post(Service1.IdConfig, taskid, true, "succesful", @"C:\UBP\succesful.txt");
+                Log.WriteToLog(@"C:\UBP\", "succesful.txt", $"ID:{taskid}, MYSQL ,SOURCE:{source}, DESTINATION:{destination}, DATE: {date}, *******SUCCESFUL*******");
             }
             catch
             {
-                Backup.Post(Service1.IdConfig, taskid, false, "error", "");
+                Backup.Post(Service1.IdConfig, taskid, false, "error", @"C:\UBP\error.txt");
+                Log.WriteToLog(@"C:\UBP\", "error.txt", $"ID:{taskid}, MYSQL ,SOURCE:{source}, DESTINATION:{destination}, DATE: {date}, TYPE: {type} *******ERROR*******");
             }
         }
 

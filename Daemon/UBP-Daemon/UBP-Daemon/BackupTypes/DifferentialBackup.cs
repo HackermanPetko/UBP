@@ -186,11 +186,13 @@ namespace UBP_Daemon.BackupTypes
                 {
                     ToSFTP(source, destination, address, Port, user, password, date, maxbackups, format);
                 }
-                Backup.Post(Service1.IdConfig, taskid, true, "succesful", "");
+                Backup.Post(Service1.IdConfig, taskid, true, "succesful", @"C:\UBP\succesful.txt");
+                Log.WriteToLog(@"C:\UBP\", "succesful.txt", $"ID:{taskid}, DIFF, SOURCE:{source}, DESTINATION:{destination}, DATE: {date}, *******SUCCESFUL*******");
             }
             catch
             {
-                Backup.Post(Service1.IdConfig, taskid, false, "error", "");
+                Backup.Post(Service1.IdConfig, taskid, false, "error", @"C:\UBP\error.txt");
+                Log.WriteToLog(@"C:\UBP\", "error.txt", $"ID:{taskid}, DIFF, SOURCE:{source}, DESTINATION:{destination}, DATE: {date}, TYPE: {type} *******ERROR*******");
             }
 
 

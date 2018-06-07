@@ -18,13 +18,10 @@ namespace ServerAPI.Models
         public DbSet<BackupTask> Tasks { get; set; }
         public DbSet<Token> Tokens { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<BlackList> BlackListed { get; set; }
 
         public TestContext()
         { 
-            this.Daemons
-              .Include("Configs")
-              .ToList();
-
             this.Configs
               .Include("Tasks")
               .ToList();
@@ -73,6 +70,19 @@ namespace ServerAPI.Models
         public Daemon FindDaemon(string MAC)
         {
             return this.Daemons.Where(x => x.DaemonMAC == MAC).ToList().First();
+        }
+
+        public void NewConfig(int id)
+        {
+            this.Configs.SqlQuery($"insert into Config values (1,default,{DateTime.Now.ToString()},{DateTime.Now.ToString()})",new SqlParameter("@id",id));
+            //this.Configs.Add(new Config() { Comment = "default", Id = id, LastChecked = DateTime.Now, TimeStamp = DateTime.Now });
+            this.SaveChanges();
+        }
+
+        public void NewDaemon(Daemon daemon)
+        {
+            this.Daemons.Add(daemon);
+            this.SaveChanges();
         }
     }
 }

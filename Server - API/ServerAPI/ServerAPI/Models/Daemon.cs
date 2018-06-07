@@ -21,8 +21,5 @@ namespace ServerAPI.Models
         public DateTime LastConnected { get; set; }
 
         public string Comment { get; set; }
-
-        [ForeignKey("Id")]
-        public Config Configs { get; set; }
     }
 }

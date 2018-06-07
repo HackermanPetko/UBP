@@ -10,7 +10,6 @@ namespace ServerAPI.Models
     public class Config
     {
 
-        [Key]
         public int Id { get; set; }
 
         public string Comment { get; set; }

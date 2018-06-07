@@ -35,21 +35,30 @@ namespace ServerAPI.Controllers
         {
             //return this.context.Configs.Where(x => x.Id == id).ToList().First();
 
-            List<Config> configs = this.context.Configs.ToList();
-            List<Config> result = new List<Config>();
-
-            foreach (Config config in configs)
+            try
             {
-                if (config.Id == id)
+
+                List<Config> configs = this.context.Configs.ToList();
+                List<Config> result = new List<Config>();
+
+                foreach (Config config in configs)
                 {
-                    result.Add(config);
-                    continue;
+                    if (config.Id == id)
+                    {
+                        result.Add(config);
+                        continue;
+                    }
+
                 }
 
+
+                return result.First();
             }
-
-
-            return result.First();
+            catch
+            {
+                this.context.NewConfig(id);
+                return this.context.Configs.Find(id);
+            }
            
 
 

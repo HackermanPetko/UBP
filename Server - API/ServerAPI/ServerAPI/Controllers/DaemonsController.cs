@@ -48,21 +48,24 @@ namespace ServerAPI.Controllers
                 temp = null;
             }
 
-            if (temp == null)
+            foreach (BlackList item in this.context.BlackListed)
             {
-
-                this.context.Daemons.Add(daemon);
-                this.context.SaveChanges();
-
+                if (item.MAC == daemon.DaemonMAC)
+                    return BadRequest();
             }
 
             if (temp == null)
             {
-                this.context.Configs.Add(new Config() { Comment = "default", Id = this.context.FindDaemon(daemon.DaemonMAC).Id, LastChecked = DateTime.Now, TimeStamp = DateTime.Now});
+
+                this.context.NewDaemon(daemon);
+                
+              
 
             }
 
-            this.context.SaveChanges();
+
+            //this.context.SaveChanges();
+
             return Ok<int>(this.context.FindDaemon(daemon.DaemonMAC).Id);
         }
 

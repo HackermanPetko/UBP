@@ -40,6 +40,7 @@ namespace UBP_Daemon
             {
                 CronJobs.CheckConfigJob();
                 cron.AddJob("15 * * * *", AddCronJobs);
+                cron.AddJob("0 0 * * *", CronJobs.MailJob);
 
                 foreach (BackupTask item in Configs.LoadConfigLocal().Tasks)
                 {
@@ -86,7 +87,7 @@ namespace UBP_Daemon
             }
             catch (Exception ex)
             {
-                Log.WriteToLog(@"C:\UBP", "error.txt", ex.StackTrace);
+                //Log.WriteToLog(@"C:\UBP", "error.txt", ex.StackTrace);
             }
 
 

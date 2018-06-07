@@ -12,7 +12,7 @@ namespace UBP_Daemon.BackupTypes
 {
     public class IncrementalBackup
     {
-        public static void ToLocal(string source, string destination, string date, int maxbackups,int format)
+        public static void ToLocal(string source, string destination, string date, int maxbackups, int format)
         {
             CompressionLevel compression;
             if (format == 1)
@@ -33,7 +33,7 @@ namespace UBP_Daemon.BackupTypes
             else if (backups.Count() >= maxbackups && maxbackups != 0)
             {
                 Log.MoveLog(destination, backups);
-                FullBackup.ToLocal(source, destination, date,format);
+                FullBackup.ToLocal(source, destination, date, format);
             }
             else
             {
@@ -95,11 +95,11 @@ namespace UBP_Daemon.BackupTypes
             }
             else
             {
-               
+
 
                 string[] fullbackup = backups.Last().Split('\\');
                 string fullbackupdate = fullbackup[fullbackup.Count() - 2];
-                StartRemoteCopyChanged(sessionOptions, dirSource, destaddres, DateTime.ParseExact(fullbackupdate, "yyyy_MM_dd-HH_mm_ss", CultureInfo.InvariantCulture),date);
+                StartRemoteCopyChanged(sessionOptions, dirSource, destaddres, DateTime.ParseExact(fullbackupdate, "yyyy_MM_dd-HH_mm_ss", CultureInfo.InvariantCulture), date);
                 int id = backups.Count() + 1;
                 Log.WriteRemoteBackup(sessionOptions, id, "Incremental", source, destination, destaddres, port, date, dirSource.Name);
             }
@@ -182,15 +182,15 @@ namespace UBP_Daemon.BackupTypes
             {
                 string[] fullbackup = backups.Last().Split('\\');
                 string fullbackupdate = fullbackup[fullbackup.Count() - 2];
-                StartRemoteCopyChanged(sessionOptions, dirSource, destaddres, DateTime.ParseExact(fullbackupdate, "yyyy_MM_dd-HH_mm_ss", CultureInfo.InvariantCulture),date);
+                StartRemoteCopyChanged(sessionOptions, dirSource, destaddres, DateTime.ParseExact(fullbackupdate, "yyyy_MM_dd-HH_mm_ss", CultureInfo.InvariantCulture), date);
                 int id = backups.Count() + 1;
-                Log.WriteRemoteBackup(sessionOptions, id, "Incremental", source, destination,destaddres,port, date, dirSource.Name);
+                Log.WriteRemoteBackup(sessionOptions, id, "Incremental", source, destination, destaddres, port, date, dirSource.Name);
             }
 
 
         }
 
-        public static void Start(string source, string destination, string address, string Port, string user, string password, string date, string type,int maxbackups,int format,int taskid)
+        public static void Start(string source, string destination, string address, string Port, string user, string password, string date, string type, int maxbackups, int format, int taskid)
         {
             try
             {
@@ -204,12 +204,16 @@ namespace UBP_Daemon.BackupTypes
                 {
                     ToSFTP(source, destination, address, Port, user, password, date, maxbackups, format);
                 }
-                Backup.Post(Service1.IdConfig, taskid, true, "succesful", "");
+
+                Backup.Post(Service1.IdConfig, taskid, true, "succesful", @"C:\UBP\succesful.txt");
+                Log.WriteToLog(@"C:\UBP\", "succesful.txt", $"ID:{taskid}, INCR, SOURCE:{source}, DESTINATION:{destination}, DATE: {date}, *******SUCCESFUL*******");
             }
             catch
             {
-                Backup.Post(Service1.IdConfig, taskid, false, "error", "");
+                Backup.Post(Service1.IdConfig, taskid, false, "error", @"C:\UBP\error.txt");
+                Log.WriteToLog(@"C:\UBP\", "error.txt", $"ID:{taskid}, INCR, SOURCE:{source}, DESTINATION:{destination}, DATE: {date}, TYPE: {type} *******ERROR*******");
             }
+
         }
     }
 }

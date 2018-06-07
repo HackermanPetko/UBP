@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.NetworkInformation;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace UBP_Daemon
@@ -48,11 +49,20 @@ namespace UBP_Daemon
 
         public static Configs GetConfig(int id)
         {
-            var task = LoadConfig(id);
-            task.Wait();
-            Configs config = task.Result;
+            try
+            {
+                var task = LoadConfig(id);
+                task.Wait();
+                Configs config = task.Result;
 
-            return config;
+                return config;
+            }
+            catch
+            {
+                Thread.Sleep(5000);
+                //GetConfig(id);
+            }
+            return null;
         }
 
         public void SaveConfigLocal()
@@ -121,11 +131,21 @@ namespace UBP_Daemon
 
         public static int GetId()
         {
-            var task = GetConfigId();
-            task.Wait();
-            int id = task.Result;
+            try
+            {
 
-            return id;
+                var task = GetConfigId();
+                task.Wait();
+                int id = task.Result;
+
+                return id;
+            }
+            catch
+            {
+                Thread.Sleep(5000);
+                //GetId();
+            }
+            return 0;
         }
     }
 }
