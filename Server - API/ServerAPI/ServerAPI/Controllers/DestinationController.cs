@@ -53,6 +53,7 @@ namespace ServerAPI.Controllers
                 temp.Id = destination.Id;
                 temp.IdTask = destination.IdTask;
                 temp.Port = destination.Port;
+                temp.Destination = destination.Destination;
                 temp.DestinationAddress = destination.DestinationAddress;
                 temp.DestinationPassword = destination.DestinationPassword;
                 temp.DestinationType = destination.DestinationType;
