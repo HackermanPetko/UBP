@@ -5,22 +5,23 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using ServerAPI.Models;
+using System.Web.Http.Cors;
 
 namespace ServerAPI.Controllers
 {
+
+    [Authorize]
+    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class BlackListController : ApiController
     {
         private TestContext context = new TestContext();
 
         // GET: api/BlackList
-        public IEnumerable<BlackList> Get()
-        {
-            return this.context.BlackListed.ToArray();
-        }
+      
 
-        public BlackList Get(int id)
+        public List<BlackList> Get()
         {
-            return this.context.BlackListed.Find(id);
+            return this.context.BlackListed.ToList();
         }
 
 
@@ -28,16 +29,17 @@ namespace ServerAPI.Controllers
         public void Post(BlackList value)
         {
             this.context.BlackListed.Add(value);
+            this.context.SaveChanges();
         }
 
         // PUT: api/BlackList/5
-        public void Put(int id, string value)
+        public void Put(BlackList value)
         {
+            this.context.BlackListed.Remove(this.context.BlackListed.Find(value.ID));
+            this.context.SaveChanges();
+
         }
 
-        // DELETE: api/BlackList/5
-        public void Delete(int id)
-        {
-        }
+      
     }
 }
