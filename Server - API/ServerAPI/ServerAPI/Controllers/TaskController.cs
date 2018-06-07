@@ -78,13 +78,19 @@ namespace ServerAPI.Controllers
         }
 
         //// PUT: api/Task/5
-        //public void Put(int id, [FromBody]string value)
-        //{
-        //}
+        public void Put(BackupTask task)
+        {
+            this.context.Tasks.Remove(this.context.Tasks.Find(task.Id));
+
+            this.context.SaveChanges();
+        }
 
         //// DELETE: api/Task/5
-        //public void Delete(int id)
+        //public void Delete(BackupTask task)
         //{
+        //    this.context.Tasks.Remove(this.context.Tasks.Find(task.Id));
+
+        //    this.context.SaveChanges();
         //}
     }
 }

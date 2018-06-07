@@ -64,9 +64,12 @@ namespace ServerAPI.Controllers
         }
 
         //// PUT: api/Source/5
-        //public void Put(int id, [FromBody]string value)
-        //{
-        //}
+        public void Put(Source source)
+        {
+            this.context.Sources.Remove(this.context.Sources.Find(source.Id));
+            this.context.SaveChanges();
+
+        }
 
         //// DELETE: api/Source/5
         //public void Delete(int id)

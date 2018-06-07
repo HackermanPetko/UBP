@@ -71,9 +71,11 @@ namespace ServerAPI.Controllers
         }
 
         //// PUT: api/Destination/5
-        //public void Put(int id, [FromBody]string value)
-        //{
-        //}
+        public void Put(Dest destination)
+        {
+            this.context.Destinations.Remove(this.context.Destinations.Find(destination.Id));
+            this.context.SaveChanges();
+        }
 
         //// DELETE: api/Destination/5
         //public void Delete(int id)
